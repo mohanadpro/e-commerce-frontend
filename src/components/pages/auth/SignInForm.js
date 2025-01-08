@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../../../styles/SignInUpForm.module.css";
-import btnStyles from "../../../styles/Button.module.css";
+import styles from "../../../assets/styles/SignInUpForm.module.css";
+import btnStyles from "../../../assets/styles/Button.module.css";
 import appStyles from "../../../App.module.css";
 import { useSetCurrentUser } from "../../../contexts/CurrentUserContext";
 
@@ -18,13 +18,13 @@ function SignInForm() {
   });
   const { username, password } = signInData;
   const [errors, setErrors] = useState({});
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-      navigator('/');
+      navigate('/');
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -38,10 +38,10 @@ function SignInForm() {
   };
 
   return (
-    <Container style={{backgroundColor:'#f3f3f3'}}>
+    <Container>
       <Row className={styles.Row} >
         <Col className=" p-md-5" md={{span:6, offset:3}}>
-          <Container className={`${appStyles.Content} p-4 `} style={{border:'1px solid #ff9254'}}>
+          <Container className={`${styles.SpecificBoder} p-4 `} style={{backgroundColor:'#f3f3f3'}}>
             <h1 className={styles.Header}>sign in</h1>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="username">

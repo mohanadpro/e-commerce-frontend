@@ -45,3 +45,8 @@
   .SignUpCol {
     height: 375px;
   }
+
+  .SpecificBoder{
+    border: none;
+    border-bottom: 5px solid #ff9254;
+  }
