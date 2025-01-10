@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../../../assets/images/ebuy_logo.jpeg";
 import styles from "../../../assets/styles/NavBar.module.css";
@@ -7,7 +7,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from '../../../contexts/CurrentUserContext';
-import Avatar from "../../../assets/styles/Avatar.module.css";
+import Avatar from "../../pages/avatar/Avatar";
 import axios from "axios";
 
 const NavBar = () => {
@@ -15,9 +15,6 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
 
 
-  useEffect(()=>{
-    console.log(currentUser);
-  },[currentUser])
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -31,15 +28,15 @@ const NavBar = () => {
     <>
       <NavLink
         className={styles.NavLink}
-        to="/feed"
+        to="/"
       >
-        <i className="fas fa-stream"></i>{currentUser}
+        <i className="fas fa-stream"></i>{currentUser?.username}
       </NavLink>
       <NavLink
         className={styles.NavLink}
         to="/" onClick={handleSignOut}
       >
-        Sign Out
+       <i className="fa-solid fa-right-from-bracket"></i> Sign Out
       </NavLink>
       <NavLink
         className={styles.NavLink}

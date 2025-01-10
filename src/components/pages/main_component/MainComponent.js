@@ -6,7 +6,7 @@ export const MainComponent = () => {
   return (
     <div>
         <NavBar/>
-        <Outlet/>
+        <Outlet style={{'marginTop':'91px'}}/>
     </div>
   )
 }
