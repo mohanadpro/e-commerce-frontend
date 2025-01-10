@@ -1,8 +1,8 @@
-import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import React, { useState } from "react";
+import { Navbar, Container, Nav, Row, Col, Form } from "react-bootstrap";
 import logo from "../../../assets/images/ebuy_logo.jpeg";
 import styles from "../../../assets/styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -13,7 +13,7 @@ import axios from "axios";
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
-
+  const [searchValue, setSearchValue] = useState('')
 
   const handleSignOut = async () => {
     try {
@@ -23,7 +23,9 @@ const NavBar = () => {
       console.log(err);
     }
   };
-
+  const handleSearchChanges = e =>{
+    setSearchValue(e.target.value)
+  }
   const loggedInIcons = (
     <>
       <NavLink
@@ -83,8 +85,24 @@ const NavBar = () => {
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
+
         </Navbar.Collapse>
+        <Form inline>
+        <Row>
+          <Col xs="auto">
+            <Form.Control
+              type="text"
+              placeholder="Search"
+              className=" mr-sm-2"
+              value={searchValue}
+              name = "search"
+              onChange={handleSearchChanges}
+            />
+          </Col>
+        </Row>
+      </Form>
       </Container>
+
     </Navbar>
   );
 };
