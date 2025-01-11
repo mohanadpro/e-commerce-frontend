@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import NavBar from '../navbar/NavBar'
+import { Product } from '../product/Products'
 
 export const MainComponent = () => {
   return (
