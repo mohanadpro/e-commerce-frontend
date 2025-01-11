@@ -69,7 +69,6 @@ export const Profile = () => {
             value={profile.owner}
             onChange={handleChanges}
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom02">
           <Form.Label>Name</Form.Label>

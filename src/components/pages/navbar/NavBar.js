@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Navbar, Container, Nav, Row, Col, Form } from "react-bootstrap";
+import React from "react";
+import { Navbar, Container, Nav} from "react-bootstrap";
 import logo from "../../../assets/images/ebuy_logo.WebP";
 import styles from "../../../assets/styles/NavBar.module.css";
 import {  NavLink } from "react-router-dom";
@@ -9,11 +9,11 @@ import {
 } from '../../../contexts/CurrentUserContext';
 import Avatar from "../../pages/avatar/Avatar";
 import axios from "axios";
+import { Search } from "./Search";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
-  const [searchValue, setSearchValue] = useState('')
 
   const handleSignOut = async () => {
     try {
@@ -23,9 +23,7 @@ const NavBar = () => {
       console.log(err);
     }
   };
-  const handleSearchChanges = e =>{
-    setSearchValue(e.target.value)
-  }
+
   const loggedInIcons = (
     <>
       <NavLink
@@ -87,20 +85,7 @@ const NavBar = () => {
           </Nav>
 
         </Navbar.Collapse>
-        <Form inline>
-        <Row>
-          <Col xs="auto">
-            <Form.Control
-              type="text"
-              placeholder="Search"
-              className=" mr-sm-2"
-              value={searchValue}
-              name = "search"
-              onChange={handleSearchChanges}
-            />
-          </Col>
-        </Row>
-      </Form>
+      <Search/>
       </Container>
 
     </Navbar>
