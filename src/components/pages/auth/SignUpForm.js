@@ -4,7 +4,7 @@ import btnStyle from "../../../assets/styles/Button.module.css";
 import styles from "../../../assets/styles/SignInUpForm.module.css"
 import appStyles from "../../../App.module.css"
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
-import SignUp from '../../../assets/images/sign_up.jpeg'
+import SignUp from '../../../assets/images/sign_up.WebP'
 import axios from "axios";
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({

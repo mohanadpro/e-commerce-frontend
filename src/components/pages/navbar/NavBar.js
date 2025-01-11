@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Container, Nav, Row, Col, Form } from "react-bootstrap";
-import logo from "../../../assets/images/ebuy_logo.jpeg";
+import logo from "../../../assets/images/ebuy_logo.WebP";
 import styles from "../../../assets/styles/NavBar.module.css";
 import {  NavLink } from "react-router-dom";
 import {
