@@ -1,8 +1,8 @@
 import React from "react";
-import { Navbar, Container, Nav} from "react-bootstrap";
+import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
 import logo from "../../../assets/images/ebuy_logo.WebP";
 import styles from "./NavBar.module.css";
-import {  NavLink } from "react-router-dom";
+import {  Navigate, NavLink, useNavigate } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -14,11 +14,19 @@ import { Search } from "./Search";
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const navigate = useNavigate();
 
+  const moveToProfilePage = (profile_id)=>{
+    navigate('/profile/'+profile_id);
+  }
+  const moveToOrdersPage = (profile_id) =>{
+    navigate('/orders/'+profile_id);
+  }
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      navigate('/')
     } catch (err) {
       console.log(err);
     }
@@ -26,26 +34,35 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-    <div>
-      <NavLink
-        className={styles.NavLink}
-        to="/"
-      >
-        {currentUser?.username}
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        to="/" onClick={handleSignOut}
-      >
-        Sign Out
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        to={`/profile/${currentUser?.profile_id}`}
-      >
-        <Avatar src={currentUser?.profile_image} height={40} />
-      </NavLink>
-      </div>
+    <Dropdown>
+      <Dropdown.Toggle variant="none" id="dropdown-basic">
+        <Avatar src={currentUser?.profile_image} height={50} />
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+          <Dropdown.Item onClick={()=>moveToProfilePage(currentUser?.profile_id)}>
+            <NavLink
+              className={styles.NavLink}>
+                {currentUser?.username}
+            </NavLink>
+          </Dropdown.Item>
+
+        <Dropdown.Item>
+          <NavLink onClick={()=>moveToOrdersPage(currentUser?.profile_id)}
+            className={styles.NavLink}
+            >
+            Orders
+          </NavLink>
+        </Dropdown.Item>
+        <Dropdown.Item onClick={handleSignOut}>  
+          <NavLink
+            className={styles.NavLink}
+            >
+              Signout
+          </NavLink>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
     </>
   );
   const loggedOutIcons = (
@@ -59,7 +76,7 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         to="/signup"
-        className={styles.NavLink}
+        className={`${styles.NavLink}r`}
       >
         <i className="fas fa-user-plus"></i>Sign up
       </NavLink>
@@ -69,7 +86,10 @@ const NavBar = () => {
 
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
+
+
       <Container>
+
         <NavLink to="/profile">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
@@ -79,10 +99,11 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
-              className={styles.NavLink}
+              className={`${styles.NavLink}  d-flex align-items-center`}
               to="/"
             >
-              Home
+              <i className="fas fa-home"></i>
+              
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
