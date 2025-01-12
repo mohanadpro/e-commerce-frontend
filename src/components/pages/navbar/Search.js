@@ -24,7 +24,13 @@ export const Search = () => {
       }
   }
   const handleChoosedValue = (item)=> {
-    
+    axios.get('/products/?category='+item.id)
+    .then(res=>{
+      console.log(res.data.results);
+    })
+    .catch(err=>{
+      console.log(err)
+    })
     setSearchValue('')
   }
   
