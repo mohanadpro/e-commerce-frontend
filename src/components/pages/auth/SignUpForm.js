@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { Link, useNavigate } from "react-router-dom"
 import btnStyle from "../../../assets/styles/Button.module.css";
-import styles from "../../../assets/styles/SignInUpForm.module.css"
+import styles from "./SignInUpForm.module.css"
 import appStyles from "../../../App.module.css"
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import SignUp from '../../../assets/images/sign_up.WebP'

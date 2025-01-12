@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav} from "react-bootstrap";
 import logo from "../../../assets/images/ebuy_logo.WebP";
-import styles from "../../../assets/styles/NavBar.module.css";
+import styles from "./NavBar.module.css";
 import {  NavLink } from "react-router-dom";
 import {
   useCurrentUser,

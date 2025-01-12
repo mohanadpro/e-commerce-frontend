@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Form, Button, Alert, Container, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../../../assets/styles/SignInUpForm.module.css";
+import styles from "./SignInUpForm.module.css";
 import btnStyles from "../../../assets/styles/Button.module.css";
 import appStyles from "../../../App.module.css";
 import { useSetCurrentUser } from "../../../contexts/CurrentUserContext";
-import { axiosRes } from "../../../api/axiosDefault";
+
 import axios from "axios";
 
 function SignInForm() {
