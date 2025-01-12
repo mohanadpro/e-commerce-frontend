@@ -6,9 +6,7 @@ import NavBar from './components/pages/navbar/NavBar';
 function App() {
   return (
     <div className="App">
-      <Container>
           <RouterProvider router={router}/>
-      </Container>
     </div>
   );
 }
