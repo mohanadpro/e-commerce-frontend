@@ -105,7 +105,7 @@ const NavBar = () => {
               <i className={`${styles.Home} fas fa-home`}></i>
               
             </NavLink>
-            <NavLink className={` d-flex align-items-center`}>
+            <NavLink className={` d-flex align-items-center`} to='/cart'>
               <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
