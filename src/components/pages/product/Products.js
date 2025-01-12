@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Product } from './Product';
+import { Col, Container, Row } from 'react-bootstrap';
 export const Products = () => {
     const [products, setProducts] = useState([])
     const getProducts = async () => {
@@ -14,10 +15,15 @@ export const Products = () => {
         getProducts()
     }, [])
     return (
-        <div className='product' style={{ marginTop: '85px' }}>
-            {products?.map((product, id) =>
-                <Product product={product} id={id}/>
-            )}
+        <div style={{ marginTop: '85px' }}>
+            <Row className='mt-3'>
+                {products?.map((product, id) =>
+                <Col md={3}>
+                    <Product product={product} id={id}/>
+                </Col>
+                )}                                         
+            </Row>
         </div>
+
     )
 }

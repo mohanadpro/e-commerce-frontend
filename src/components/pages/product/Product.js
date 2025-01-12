@@ -1,8 +1,9 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Col } from 'react-bootstrap'
 
 export const Product = ({product, id}) => {
   return (
+    <Col>
     <Card key={id} style={{ width: '18rem' }}>
     <Card.Img variant="top" src={product.image} />
     <Card.Body>
@@ -14,5 +15,6 @@ export const Product = ({product, id}) => {
         </Card.Text>
     </Card.Body>
     </Card>
+    </Col>
   )
 }
