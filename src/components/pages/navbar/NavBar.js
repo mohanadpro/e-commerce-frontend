@@ -67,18 +67,18 @@ const NavBar = () => {
   );
   const loggedOutIcons = (
     <>
-    <div>
-      <NavLink
-        className={styles.NavLink}
+    <div className="d-flex justify-content-between">
+      <NavLink style={{display:'inline-block'}}
+        className={`${styles.NavLink} d-flex align-items-center`}
         to="/signin"
       >
-         Sign in
+       <div>  Sign in</div>
       </NavLink>
       <NavLink
-        to="/signup"
-        className={`${styles.NavLink}r`}
+        to="/signup" style={{display:'inline-block'}}
+        className={`${styles.NavLink} d-flex align-items-center`}
       >
-        <i className="fas fa-user-plus"></i>Sign up
+       <div> Sign up</div>
       </NavLink>
       </div>
     </>
