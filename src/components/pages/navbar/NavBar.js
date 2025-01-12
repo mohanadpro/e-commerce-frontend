@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
 import logo from "../../../assets/images/ebuy_logo.WebP";
 import styles from "./NavBar.module.css";
-import {  Navigate, NavLink, useNavigate } from "react-router-dom";
+import {  NavLink, useNavigate } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -99,13 +99,15 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
-              className={`${styles.NavLink}  d-flex align-items-center`}
+              className={`${styles.NavLink}   d-flex align-items-center`}
               to="/"
             >
-              <i className="fas fa-home"></i>
+              <i className={`${styles.Home} fas fa-home`}></i>
               
             </NavLink>
-
+            <NavLink className={` d-flex align-items-center`}>
+              <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
+            </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
 
