@@ -47,8 +47,8 @@ const NavBar = () => {
             </NavLink>
           </Dropdown.Item>
 
-        <Dropdown.Item>
-          <NavLink onClick={()=>moveToOrdersPage(currentUser?.profile_id)}
+        <Dropdown.Item onClick={()=>moveToOrdersPage(currentUser?.profile_id)}>
+          <NavLink 
             className={styles.NavLink}
             >
             Orders

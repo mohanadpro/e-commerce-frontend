@@ -5,6 +5,7 @@ import SignInForm  from './pages/auth/SignInForm';
 import SignUpForm from './pages/auth/SignUpForm';
 import { Products } from './pages/product/Products';
 import { Profile } from './pages/profile/Profile';
+import { Order } from './pages/order/Order';
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
@@ -25,6 +26,10 @@ const router=createBrowserRouter([{
         {
             path:'profile/:id',
             element:<Profile/>
+        },
+        {
+            path:'orders/:id',
+            element:<Order/>
         }
     ]
 }])
