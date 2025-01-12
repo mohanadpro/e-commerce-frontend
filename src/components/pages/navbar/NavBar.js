@@ -26,17 +26,18 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
+    <div>
       <NavLink
         className={styles.NavLink}
         to="/"
       >
-        <i className="fas fa-stream"></i>{currentUser?.username}
+        {currentUser?.username}
       </NavLink>
       <NavLink
         className={styles.NavLink}
         to="/" onClick={handleSignOut}
       >
-       <i className="fa-solid fa-right-from-bracket"></i> Sign Out
+        Sign Out
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -44,15 +45,17 @@ const NavBar = () => {
       >
         <Avatar src={currentUser?.profile_image} height={40} />
       </NavLink>
+      </div>
     </>
   );
   const loggedOutIcons = (
     <>
+    <div>
       <NavLink
         className={styles.NavLink}
         to="/signin"
       >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+         Sign in
       </NavLink>
       <NavLink
         to="/signup"
@@ -60,6 +63,7 @@ const NavBar = () => {
       >
         <i className="fas fa-user-plus"></i>Sign up
       </NavLink>
+      </div>
     </>
   );
 
@@ -78,7 +82,7 @@ const NavBar = () => {
               className={styles.NavLink}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              Home
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
