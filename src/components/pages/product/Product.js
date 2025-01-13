@@ -4,9 +4,23 @@ import { useCart, useSetCart } from '../../../contexts/CartContext'
 
 export const Product = ({ product, id }) => {
   const setCart = useSetCart()
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
   const Cart = useCart()
-  const handleIncrement = (item) => {
+
+  const checkIfItemInArray = (item)=>{
+    let isFound = false;
+    let index = 0;
+    for(let i=0; i<Cart.length;i++)
+      if(Cart[i].id === item.id)
+        {
+          isFound = true;
+          index = i;
+          break;
+        }
+    return [isFound, index];
+  }
+
+  const addToCart = (item)=>{
     const added_product = {
       'id': item.id,
       'name': item.name,
@@ -15,7 +29,19 @@ export const Product = ({ product, id }) => {
       'price': item.price,
       'total_price': item.price * count
     }
-    setCart([ ...Cart, added_product ])
+  setCart([ ...Cart, added_product ])
+  }
+  const handleIncrement = (item) => {
+    const res = checkIfItemInArray(item);
+    if(res[0] === false)
+    {
+      addToCart(item)
+    }
+    else
+    {
+      Cart.splice(res[1], 1);
+      addToCart(item)
+    }
   }
   
   return (
