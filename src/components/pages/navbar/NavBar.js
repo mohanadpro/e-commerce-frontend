@@ -86,11 +86,8 @@ const NavBar = () => {
 
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
-
-
       <Container>
-
-        <NavLink to="/profile">
+        <NavLink to="/">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
