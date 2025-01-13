@@ -11,10 +11,11 @@ export const Product = ({ product, id }) => {
       'id': item.id,
       'name': item.name,
       'count': count,
-      'image': item.image
+      'image': item.image,
+      'price': item.price,
+      'total_price': item.price * count
     }
     setCart([ ...Cart, added_product ])
-    console.log(Cart);
   }
   
   return (
