@@ -37,9 +37,8 @@ function SignInForm() {
   };
 
   return (
-    <Container>
       <Row className={styles.Row} >
-        <Col className=" p-md-5" md={{span:6, offset:3}}>
+        <Col className="my-auto py-2 p-md-2" md={{span:6, offset:3}}>
           <Container className={`${styles.SpecificBoder} p-4 `} style={{backgroundColor:'#f3f3f3'}}>
             <h1 className={styles.Header}>sign in</h1>
             {errors?.non_field_errors?.map((message, idx) => (
@@ -85,7 +84,6 @@ function SignInForm() {
           </Container>
         </Col>
       </Row>
-    </Container>
   );
 }
 
