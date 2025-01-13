@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Col } from 'react-bootstrap'
+import { Button, Card, Col } from 'react-bootstrap'
 import { useCart, useSetCart } from '../../../contexts/CartContext'
 
 export const Product = ({ product, id }) => {
@@ -25,9 +25,8 @@ export const Product = ({ product, id }) => {
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
-            {product.description} <br />
             Color: <span className="text-info"> {product.color} </span> <br />
-            Size: <span className="text-info">  {product.size} </span>
+            Size: <span className="text-info">  {product.size} </span> <br/>
             Count: <select value={count} onChange={e=>setCount(e.target.value)}>
               {
                 Array.from(Array(25), (item, i) => 
@@ -36,10 +35,11 @@ export const Product = ({ product, id }) => {
                 })
               }
             </select>
-          </Card.Text>
-          <button variant="none" size="sm" onClick={() => handleIncrement(product)}>
+            <Button variant="none" size="sm" onClick={() => handleIncrement(product)}>
             <i className='fa fa-plus'></i>
-          </button>
+          </Button>
+          </Card.Text>
+
         </Card.Body>
       </Card>
     </Col>
