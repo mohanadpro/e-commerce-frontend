@@ -6,6 +6,7 @@ import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { CartProvider } from './contexts/CartContext';
 import { RouterProvider } from 'react-router-dom';
 import router from './components/root-component';
+import { Toaster } from 'react-hot-toast';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,10 @@ root.render(
   <React.StrictMode>
     <CurrentUserProvider>
       <CartProvider>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
           <RouterProvider router={router}/>
       </CartProvider>
     </CurrentUserProvider>

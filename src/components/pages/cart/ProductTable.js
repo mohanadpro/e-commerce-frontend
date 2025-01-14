@@ -31,5 +31,6 @@ export const ProductTable = (products) => {
       
     </tbody>
   </Table>
+  
   )
 }
