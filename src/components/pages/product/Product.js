@@ -20,14 +20,14 @@ export const Product = ({ product, id }) => {
     return [isFound, index];
   }
 
-  const addToCart = (item)=>{
+  const addToCart = (item)=>{    
     const added_product = {
-      'id': item.id,
-      'name': item.name,
-      'count': count,
-      'image': item.image,
-      'price': item.price,
-      'total_price': item.price * count
+        'id': item.id,
+        'name': item.name,
+        'count': count,
+        'image': item.image,
+        'price': item.price,
+        'total_price': item.price * count              
     }
   setCart([ ...Cart, added_product ])
   }
@@ -45,7 +45,7 @@ export const Product = ({ product, id }) => {
   }
   
   return (
-    <Col>
+    <Col key={product.id}>
       <Card key={id} style={{ width: '18rem' }}>
         <Card.Img variant="top" src={product.image} />
         <Card.Body>
