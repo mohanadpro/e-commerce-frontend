@@ -87,7 +87,7 @@ const NavBar = () => {
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
-        <NavLink to="/">
+        <NavLink to="/products">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
@@ -97,7 +97,7 @@ const NavBar = () => {
           <Nav className="ml-auto text-left">
             <NavLink
               className={`${styles.NavLink}   d-flex align-items-center`}
-              to="/"
+              to="/products"
             >
               <i className={`${styles.Home} fas fa-home`}></i>
               

@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { CartProvider } from './contexts/CartContext';
+import { RouterProvider } from 'react-router-dom';
+import router from './components/root-component';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,7 +13,7 @@ root.render(
   <React.StrictMode>
     <CurrentUserProvider>
       <CartProvider>
-        <App />
+          <RouterProvider router={router}/>
       </CartProvider>
     </CurrentUserProvider>
   </React.StrictMode>
