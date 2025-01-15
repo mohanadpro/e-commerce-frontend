@@ -22,7 +22,7 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-      navigate('/',{replace:true});
+      navigate('/products',{replace:true});
 
     } catch (err) {
       setErrors(err.response?.data);
