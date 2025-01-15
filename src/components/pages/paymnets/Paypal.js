@@ -1,9 +1,23 @@
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
 import React, { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
+import { useCart } from '../../../contexts/CartContext'
+import axios from 'axios'
+import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 
 export const Paypal = ({amount}) => {
 
+    const Cart = useCart()
+    const currentUser = useCurrentUser()
+    
+    const sendNotificationToServer = async ()=>{
+    const formData = new FormData();
+    formData.append('cart', Cart);
+    formData.append('total_price',25.6)
+    formData.append('customer', currentUser.pk)
+    const {data} =await axios.post('orders/',formData);
+    console.log(data);
+    }
   return (
     <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}>
         <PayPalButtons style={{ layout: "horizontal" }} 
@@ -23,6 +37,7 @@ export const Paypal = ({amount}) => {
                     console.log('You have successful payment')
                     const name = details.payer.name.given_name;
                     toast.success("Thank you for your payment "+name , {duration: 3000})
+                    sendNotificationToServer()
                 });
             }}
             onCancel={()=>{
