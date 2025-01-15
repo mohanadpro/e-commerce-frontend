@@ -2,10 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Col, Form, Row } from 'react-bootstrap'
 import style from './Styles.module.css'
+import { useSetProducts } from '../../../contexts/ProductContext'
 export const Search = () => {
   const [searchValue, setSearchValue] = useState('')
   const [results, setResults] = useState([])
-
+  const setProducts = useSetProducts()
   useEffect(()=>{
     getSearchData()
   },[searchValue])
@@ -26,7 +27,7 @@ export const Search = () => {
   const handleChoosedValue = (item)=> {
     axios.get('/products/?category='+item.id)
     .then(res=>{
-      console.log(res.data.results);
+      setProducts(res.data.results);
     })
     .catch(err=>{
       console.log(err)
