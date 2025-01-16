@@ -45,8 +45,8 @@ export const Product = ({ product, id }) => {
   }
   
   return (
-    <Col key={product.id}>
-      <Card key={id} style={{ width: '18rem' }}>
+    <Col>
+      <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={product.image} />
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
@@ -57,7 +57,7 @@ export const Product = ({ product, id }) => {
               {
                 Array.from(Array(25), (item, i) => 
                 {
-                  return <option value={i+1}> {i+1} </option>
+                  return <option value={i+1} key={i+1}> {i+1} </option>
                 })
               }
             </select>
