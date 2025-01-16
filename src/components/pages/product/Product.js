@@ -22,7 +22,7 @@ export const Product = ({ product, id }) => {
 
   const addToCart = (item)=>{    
     const added_product = {
-        'id': item.id,
+        'product': item.id,
         'name': item.name,
         'count': count,
         'image': item.image,
