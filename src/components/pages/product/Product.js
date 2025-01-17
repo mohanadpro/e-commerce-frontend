@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Card, Col } from 'react-bootstrap'
 import { useCart, useSetCart } from '../../../contexts/CartContext'
-
+import './product.css'
 export const Product = ({ product, id }) => {
   const setCart = useSetCart()
   const [count, setCount] = useState(1)
@@ -43,11 +43,10 @@ export const Product = ({ product, id }) => {
       addToCart(item)
     }
   }
-  
+
   return (
-    <Col>
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={product.image} />
+        <Card.Img variant="top" src={product.image} className='card-img-top' />
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
@@ -68,6 +67,5 @@ export const Product = ({ product, id }) => {
 
         </Card.Body>
       </Card>
-    </Col>
   )
 }
