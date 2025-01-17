@@ -10,8 +10,11 @@ import {
 import Avatar from "../../pages/avatar/Avatar";
 import axios from "axios";
 import { Search } from "./Search";
+import { useCart } from "../../../contexts/CartContext";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
+  const Cart = useCart()
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const navigate = useNavigate();
@@ -21,6 +24,14 @@ const NavBar = () => {
   }
   const moveToOrdersPage = (profile_id) =>{
     navigate('/orders/'+profile_id);
+  }
+  const moveToCartPage = (e) =>{
+    e.preventDefault();
+    if(Cart.length>0)
+      navigate('/cart');
+    else{
+      toast.error('You have put anything in the cart',{duration:2500})
+    }
   }
   const handleSignOut = async () => {
     try {
@@ -101,7 +112,7 @@ const NavBar = () => {
               <i className={`${styles.Home} fas fa-home`}></i>
               
             </NavLink>
-            <NavLink className={` d-flex align-items-center`} to='/cart'>
+            <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage}>
               <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
