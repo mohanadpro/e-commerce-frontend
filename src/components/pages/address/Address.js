@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useCurrentUser } from '../../../contexts/CurrentUserContext'
-import { Button, Col, Row } from 'react-bootstrap'
+import { Col, NavLink, Row } from 'react-bootstrap'
 import style from '../../../assets/styles/Button.module.css'
-
+import './address.css'
 export const Address = () => {
     const currentUser = useCurrentUser()
     const [ profile, setProfile ] = useState({})
@@ -35,12 +35,12 @@ export const Address = () => {
                  {profile.street} <br/>
                  {profile.zipcode} <br/>
             </p>
-            <Button onClick={e=>setIsShippingToProfileAddress(false)} className={style.Button}>
+            <NavLink onClick={e=>setIsShippingToProfileAddress(false)} className={`${style.Button} another-address`}>
                 To another address
-            </Button> 
+            </NavLink> 
        </Col>:
        <Col md={{span:4, offset:4}}>
-
+            
        </Col>
        }
     </Row>
