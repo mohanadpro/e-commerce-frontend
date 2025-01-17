@@ -37,7 +37,7 @@ export const Checkout = () => {
       <Steps current={currentStep} style={{marginTop:'95px'}}>
         <Step title={"Order Details"} />
         <Step title={"Address details"} />
-        <Step title={"Review and Save"} />
+        <Step title={"Payment method"} />
       </Steps>
       <main>{renderStep(currentStep)}</main>
       <Col md={{span:4, offset:4}} style={{marginTop:'25px', marginBottom:'25px'}}>
