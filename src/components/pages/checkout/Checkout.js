@@ -5,6 +5,7 @@ import { Address } from '../address/Address';
 import { Paypal } from '../paymnets/Paypal';
 import { Button, Col } from 'react-bootstrap';
 import style from '../../../assets/styles/Button.module.css'
+import './checkout.css'
 export const Checkout = () => {
   const { Step } = Steps;
   const [currentStep, setCurrentStep] = useState(0);
@@ -40,8 +41,8 @@ export const Checkout = () => {
       </Steps>
       <main>{renderStep(currentStep)}</main>
       <Col md={{span:4, offset:4}} style={{marginTop:'25px', marginBottom:'25px'}}>
-        <Button onClick={handlePrevious} className={style.Button}>Back</Button>
-        <Button onClick={handleNext} className={style.Button}>Continue To Checout</Button>
+        <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>Back</Button>
+        <Button onClick={handleNext} className={`${style.Button} back-button`}>Continue To Checkout</Button>
       </Col>
     </div>
   )
