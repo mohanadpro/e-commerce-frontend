@@ -3,8 +3,8 @@ import { Steps } from "antd";
 import ShoppingCart from '../cart/ShoppingCart';
 import { Address } from '../address/Address';
 import { Paypal } from '../paymnets/Paypal';
-import { Button } from 'react-bootstrap';
-
+import { Button, Col } from 'react-bootstrap';
+import style from '../../../assets/styles/Button.module.css'
 export const Checkout = () => {
   const { Step } = Steps;
   const [currentStep, setCurrentStep] = useState(0);
@@ -39,10 +39,10 @@ export const Checkout = () => {
         <Step title={"Review and Save"} />
       </Steps>
       <main>{renderStep(currentStep)}</main>
-      <div>
-        <Button onClick={handlePrevious} variant='primary'>Back</Button>
-        <Button onClick={handleNext} variant='primary'>Continue To Checout</Button>
-      </div>
+      <Col md={{span:4, offset:4}} style={{marginTop:'25px', marginBottom:'25px'}}>
+        <Button onClick={handlePrevious} className={style.Button}>Back</Button>
+        <Button onClick={handleNext} className={style.Button}>Continue To Checout</Button>
+      </Col>
     </div>
   )
 }
