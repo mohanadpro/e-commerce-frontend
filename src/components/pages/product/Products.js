@@ -40,11 +40,11 @@ export const Products = () => {
                     hasMore={next != null ? true : false}
                     loader={<h4> Loading... </h4>}
                     next={getProducts}
-                    style={{overflowY:'scroll', overflowX:'hidden'}}
+                    style={{ overflowX:'hidden'}}
                 >
                     <Row>
                         {products.map((product, id) => 
-                            <Col md={3}>
+                            <Col md={3}  className="my-2">
                                 <Product product={product} id={id} key={id} />
                             </Col>                                                
                         )}
