@@ -40,8 +40,7 @@ export const Products = () => {
             children=
                 {products.map((product, id) =>
                 <Col md={12} key={id}>
-                  {products.length ?  <Product product={product} id={id}/> :
-                  <div> No results </div>}
+                  <Product product={product} id={id}/>                  
                 </Col>
                 )}
             loader={<h4> Loading... </h4>}
