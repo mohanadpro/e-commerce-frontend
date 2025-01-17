@@ -30,7 +30,6 @@ export const Search = () => {
       setProducts(res.data.results);
     })
     .catch(err=>{
-      console.log(err)
     })
     setSearchValue('')
   }

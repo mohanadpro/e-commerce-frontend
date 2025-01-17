@@ -8,7 +8,6 @@ export const Profile = () => {
     const [profile, setProfile] = useState({})
     const { id } = useParams();
     const getProfile = async ()=> {
-        console.log('Hello world')
         await axios.get('/profiles/'+id)
         .then(res=>{
             setProfile(res.data);
@@ -32,23 +31,19 @@ export const Profile = () => {
     };
 
     const handleChanges = e=>{
-        console.log('Hello world')
         setProfile({...profile, 
             [e.target.name]: e.target.value
         })
-        console.log(profile);
     }
     const hadnleUpdate = async e =>{
         e.preventDefault(); 
         delete profile.image
         await axios.put('profiles/'+id,profile).then(
             res=>{
-                console.log(res.data)
                 Navigate('/')
             }
         )
         .catch(err=>{
-            console.log(err)
         })
     }
   return (

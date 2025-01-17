@@ -31,7 +31,6 @@ const SignUpForm = () => {
       await axios.post("dj-rest-auth/registration/", signUpData);
       navigate("/signin",{replace:true});
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };

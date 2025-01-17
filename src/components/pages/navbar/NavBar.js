@@ -28,7 +28,6 @@ const NavBar = () => {
       setCurrentUser(null);
       navigate('/')
     } catch (err) {
-      console.log(err);
     }
   };
 

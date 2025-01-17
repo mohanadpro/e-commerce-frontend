@@ -16,7 +16,7 @@ export const Paypal = ({amount}) => {
     formData.append('total_price',25.6)
     formData.append('customer', currentUser.pk)
     const {data} =await axios.post('orders/',formData);
-    console.log(data);
+
     }
   return (
     <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}>
@@ -33,8 +33,7 @@ export const Paypal = ({amount}) => {
                 });
             }}
             onApprove={(data, actions) => {
-                return actions.order.capture().then((details) => {
-                    console.log('You have successful payment')
+                return actions.order.capture().then((details) => 
                     const name = details.payer.name.given_name;
                     toast.success("Thank you for your payment "+name , {duration: 3000})
                     sendNotificationToServer()
