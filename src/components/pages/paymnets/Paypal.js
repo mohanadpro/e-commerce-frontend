@@ -33,7 +33,7 @@ export const Paypal = ({amount}) => {
                 });
             }}
             onApprove={(data, actions) => {
-                return actions.order.capture().then((details) => 
+                return actions.order.capture().then((details) => {
                     const name = details.payer.name.given_name;
                     toast.success("Thank you for your payment "+name , {duration: 3000})
                     sendNotificationToServer()
