@@ -28,7 +28,10 @@ const NavBar = () => {
   const moveToCartPage = (e) =>{
     e.preventDefault();
     if(Cart.length>0)
-      navigate('/checkout');
+      if(currentUser!=null)
+        navigate('/checkout');
+      else
+        navigate('/signin', {state:{ fromCart:'true' }});
     else{
       toast.error('You have put anything in the cart',{duration:2500})
     }

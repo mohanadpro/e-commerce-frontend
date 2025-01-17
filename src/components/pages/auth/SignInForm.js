@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button, Alert, Container, Row, Col } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./SignInUpForm.module.css";
 import btnStyles from "../../../assets/styles/Button.module.css";
 import appStyles from "../../../App.module.css";
@@ -10,6 +10,7 @@ import axios from "axios";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
+  const location = useLocation();
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -22,8 +23,10 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-      navigate('/products',{replace:true});
-
+      if(location.state == null)
+        navigate('/products',{replace:true});
+      else
+        navigate('/checkout',{replace:true});
     } catch (err) {
       setErrors(err.response?.data);
     }
