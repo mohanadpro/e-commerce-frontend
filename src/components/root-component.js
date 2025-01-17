@@ -6,7 +6,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import { Products } from './pages/product/Products';
 import { Profile } from './pages/profile/Profile';
 import { Order } from './pages/order/Order';
-import ShoppingCart from './pages/cart/ShoppingCart';
+import { Checkout } from './pages/checkout/Checkout';
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
@@ -33,8 +33,8 @@ const router=createBrowserRouter([{
             element:<Order/>
         },
         {
-            path:'cart',
-            element:<ShoppingCart/>
+            path:'checkout',
+            element:<Checkout/>
         }
     ]
 }])
