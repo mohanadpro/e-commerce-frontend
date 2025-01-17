@@ -41,8 +41,8 @@ export const Checkout = () => {
       </Steps>
       <main>{renderStep(currentStep)}</main>
       <Col md={{span:4, offset:4}} style={{marginTop:'25px', marginBottom:'25px'}}>
-        <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>Back</Button>
-        <Button onClick={handleNext} className={`${style.Button} back-button`}>Continue To Checkout</Button>
+       {currentStep!=0 && <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>Back</Button>}
+       {currentStep!=2 && <Button onClick={handleNext} className={`${style.Button} back-button`}>Continue To Checkout</Button>}
       </Col>
     </div>
   )
