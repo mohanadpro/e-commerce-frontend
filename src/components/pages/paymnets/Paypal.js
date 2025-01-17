@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { useCart } from '../../../contexts/CartContext'
 import axios from 'axios'
 import { useCurrentUser } from '../../../contexts/CurrentUserContext'
+import { Col, Row } from 'react-bootstrap'
 
 export const Paypal = ({amount}) => {
 
@@ -19,6 +20,8 @@ export const Paypal = ({amount}) => {
 
     }
   return (
+    <Row style={{margin:'100px auto'}}>
+    <Col md={{span:3, offset:4}}>
     <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}>
         <PayPalButtons style={{ layout: "horizontal" }} 
             createOrder={(data, actions) => {
@@ -50,5 +53,7 @@ export const Paypal = ({amount}) => {
             }}
         />
     </PayPalScriptProvider>
+    </Col>
+    </Row>
   )
 }
