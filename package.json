@@ -11,8 +11,10 @@
     "react-bootstrap": "^2.10.7",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.1",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^7.1.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-spinner": "^0.2.7"
   },
   "scripts": {
     "start": "react-scripts start",
