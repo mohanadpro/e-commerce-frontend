@@ -5,20 +5,23 @@ import { useCart } from '../../../contexts/CartContext'
 import axios from 'axios'
 import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 import { Col, Row } from 'react-bootstrap'
+import { useAddress } from '../../../contexts/AddressContext'
+import { Button } from 'antd'
 
 export const Paypal = ({amount}) => {
 
     const Cart = useCart()
     const currentUser = useCurrentUser()
-    
+    const delivery_place = useAddress();
     const sendNotificationToServer = async ()=>{
     const formData = new FormData();
-    formData.append('cart', Cart);
+    formData.append('cart', JSON.stringify(Cart));
     formData.append('total_price',25.6)
+    formData.append('delivery_place', JSON.stringify(delivery_place))
     formData.append('customer', currentUser.pk)
     const {data} =await axios.post('orders/',formData);
-
     }
+
   return (
     <Row style={{margin:'100px auto'}}>
     <Col md={{span:3, offset:4}}>
