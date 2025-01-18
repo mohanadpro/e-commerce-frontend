@@ -22,8 +22,8 @@ const NavBar = () => {
   const moveToProfilePage = (profile_id)=>{
     navigate('/profile/'+profile_id);
   }
-  const moveToOrdersPage = (profile_id) =>{
-    navigate('/orders/'+profile_id);
+  const moveToOrdersPage = () =>{
+    navigate('/orders/');
   }
   const moveToCartPage = (e) =>{
     e.preventDefault();
@@ -60,7 +60,7 @@ const NavBar = () => {
             </NavLink>
           </Dropdown.Item>
 
-        <Dropdown.Item onClick={()=>moveToOrdersPage(currentUser?.profile_id)}>
+        <Dropdown.Item onClick={()=>moveToOrdersPage()}>
           <NavLink 
             className={styles.NavLink}
             >
