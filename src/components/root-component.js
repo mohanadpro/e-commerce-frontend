@@ -7,6 +7,7 @@ import { Products } from './pages/product/Products';
 import { Profile } from './pages/profile/Profile';
 import { Order } from './pages/order/Order';
 import { Checkout } from './pages/checkout/Checkout';
+import { OrderDetails } from './pages/order/OrderDetails';
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
@@ -29,8 +30,12 @@ const router=createBrowserRouter([{
             element:<Profile/>
         },
         {
+            path:'/orders/',
+            element:<Order/>,
+        },
+        {
             path:'orders/:id',
-            element:<Order/>
+            element:<OrderDetails />   
         },
         {
             path:'checkout',
