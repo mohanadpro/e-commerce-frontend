@@ -44,8 +44,8 @@ export const Products = () => {
                 >
                     <Row>
                         {products.map((product, id) => 
-                            <Col md={3}  className="my-2">
-                                <Product product={product} id={id} key={id} />
+                            <Col md={3}  className="my-2"  key={id}>
+                                <Product product={product} id={id} />
                             </Col>                                                
                         )}
                     </Row>
