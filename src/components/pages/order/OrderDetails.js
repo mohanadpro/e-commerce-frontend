@@ -8,8 +8,8 @@ export const OrderDetails = () => {
     const { id } = useParams()
     useEffect(()=>{
         axios.get('/orders/orderDetails/'+id)
-        .then(res=>{        
-            setOrderDetails(res.data.results)
+        .then(res=>{
+            setOrderDetails(res.data)
         })
         .catch(err=>{
             console.log(err)
@@ -27,7 +27,7 @@ export const OrderDetails = () => {
       </tr>
     </thead>
     <tbody>
-        {orderDetails.map((item, id)=>
+        {orderDetails && orderDetails.map((item, id)=>
         <tr key={id}>
             <td>{item.order}</td>
             <td>{item.product}</td>
