@@ -40,7 +40,7 @@ export const Checkout = () => {
         <Step title={"Payment method"} />
       </Steps>
       <main>{renderStep(currentStep)}</main>
-      <Col md={{span:4, offset:5}} style={{ marginBottom:'25px'}}>
+      <Col md={{span:4, offset:5}} style={{ marginBottom:'25px', marginTop:'75px'}}>
        {currentStep!=0 && <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>
               <i class="fa-solid fa-angle-left"></i>
          Back</Button>}
