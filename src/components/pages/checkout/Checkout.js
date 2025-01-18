@@ -33,16 +33,20 @@ export const Checkout = () => {
       }
 
   return (
-    <div>
+    <div className='checkout'>
       <Steps current={currentStep} style={{marginTop:'95px'}}>
         <Step title={"Order Details"} />
         <Step title={"Address details"} />
         <Step title={"Payment method"} />
       </Steps>
       <main>{renderStep(currentStep)}</main>
-      <Col md={{span:4, offset:4}} style={{marginTop:'25px', marginBottom:'25px'}}>
-       {currentStep!=0 && <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>Back</Button>}
-       {currentStep!=2 && <Button onClick={handleNext} className={`${style.Button} back-button`}>Continue To Checkout</Button>}
+      <Col md={{span:4, offset:5}} style={{ marginBottom:'25px'}}>
+       {currentStep!=0 && <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>
+              <i class="fa-solid fa-angle-left"></i>
+         Back</Button>}
+       {currentStep!=2 && <Button onClick={handleNext} className={`${style.Button} back-button`}>Continue To Checkout
+              <i class="fa-solid fa-angle-right"></i>
+        </Button>}
       </Col>
     </div>
   )

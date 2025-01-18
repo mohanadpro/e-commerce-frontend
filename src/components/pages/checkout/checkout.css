@@ -1,3 +1,7 @@
+.checkout{
+    min-height: calc(100vh - 155px);
+}
+
 :where(.css-dev-only-do-not-override-nqoqt9).ant-steps .ant-steps-item-process .ant-steps-item-icon{
     background-color: #f44804 !important; 
     border-color:#f44804 ;
