@@ -4,22 +4,21 @@ import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 import { Col, NavLink, Row } from 'react-bootstrap'
 import style from '../../../assets/styles/Button.module.css'
 import './address.css'
+import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
 export const Address = () => {
+    const setAddress = useSetAddress()
+    const address = useAddress()
     const currentUser = useCurrentUser()
-    const [ profile, setProfile ] = useState({})
     const [ isShippingToProfileAdd, setIsShippingToProfileAddress ] = useState(true)
     const getUseProfile = async ()=>{
-
         try{
-            console.log(currentUser);
         const { data } = await axios.get(`profiles/${currentUser.pk}`)
-        
-        setProfile(data)
+        setAddress(data)
         }catch(err){
             console.log('error')
-
         }
     }
+
     useEffect(()=>{
         getUseProfile()
     },[])
@@ -28,12 +27,12 @@ export const Address = () => {
       {isShippingToProfileAdd ? <Col md={{span:4, offset:4}}>
             <p>
                 The order will be shipped to the below address <br/><br/>
-                 {profile.name} <br/>
-                 {profile.country} <br/>
-                 {profile.state} <br/>
-                 {profile.state} <br/>
-                 {profile.street} <br/>
-                 {profile.zipcode} <br/>
+                 {address.name} <br/>
+                 {address.country} <br/>
+                 {address.state} <br/>
+                 {address.state} <br/>
+                 {address.street} <br/>
+                 {address.zipcode} <br/>
             </p>
             <NavLink onClick={e=>setIsShippingToProfileAddress(false)} className={`${style.Button} another-address`}>
                 To another address

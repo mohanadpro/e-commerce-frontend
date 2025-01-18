@@ -8,6 +8,7 @@ import { RouterProvider } from 'react-router-dom';
 import router from './components/root-component';
 import { Toaster } from 'react-hot-toast';
 import { ProductProvider } from './contexts/ProductContext';
+import { AddressProvider } from './contexts/AddressContext';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,11 +16,13 @@ root.render(
     <CurrentUserProvider>
       <CartProvider>
         <ProductProvider>
-          <Toaster
-            position="top-center"
-            reverseOrder={false}
-          />
-          <RouterProvider router={router}/>
+          <AddressProvider>
+            <Toaster
+              position="top-center"
+              reverseOrder={false}
+            />
+            <RouterProvider router={router}/>
+          </AddressProvider>
         </ProductProvider>
       </CartProvider>
     </CurrentUserProvider>
