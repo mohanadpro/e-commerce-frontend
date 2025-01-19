@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 import axios from 'axios'
 import { Form, Col, Row, InputGroup, Button,  } from 'react-bootstrap'
-import {  Navigate, useParams } from 'react-router-dom'
+import {  useNavigate, useParams } from 'react-router-dom'
+import toast from 'react-hot-toast'
+import './profile.css'
 
 export const Profile = () => {
-    const [profile, setProfile] = useState({})
+    const [profile, setProfile] = useState({});
+    const navigate = useNavigate();
     const { id } = useParams();
     const getProfile = async ()=> {
         await axios.get('/profiles/'+id)
@@ -40,14 +42,15 @@ export const Profile = () => {
         delete profile.image
         await axios.put('profiles/'+id,profile).then(
             res=>{
-                Navigate('/')
+              toast.success('Profile has been updated succesfully... ')
+              navigate('/products')
             }
         )
         .catch(err=>{
         })
     }
   return (
-    <Form onSubmit={hadnleUpdate} style={{marginTop:'91px'}}>
+    <Form onSubmit={hadnleUpdate} className='profile'>
         <Row>
             <Col md={{span:4, offset:4}}>
             <img src={profile?.image} width='200px' height='200px'/>
@@ -168,7 +171,9 @@ export const Profile = () => {
           </Form.Control.Feedback>
         </Form.Group>
       </Row>
-      <Button type="submit">Update</Button>
+      <div className='d-flex justify-content-center'>
+        <Button type="submit" variant='success'>Update</Button>
+      </div>
     </Form>
   )
 }
