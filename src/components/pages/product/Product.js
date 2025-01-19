@@ -11,12 +11,14 @@ export const Product = ({ product, id }) => {
     let isFound = false;
     let index = 0;
     for(let i=0; i<Cart.length;i++)
-      if(Cart[i].id === item.id)
+    {
+      if(Cart[i].product === item.id)
         {
           isFound = true;
           index = i;
           break;
         }
+    }
     return [isFound, index];
   }
 
