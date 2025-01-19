@@ -30,7 +30,7 @@ export const OrderDetails = () => {
         {orderDetails && orderDetails.map((item, id)=>
         <tr key={id}>
             <td>{item.order}</td>
-            <td>{item.product}</td>
+            <td>{item.product_name}</td>
             <td>{item.count}</td>
             <td>{item.price}</td>
             <td>{item.total_price}</td>
