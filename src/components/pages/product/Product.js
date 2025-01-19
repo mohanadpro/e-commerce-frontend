@@ -50,6 +50,7 @@ export const Product = ({ product, id }) => {
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
+            Price: <span className='text-info'> {product.price}$ </span><br/>
             Color: <span className="text-info"> {product.color} </span> <br />
             Size: <span className="text-info">  {product.size} </span> <br/>
             Count: <select value={count} onChange={e=>setCount(e.target.value)}>
