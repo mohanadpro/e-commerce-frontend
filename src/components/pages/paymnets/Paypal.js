@@ -1,28 +1,23 @@
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
 import React from 'react'
 import toast from 'react-hot-toast'
-import { useCart } from '../../../contexts/CartContext'
-import axios from 'axios'
+import { useCart, useSetCart } from '../../../contexts/CartContext'
 import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 import { Button, Col, Row } from 'react-bootstrap'
-import { useAddress } from '../../../contexts/AddressContext'
+import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
+import { useNavigate } from 'react-router-dom'
+import {SendOrderToServer} from './SendOrder'
 
 export const Paypal = ({amount}) => {
 
     const Cart = useCart()
+    const setCart = useSetCart()
     const currentUser = useCurrentUser()
     const delivery_place = useAddress();
-
-    const sendNotificationToServer = async ()=>{
-    const formData = new FormData();
-    formData.append('cart', JSON.stringify(Cart));
-    formData.append('total_price', amount)
-    delete delivery_place.image
-    delete delivery_place.created_at
-    delete delivery_place.updated_at
-    formData.append('delivery_place', JSON.stringify(delivery_place))
-    formData.append('customer', currentUser.pk)
-    const {data} =await axios.post('orders/',formData);
+    const setAddress = useSetAddress();
+    const navigate = useNavigate()
+    const sendOrder = ()=>{
+        SendOrderToServer(amount, Cart, setCart, currentUser, delivery_place, setAddress, navigate)
     }
 
   return (
@@ -43,9 +38,7 @@ export const Paypal = ({amount}) => {
             }}
             onApprove={(data, actions) => {
                 return actions.order.capture().then((details) => {
-                    const name = details.payer.name.given_name;
-                    toast.success("Thank you for your payment "+name , {duration: 3000})
-                    sendNotificationToServer()
+                    sendOrder()
                 });
             }}
             onCancel={()=>{
@@ -59,7 +52,7 @@ export const Paypal = ({amount}) => {
             }}
         />
     </PayPalScriptProvider>
-    <Button onClick={()=>sendNotificationToServer()}>Click</Button>
+    <Button onClick={()=>sendOrder()}>Click</Button>
     </Col>
     </Row>
   )
