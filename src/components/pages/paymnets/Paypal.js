@@ -1,22 +1,25 @@
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
-import React, { useEffect } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import React from 'react'
+import toast from 'react-hot-toast'
 import { useCart } from '../../../contexts/CartContext'
 import axios from 'axios'
 import { useCurrentUser } from '../../../contexts/CurrentUserContext'
-import { Col, Row } from 'react-bootstrap'
+import { Button, Col, Row } from 'react-bootstrap'
 import { useAddress } from '../../../contexts/AddressContext'
-import { Button } from 'antd'
 
 export const Paypal = ({amount}) => {
 
     const Cart = useCart()
     const currentUser = useCurrentUser()
     const delivery_place = useAddress();
+
     const sendNotificationToServer = async ()=>{
     const formData = new FormData();
     formData.append('cart', JSON.stringify(Cart));
-    formData.append('total_price',25.6)
+    formData.append('total_price', amount)
+    delete delivery_place.image
+    delete delivery_place.created_at
+    delete delivery_place.updated_at
     formData.append('delivery_place', JSON.stringify(delivery_place))
     formData.append('customer', currentUser.pk)
     const {data} =await axios.post('orders/',formData);
@@ -56,6 +59,7 @@ export const Paypal = ({amount}) => {
             }}
         />
     </PayPalScriptProvider>
+    <Button onClick={()=>sendNotificationToServer()}>Click</Button>
     </Col>
     </Row>
   )
