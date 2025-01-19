@@ -5,6 +5,7 @@ import { Col, NavLink, Row } from 'react-bootstrap'
 import style from '../../../assets/styles/Button.module.css'
 import './address.css'
 import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
+import { AnotherAdsress } from './AnotherAdsress'
 export const Address = () => {
     const setAddress = useSetAddress()
     const address = useAddress()
@@ -30,7 +31,7 @@ export const Address = () => {
                  {address.name} <br/>
                  {address.country} <br/>
                  {address.state} <br/>
-                 {address.state} <br/>
+                 {address.city} <br/>
                  {address.street} <br/>
                  {address.zipcode} <br/>
             </p>
@@ -39,7 +40,7 @@ export const Address = () => {
             </NavLink> 
        </Col>:
        <Col md={{span:4, offset:4}}>
-            
+          <AnotherAdsress setIsShippingToProfileAddress={setIsShippingToProfileAddress} address={address} setAddress={setAddress} />
        </Col>
        }
     </Row>
