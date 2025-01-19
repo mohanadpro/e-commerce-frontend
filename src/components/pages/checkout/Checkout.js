@@ -6,17 +6,28 @@ import { Paypal } from '../paymnets/Paypal';
 import { Button, Col } from 'react-bootstrap';
 import style from '../../../assets/styles/Button.module.css'
 import './checkout.css'
+import { useCart } from '../../../contexts/CartContext';
 export const Checkout = () => {
   const { Step } = Steps;
+  const Cart = useCart()
   const [currentStep, setCurrentStep] = useState(0);
+  const calculate_total_price= ()=> {
+    let sum_total_price = 0
+    for(let i=0; i<Cart.length; i++)
+        sum_total_price += Cart[i].total_price
+    return sum_total_price;
+}
+
+
     const renderStep = (step) => {
+      const amount = calculate_total_price()
         switch (step) {
           case 0:
             return <ShoppingCart />;
           case 1:
             return <Address />;
           case 2:
-            return <Paypal />;
+            return <Paypal amount={amount}/>;
           default:
             return null;
         }
@@ -42,10 +53,10 @@ export const Checkout = () => {
       <main>{renderStep(currentStep)}</main>
       <Col md={{span:4, offset:5}} style={{ marginBottom:'25px', marginTop:'75px'}}>
        {currentStep!=0 && <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>
-              <i class="fa-solid fa-angle-left"></i>
+              <i className="fa-solid fa-angle-left"></i>
          Back</Button>}
        {currentStep!=2 && <Button onClick={handleNext} className={`${style.Button} back-button`}>Continue To Checkout
-              <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-angle-right"></i>
         </Button>}
       </Col>
     </div>
