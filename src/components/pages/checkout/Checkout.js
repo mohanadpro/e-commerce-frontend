@@ -7,6 +7,7 @@ import { Button, Col } from 'react-bootstrap';
 import style from '../../../assets/styles/Button.module.css'
 import './checkout.css'
 import { useCart } from '../../../contexts/CartContext';
+import { PaymentMethod } from '../paymnets/PaymentMethod';
 export const Checkout = () => {
   const { Step } = Steps;
   const Cart = useCart()
@@ -27,7 +28,7 @@ export const Checkout = () => {
           case 1:
             return <Address />;
           case 2:
-            return <Paypal amount={amount}/>;
+            return <PaymentMethod amount={amount}/>;
           default:
             return null;
         }
