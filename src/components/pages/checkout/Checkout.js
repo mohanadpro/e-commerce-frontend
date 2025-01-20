@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Steps } from "antd";
 import ShoppingCart from '../cart/ShoppingCart';
 import { Address } from '../address/Address';
-import { Paypal } from '../paymnets/Paypal';
 import { Button, Col } from 'react-bootstrap';
 import style from '../../../assets/styles/Button.module.css'
 import './checkout.css'
