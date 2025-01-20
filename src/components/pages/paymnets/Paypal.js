@@ -3,7 +3,7 @@ import React from 'react'
 import toast from 'react-hot-toast'
 import { useCart, useSetCart } from '../../../contexts/CartContext'
 import { useCurrentUser } from '../../../contexts/CurrentUserContext'
-import { Button, Col, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
 import { useNavigate } from 'react-router-dom'
 import {SendOrderToServer} from './SendOrder'
@@ -21,7 +21,7 @@ export const Paypal = ({amount}) => {
     }
 
   return (
-    <Row style={{margin:'100px auto'}}>
+    <Row>
     <Col md={{span:3, offset:4}}>
     <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}>
         <PayPalButtons style={{ layout: "horizontal" }} 
@@ -52,7 +52,6 @@ export const Paypal = ({amount}) => {
             }}
         />
     </PayPalScriptProvider>
-    <Button onClick={()=>sendOrder()}>Click</Button>
     </Col>
     </Row>
   )
