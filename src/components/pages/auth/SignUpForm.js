@@ -6,6 +6,7 @@ import appStyles from "../../../App.module.css"
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import SignUp from '../../../assets/images/sign_up.WebP'
 import axios from "axios";
+import { useSetCurrentUser } from "../../../contexts/CurrentUserContext";
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -15,9 +16,21 @@ const SignUpForm = () => {
   const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
+  const setCurrentUser = useSetCurrentUser();
 
   const navigate = useNavigate();
 
+  const signInForFirstTime = async ()=>{
+    try{
+      const signInData = ({username: signUpData.username, password: signUpData.password1})
+    const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+    setCurrentUser(data.user);
+    navigate('/profile/'+data.user.profile_id)
+    }catch(err)
+    {
+
+    }
+  }
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -29,7 +42,8 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       await axios.post("dj-rest-auth/registration/", signUpData);
-      navigate("/signin",{replace:true});
+      signInForFirstTime()
+      // navigate("/signin",{replace:true});
     } catch (err) {
       setErrors(err.response?.data);
     }
