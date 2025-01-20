@@ -21,17 +21,6 @@ export const Profile = () => {
         getProfile();
     },[])
 
-    const [validated, setValidated] = useState(false);
-
-    const handleSubmit = (event) => {
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      setValidated(true);
-    };
-
     const handleChanges = e=>{
         setProfile({...profile, 
             [e.target.name]: e.target.value
@@ -53,7 +42,7 @@ export const Profile = () => {
     <Form onSubmit={hadnleUpdate} className='profile'>
         <Row>
             <Col md={{span:4, offset:4}}>
-            <img src={profile?.image} width='200px' height='200px'/>
+            <img alt='Profile' src={profile?.image} width='200px' height='200px'/>
             </Col>
         </Row>
       <Row className="mb-3">
