@@ -6,8 +6,10 @@ import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
 import { useNavigate } from 'react-router-dom'
 import {SendOrderToServer} from './SendOrder'
+import { DotLoader } from 'react-spinners'
 
 export const StripePayment = ({amount}) => {
+    const [isSpinner, setIsSpinner] = useState(false)
     const Cart = useCart()
     const setCart = useSetCart()
     const currentUser = useCurrentUser()
@@ -20,7 +22,7 @@ export const StripePayment = ({amount}) => {
 
     const [card, setCard] = useState({
         card_number: '',
-        amount:0.0,
+        amount:amount,
         exp_month: '',
         exp_year: '',
         cvv: ''
@@ -32,10 +34,10 @@ export const StripePayment = ({amount}) => {
     }
     const handlePayment = (e)=>{
         e.preventDefault();
-        setCard({...card, amount: amount})
+        setIsSpinner(true)
         axiosRes.post('payment/',card)
         .then(res=>{
-            console.log(res)
+            setIsSpinner(false)
             sendOrder()
         })
         .catch(err=>{
@@ -90,7 +92,10 @@ export const StripePayment = ({amount}) => {
                 />
             </InputGroup>
             </Form.Group>
-            <Button className='my-3' type='submit'>Pay</Button>
+            <Button className='my-3 d-flex justify-content-center' type='submit' disabled={isSpinner}>
+                <DotLoader size={20} color='white' loading={isSpinner}/> 
+                   Pay {amount}$
+            </Button>
         </Row>
     </Form>
     </Col>
