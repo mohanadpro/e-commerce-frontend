@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Table } from 'react-bootstrap';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './orders.css'
 export const OrderTable = ({orders}) => {
   const navigate = useNavigate()

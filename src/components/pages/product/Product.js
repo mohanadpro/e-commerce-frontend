@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Card, Col } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { useCart, useSetCart } from '../../../contexts/CartContext'
 import './product.css'
 export const Product = ({ product, id }) => {

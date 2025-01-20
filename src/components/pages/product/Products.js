@@ -1,10 +1,9 @@
 import axios from 'axios'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Product } from './Product';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { useProduct, useSetProducts } from '../../../contexts/ProductContext';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { Spinner } from 'react-spinner';
 export const Products = () => {
     const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true)
     const [next, setNext] = useState('')
