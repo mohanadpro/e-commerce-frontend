@@ -1,19 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useCart } from '../../../contexts/CartContext';
 import { ProductTable } from './ProductTable';
 
 function ShoppingCart() {
-  const Cart = useCart();
 
-  useEffect(()=>{
-    let sum =0;
-    for(let i=0; i< Cart.length; i++)
-    {
-      sum += Cart[i].total_price
-    }
-    setTotalPrice(sum)
-  }
-  ,[])
+  const Cart = useCart();
 
   return (
     <div>
