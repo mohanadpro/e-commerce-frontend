@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Product } from './Product';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { useProduct, useSetProducts } from '../../../contexts/ProductContext';
 import InfiniteScroll from 'react-infinite-scroll-component';
 export const Products = () => {
