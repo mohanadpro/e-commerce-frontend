@@ -7,7 +7,7 @@ import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
 import { useNavigate } from 'react-router-dom'
 import {SendOrderToServer} from './SendOrder'
 import { DotLoader } from 'react-spinners'
-
+import './payment-method.css'
 export const StripePayment = ({amount}) => {
     const [isSpinner, setIsSpinner] = useState(false)
     const Cart = useCart()
@@ -46,11 +46,14 @@ export const StripePayment = ({amount}) => {
     }
   return (
     <Row>
-    <Col md={{span:3, offset:4}}>
+    <Col md={{span:4, offset:4}} className='payment-method'>
     <Form onSubmit={handlePayment}>
+        <div className='text-center'>
+            <label style={{display:'inline'}}>Master card <i class="fa-brands fa-cc-mastercard" style={{color: '#FF5F00'}}></i></label>
+            <label style={{display:'inline'}}>Visa card <i class="fa-brands fa-cc-visa" style={{color: '#1434CB'}}></i></label>
+        </div>
         <Row>
         <Form.Group as={Col} controlId="validationCustom01">
-            <Form.Label>Card Number</Form.Label>
             <Form.Control
                 type="text"
                 placeholder="Card Number"

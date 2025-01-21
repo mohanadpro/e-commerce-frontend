@@ -7,7 +7,7 @@ import { Col, Row } from 'react-bootstrap'
 import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
 import { useNavigate } from 'react-router-dom'
 import {SendOrderToServer} from './SendOrder'
-
+import './payment-method.css'
 export const Paypal = ({amount}) => {
 
     const Cart = useCart()
@@ -21,8 +21,8 @@ export const Paypal = ({amount}) => {
     }
 
   return (
-    <Row>
-    <Col md={{span:3, offset:4}}>
+    <Row className='mt-2'>
+    <Col md={{span:4, offset:4}} className="payment-method">
     <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}>
         <PayPalButtons style={{ layout: "horizontal" }} 
             createOrder={(data, actions) => {
