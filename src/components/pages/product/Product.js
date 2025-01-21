@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { useCart, useSetCart } from '../../../contexts/CartContext'
 import './product.css'
+import toast from 'react-hot-toast'
 export const Product = ({ product, id }) => {
   const setCart = useSetCart()
   const [count, setCount] = useState(1)
@@ -38,11 +39,13 @@ export const Product = ({ product, id }) => {
     if(res[0] === false)
     {
       addToCart(item)
+      toast.success(`${item.name} has been added to the cart`, {duration: 3000})
     }
     else
     {
       Cart.splice(res[1], 1);
       addToCart(item)
+      toast.success(`count of product ${item.name} has been updated`, {duration: 3000})
     }
   }
 
