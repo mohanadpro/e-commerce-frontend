@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import {SendOrderToServer} from './SendOrder'
 import { DotLoader } from 'react-spinners'
 import './payment-method.css'
+import toast from 'react-hot-toast'
 export const StripePayment = ({amount}) => {
     const [isSpinner, setIsSpinner] = useState(false)
     const Cart = useCart()
@@ -41,7 +42,8 @@ export const StripePayment = ({amount}) => {
             sendOrder()
         })
         .catch(err=>{
-
+            toast.error("There was an error with the payment")
+            setIsSpinner(false)
         })
     }
   return (
@@ -60,6 +62,7 @@ export const StripePayment = ({amount}) => {
                 name='card_number'
                 value={card.card_number}
                 onChange={handleChanges}
+                required
             />
             </Form.Group>
         </Row>
@@ -71,6 +74,7 @@ export const StripePayment = ({amount}) => {
                 name='exp_month'
                 value={card.exp_month}
                 onChange={handleChanges}
+                required
             />
             </Form.Group>
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
@@ -81,6 +85,7 @@ export const StripePayment = ({amount}) => {
                 name='exp_year'
                 value={card.exp_year}
                 onChange={handleChanges}
+                required
                 />
             </InputGroup>
             </Form.Group>
@@ -92,6 +97,7 @@ export const StripePayment = ({amount}) => {
                 name='cvv'
                 value={card.cvv}
                 onChange={handleChanges}
+                required
                 />
             </InputGroup>
             </Form.Group>
