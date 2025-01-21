@@ -7,6 +7,7 @@ import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap
 import SignUp from '../../../assets/images/sign_up.WebP'
 import axios from "axios";
 import { useSetCurrentUser } from "../../../contexts/CurrentUserContext";
+import { axiosRes } from "../../../api/axiosDefault";
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -23,7 +24,7 @@ const SignUpForm = () => {
   const signInForFirstTime = async ()=>{
     try{
       const signInData = ({username: signUpData.username, password: signUpData.password1})
-    const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+    const { data } = await axiosRes.post("/dj-rest-auth/login/", signInData);
     setCurrentUser(data.user);
     navigate('/profile/'+data.user.profile_id)
     }catch(err)

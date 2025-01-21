@@ -1,9 +1,9 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Product } from './Product';
 import { Col, Row } from 'react-bootstrap';
 import { useProduct, useSetProducts } from '../../../contexts/ProductContext';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { axiosRes } from '../../../api/axiosDefault';
 export const Products = () => {
     const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true)
     const [next, setNext] = useState('')
@@ -11,7 +11,7 @@ export const Products = () => {
     const products = useProduct()
     const setProducts = useSetProducts()
     const getProducts = async () => {
-        await axios.get('/products?page=' + currentPage)
+        await axiosRes.get('/products?page=' + currentPage)
             .then(res => {
                 if (isFirstTimeLoading) {
                     setProducts(res.data.results)

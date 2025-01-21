@@ -8,12 +8,12 @@ import {
   useSetCurrentUser,
 } from '../../../contexts/CurrentUserContext';
 import Avatar from "../../pages/avatar/Avatar";
-import axios from "axios";
 import { Search } from "./Search";
 import { useCart, useSetCart } from "../../../contexts/CartContext";
 import toast from "react-hot-toast";
 import { useSetAddress } from "../../../contexts/AddressContext";
 import { Badge } from "@mui/material";
+import { axiosRes } from "../../../api/axiosDefault";
 
 const NavBar = () => {
   const Cart = useCart()
@@ -42,7 +42,7 @@ const NavBar = () => {
   }
   const handleSignOut = async () => {
     try {
-      await axios.post("dj-rest-auth/logout/");
+      await axiosRes.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       setCart([])
       setAddress({})

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Form, Row } from 'react-bootstrap'
 import style from './Styles.module.css'
 import { useSetProducts } from '../../../contexts/ProductContext'
+import { axiosRes } from '../../../api/axiosDefault'
 export const Search = () => {
   const [searchValue, setSearchValue] = useState('')
   const [results, setResults] = useState([])
@@ -17,7 +18,7 @@ export const Search = () => {
   const getSearchData = ()=>{
     if(searchValue!='')
       {
-      axios.get('/categories/?name__contains='+searchValue, searchValue)
+        axiosRes.get('/categories/?name__contains='+searchValue, searchValue)
       .then(res=>{
           setResults(res.data.results)
       })

@@ -4,13 +4,14 @@ import { Form, Col, Row, InputGroup, Button,  } from 'react-bootstrap'
 import {  useNavigate, useParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import './profile.css'
+import { axiosRes } from '../../../api/axiosDefault'
 
 export const Profile = () => {
     const [profile, setProfile] = useState({});
     const navigate = useNavigate();
     const { id } = useParams();
     const getProfile = async ()=> {
-        await axios.get('/profiles/'+id)
+        await axiosRes.get('/profiles/'+id)
         .then(res=>{
             setProfile(res.data);
         }).catch(err=>{

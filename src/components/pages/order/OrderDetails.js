@@ -3,11 +3,12 @@ import { Table } from 'react-bootstrap';
 import './orders.css'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { axiosRes } from '../../../api/axiosDefault';
 export const OrderDetails = () => {
     const [ orderDetails, setOrderDetails ] = useState([])
     const { id } = useParams()
     useEffect(()=>{
-        axios.get('/orders/orderDetails/'+id)
+      axiosRes.get('/orders/orderDetails/'+id)
         .then(res=>{
             setOrderDetails(res.data)
         })

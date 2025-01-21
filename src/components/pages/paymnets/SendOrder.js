@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import axios from "axios";
+import { axiosRes } from "../../../api/axiosDefault";
 
 export const SendOrderToServer = async(amount, Cart, setCart, currentUser, delivery_place, setAddress, navigate)=>{
     const formData = new FormData();
@@ -10,7 +10,7 @@ export const SendOrderToServer = async(amount, Cart, setCart, currentUser, deliv
     delete delivery_place.updated_at
     formData.append('delivery_place', JSON.stringify(delivery_place))
     formData.append('customer', currentUser.pk)
-    axios.post('orders/',formData).then(res=>{
+    axiosRes.post('orders/',formData).then(res=>{
         setCart([])
         setAddress({})
         toast.success('Your order has been done successfully... ', {duration:4000})
