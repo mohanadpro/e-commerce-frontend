@@ -21,7 +21,6 @@ export const Products = () => {
                     setProducts(products => [...products, ...res.data.results])
                 setNext(res.data.next)
                 if (res.data.next != null) {
-                    console.log('next')
                     setCurrentPage(currentPage + 1)
                 }
             })
