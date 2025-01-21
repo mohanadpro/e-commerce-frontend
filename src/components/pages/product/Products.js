@@ -4,12 +4,15 @@ import { Col, Row } from 'react-bootstrap';
 import { useProduct, useSetProducts } from '../../../contexts/ProductContext';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { axiosRes } from '../../../api/axiosDefault';
+import toast from 'react-hot-toast';
+import { Navigate, useNavigate } from 'react-router-dom';
 export const Products = () => {
     const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true)
     const [next, setNext] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const products = useProduct()
     const setProducts = useSetProducts()
+    const navigate = useNavigate()
     const getProducts = async () => {
         await axiosRes.get('/products?page=' + currentPage)
             .then(res => {
@@ -22,6 +25,13 @@ export const Products = () => {
                 setNext(res.data.next)
                 if (res.data.next != null) {
                     setCurrentPage(currentPage + 1)
+                }
+            })
+            .catch(err=>{
+                if(err.code === "ERR_NETWORK")
+                    {
+                    toast.error('We are sorry, but there is an error in the network')
+                    navigate('/server-error')
                 }
             })
     }
