@@ -51,8 +51,8 @@ export const StripePayment = ({amount}) => {
     <Col md={{span:4, offset:4}} className='payment-method'>
     <Form onSubmit={handlePayment}>
         <div className='text-center'>
-            <label style={{display:'inline'}}>Master card <i class="fa-brands fa-cc-mastercard" style={{color: '#FF5F00'}}></i></label>
-            <label style={{display:'inline'}}>Visa card <i class="fa-brands fa-cc-visa" style={{color: '#1434CB'}}></i></label>
+            <label style={{display:'inline'}}>Master card <i className="fa-brands fa-cc-mastercard" style={{color: '#FF5F00'}}></i></label>
+            <label style={{display:'inline'}}>Visa card <i className="fa-brands fa-cc-visa" style={{color: '#1434CB'}}></i></label>
         </div>
         <Row>
         <Form.Group as={Col} controlId="validationCustom01">
