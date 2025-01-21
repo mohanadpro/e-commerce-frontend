@@ -1,12 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
+import toast from 'react-hot-toast'
 
-export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddress}) => {
-    const [finalAddress, setFinalAddress] = useState({})
+export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress, address, setAddress, setIsFormValid}) => {
 
+    useEffect(()=>{
+        setIsFormValid(false)
+    },[])
+    
     const hadnleUpdate = e=>{
         e.preventDefault()
-        setIsShippingToProfileAddress(true)
+        if(address.city != "" && address.country != "" && address.zipcode != "" && address.street != "" && address.street_number !=0 && address.name != "" )
+        {
+            setIsFormValid(true)
+            setIsShippingToProfileAddress(true)
+            setHasUserAddress(true)
+        }
+        else
+        {
+            toast.error('Please fill all the field')
+        }
     }
     const handleChanges = e=>{
         setAddress({...address, 
@@ -23,8 +36,9 @@ export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddre
                         type="text"
                         placeholder="Name"
                         name='name'
-                        value={finalAddress.name}
+                        value={address.name}
                         onChange={handleChanges}
+                        required
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -34,8 +48,9 @@ export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddre
                     <Form.Label>Country</Form.Label>
                     <Form.Control type="text" placeholder="Country"
                         name='country'
-                        value={finalAddress.country}
+                        value={address.country}
                         onChange={handleChanges}
+                        required
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid city.
@@ -45,8 +60,8 @@ export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddre
                     <Form.Label>State</Form.Label>
                     <Form.Control type="text" placeholder="State"
                         name='state'
-                        value={finalAddress.state}
-                        onChange={handleChanges}
+                        value={address.state}
+                        onChange={handleChanges}                        
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid state.
@@ -56,8 +71,9 @@ export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddre
                     <Form.Label>Zip</Form.Label>
                     <Form.Control type="text" placeholder="Zip"
                         name='zipcode'
-                        value={finalAddress.zipcode}
+                        value={address.zipcode}
                         onChange={handleChanges}
+                        required
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid zip.
@@ -69,8 +85,9 @@ export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddre
                     <Form.Label>City</Form.Label>
                     <Form.Control type="text" placeholder="City"
                         name='city'
-                        value={finalAddress.city}
+                        value={address.city}
                         onChange={handleChanges}
+                        required
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid city.
@@ -80,8 +97,9 @@ export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddre
                     <Form.Label>Street</Form.Label>
                     <Form.Control type="text" placeholder="Street"
                         name='street'
-                        value={finalAddress.street}
+                        value={address.street}
                         onChange={handleChanges}
+                        required
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid Street.
@@ -91,8 +109,9 @@ export const AnotherAdsress = ({setIsShippingToProfileAddress, address, setAddre
                     <Form.Label>Street Number</Form.Label>
                     <Form.Control type="number" placeholder="Street number"
                         name='street_number'
-                        value={finalAddress.street_number}
+                        value={address.street_number}
                         onChange={handleChanges}
+                        required
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid Street.

@@ -1,12 +1,13 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 import { Col, NavLink, Row } from 'react-bootstrap'
 import style from '../../../assets/styles/Button.module.css'
 import './address.css'
 import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
 import { AnotherAdsress } from './AnotherAdsress'
-export const Address = () => {
+export const Address = ({setIsFormValid}) => {
+    const [hasUserAddress, setHasUserAddress] = useState(true);
     const setAddress = useSetAddress()
     const address = useAddress()
     const currentUser = useCurrentUser()
@@ -15,8 +16,16 @@ export const Address = () => {
         try{
         const { data } = await axios.get(`profiles/${currentUser.pk}`)
         setAddress(data)
+        if(data.city === "" || data.country === "" || data.zipcode === "" || data.street === "" || data.street_number === 0 || data.name === "c" )
+            {
+                setHasUserAddress(false)
+                setIsFormValid(false)
+            }
+            else{
+                setIsFormValid(true)
+            }
         }catch(err){
-            console.log('error')
+            console.log(err)
         }
     }
 
@@ -25,7 +34,7 @@ export const Address = () => {
     },[])
   return (
     <Row >
-      {isShippingToProfileAdd ? <Col md={{span:4, offset:4}}>
+      {hasUserAddress ? isShippingToProfileAdd ? <Col md={{span:4, offset:4}}>
             <p>
                 The order will be shipped to the below address <br/><br/>
                  {address.name} <br/>
@@ -40,9 +49,11 @@ export const Address = () => {
             </NavLink> 
        </Col>:
        <Col md={{span:4, offset:4}}>
-          <AnotherAdsress setIsShippingToProfileAddress={setIsShippingToProfileAddress} address={address} setAddress={setAddress} />
-       </Col>
-       }
+        <AnotherAdsress setHasUserAddress={setHasUserAddress} setIsShippingToProfileAddress={setIsShippingToProfileAddress} address={address} setAddress={setAddress} setIsFormValid={setIsFormValid}/>
+       </Col>        
+        :
+        <AnotherAdsress setHasUserAddress={setHasUserAddress} setIsShippingToProfileAddress={setIsShippingToProfileAddress} address={address} setAddress={setAddress} setIsFormValid={setIsFormValid}/>}
+       
     </Row>
   )
 }

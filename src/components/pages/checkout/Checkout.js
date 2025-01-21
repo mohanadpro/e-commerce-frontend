@@ -7,10 +7,12 @@ import style from '../../../assets/styles/Button.module.css'
 import './checkout.css'
 import { useCart } from '../../../contexts/CartContext';
 import { PaymentMethod } from '../paymnets/PaymentMethod';
+import toast from 'react-hot-toast';
 export const Checkout = () => {
   const { Step } = Steps;
-  const Cart = useCart()
   const [currentStep, setCurrentStep] = useState(0);
+  const [ isFormValid, setIsFormValid ] = useState(false);
+  const Cart = useCart()
   const calculate_total_price= ()=> {
     let sum_total_price = 0
     for(let i=0; i<Cart.length; i++)
@@ -25,7 +27,7 @@ export const Checkout = () => {
           case 0:
             return <ShoppingCart />;
           case 1:
-            return <Address />;
+            return <Address setIsFormValid={setIsFormValid} />;
           case 2:
             return <PaymentMethod amount={amount}/>;
           default:
@@ -34,7 +36,13 @@ export const Checkout = () => {
       };
       const handleNext = ()=>{
         if(currentStep < 2 ){
-        setCurrentStep(currentStep+1)
+          if(currentStep === 1)
+            if(isFormValid)
+              setCurrentStep(currentStep+1)
+            else
+              toast.error('The shipping address is not valid')
+          else
+            setCurrentStep(currentStep+1)           
         }
       }
       const handlePrevious = ()=>{
