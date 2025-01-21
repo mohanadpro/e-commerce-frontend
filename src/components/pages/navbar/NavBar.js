@@ -13,6 +13,7 @@ import { Search } from "./Search";
 import { useCart, useSetCart } from "../../../contexts/CartContext";
 import toast from "react-hot-toast";
 import { useSetAddress } from "../../../contexts/AddressContext";
+import { Badge } from "@mui/material";
 
 const NavBar = () => {
   const Cart = useCart()
@@ -108,7 +109,9 @@ const NavBar = () => {
               
             </NavLink>
             <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage}>
-              <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
+              <Badge badgeContent={Cart.length} color="primary">
+                <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
+              </Badge>
             </NavLink>
           </Nav>
         </Navbar.Collapse>
