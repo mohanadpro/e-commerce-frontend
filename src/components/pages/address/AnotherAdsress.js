@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import toast from 'react-hot-toast'
-
+import style from '../../../assets/styles/Button.module.css'
 export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress, address, setAddress, setIsFormValid}) => {
 
     useEffect(()=>{
@@ -118,9 +118,9 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                     </Form.Control.Feedback>
                 </Form.Group>
             </Row>
-            <div className='d-flex justify-content-center'>
-                <Button type="submit" variant='success'>Add</Button>
-            </div>
+            <Col md={{md:3}} className='d-flex justify-content-center'>
+                <Button type="submit" variant='primary' className={`${style.Button}`} style={{width: '20%'}}>Add</Button>
+            </Col>
         </Form>
     )
 }
