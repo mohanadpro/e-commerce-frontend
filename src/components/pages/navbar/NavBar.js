@@ -10,12 +10,15 @@ import {
 import Avatar from "../../pages/avatar/Avatar";
 import axios from "axios";
 import { Search } from "./Search";
-import { useCart } from "../../../contexts/CartContext";
+import { useCart, useSetCart } from "../../../contexts/CartContext";
 import toast from "react-hot-toast";
+import { useSetAddress } from "../../../contexts/AddressContext";
 
 const NavBar = () => {
   const Cart = useCart()
+  const setCart = useSetCart()
   const currentUser = useCurrentUser();
+  const setAddress = useSetAddress();
   const setCurrentUser = useSetCurrentUser();
   const navigate = useNavigate();
 
@@ -40,6 +43,8 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      setCart([])
+      setAddress({})
       navigate('/products')
     } catch (err) {
     }
@@ -51,28 +56,15 @@ const NavBar = () => {
       <Dropdown.Toggle variant="none" id="dropdown-basic">
         <Avatar src={currentUser?.profile_image} height={50} />
       </Dropdown.Toggle>
-
       <Dropdown.Menu>
-          <Dropdown.Item onClick={()=>moveToProfilePage(currentUser?.profile_id)}>
-            <NavLink
-              className={styles.NavLink}>
-                {currentUser?.username}
-            </NavLink>
-          </Dropdown.Item>
-
-        <Dropdown.Item onClick={()=>moveToOrdersPage()}>
-          <NavLink 
-            className={styles.NavLink}
-            >
-            Orders
-          </NavLink>
+        <Dropdown.Item onClick={()=>moveToProfilePage(currentUser?.profile_id)} className={styles.NavLink}>
+          {currentUser?.username}
         </Dropdown.Item>
-        <Dropdown.Item onClick={handleSignOut}>  
-          <NavLink
-            className={styles.NavLink}
-            >
+        <Dropdown.Item onClick={()=>moveToOrdersPage()} className={styles.NavLink}>
+            Orders
+        </Dropdown.Item>
+        <Dropdown.Item onClick={handleSignOut} className={styles.NavLink}>  
               Signout
-          </NavLink>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
@@ -118,10 +110,9 @@ const NavBar = () => {
             <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage}>
               <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
             </NavLink>
-            {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
-
         </Navbar.Collapse>
+          {currentUser ? loggedInIcons : loggedOutIcons}
       <Search/>
       </Container>
 
