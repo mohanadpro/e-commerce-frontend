@@ -7,7 +7,18 @@ import './profile.css'
 import { axiosRes } from '../../../api/axiosDefault'
 
 export const Profile = () => {
-    const [profile, setProfile] = useState({});
+    const [profile, setProfile] = useState({
+      username: '',
+      owner: '',
+      name: '',
+      email: '',
+      country: '',
+      state: '',
+      zipcode: '',
+      city: '',
+      street: '',
+      street_number: 0
+    });
     const navigate = useNavigate();
     const { id } = useParams();
     const getProfile = async ()=> {
