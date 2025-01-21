@@ -17,11 +17,13 @@ export const Products = () => {
         await axiosRes.get('/products?page=' + currentPage)
             .then(res => {
                 if (isFirstTimeLoading) {
-                    setProducts(res.data.results)
-                    setIsFirstTimeLoading(false)
+                    // setProducts(res.data.results)
+                    // setIsFirstTimeLoading(false)
                 }
                 else
+                {
                     setProducts(products => [...products, ...res.data.results])
+                }
                 setNext(res.data.next)
                 if (res.data.next != null) {
                     setCurrentPage(currentPage + 1)
