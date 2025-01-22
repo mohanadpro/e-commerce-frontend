@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Form, Col, Row, InputGroup, Button,  } from 'react-bootstrap'
 import {  useNavigate, useParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import ProfileImage from '../../../assets/images/default_profile_qdjgyp.WebP'
 import './profile.css'
 import { axiosRes } from '../../../api/axiosDefault'
 
@@ -17,7 +18,8 @@ export const Profile = () => {
       zipcode: '',
       city: '',
       street: '',
-      street_number: 0
+      street_number: 0,
+      image:ProfileImage
     });
     const navigate = useNavigate();
     const { id } = useParams();
@@ -52,18 +54,15 @@ export const Profile = () => {
     }
   return (
     <Form onSubmit={hadnleUpdate} className='profile'>
-        <Row>
-            <Col md={{span:4, offset:4}}>
-            <img alt='Profile' src={profile?.image} width='200px' height='200px'/>
-            </Col>
-        </Row>
+        <div className='d-flex justify-content-center mt-5' style={{paddingTop:'25px'}}>
+              <img alt='Profile' src={profile?.image} width='200px' height='200px'/>
+        </div>
       <Row className="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
             placeholder="Username"
-            defaultValue={profile?.owner}
             name='owner'
             value={profile.owner}
             onChange={handleChanges}
@@ -74,7 +73,6 @@ export const Profile = () => {
           <Form.Control
             type="text"
             placeholder="Name"
-            defaultValue={profile?.name}
             name='name'
             value={profile.name}
             onChange={handleChanges}
@@ -88,7 +86,6 @@ export const Profile = () => {
               type="text"
               placeholder="Email"
               aria-describedby="inputGroupPrepend"
-              defaultValue={profile?.email}
               name='email'
               value={profile.email}
               onChange={handleChanges}
@@ -100,7 +97,6 @@ export const Profile = () => {
       <Form.Group as={Col} md="4" controlId="validationCustom03">
           <Form.Label>Country</Form.Label>
           <Form.Control type="text" placeholder="Country"
-            defaultValue={profile?.country}
             name='country'
             value={profile.country}
             onChange={handleChanges}
@@ -112,7 +108,6 @@ export const Profile = () => {
         <Form.Group as={Col} md="4" controlId="validationCustom04">
           <Form.Label>State</Form.Label>
           <Form.Control type="text" placeholder="State"
-            defaultValue={profile?.state}
             name='state'
             value={profile.state}
             onChange={handleChanges}
@@ -123,8 +118,7 @@ export const Profile = () => {
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom05">
           <Form.Label>Zip</Form.Label>
-          <Form.Control type="text" placeholder="Zip" 
-            defaultValue={profile?.zipcode}
+          <Form.Control type="text" placeholder="Zip"
             name='zipcode'
             value={profile.zipcode}
             onChange={handleChanges}          
@@ -138,7 +132,6 @@ export const Profile = () => {
       <Form.Group as={Col} md="4" controlId="validationCustom03">
           <Form.Label>City</Form.Label>
           <Form.Control type="text" placeholder="City"
-            defaultValue={profile?.city}
             name='city'
             value={profile.city}
             onChange={handleChanges}
@@ -150,7 +143,6 @@ export const Profile = () => {
       <Form.Group as={Col} md="4" controlId="validationCustom03">
           <Form.Label>Street</Form.Label>
           <Form.Control type="text" placeholder="Street"
-            defaultValue={profile?.street}
             name='street'
             value={profile.street}
             onChange={handleChanges}
@@ -162,7 +154,6 @@ export const Profile = () => {
         <Form.Group as={Col} md="4" controlId="validationCustom03">
           <Form.Label>Street Number</Form.Label>
           <Form.Control type="number" placeholder="Street number"
-            defaultValue={profile?.street_number}
             name='street_number'
             value={profile.street_number}
             onChange={handleChanges}
@@ -172,7 +163,7 @@ export const Profile = () => {
           </Form.Control.Feedback>
         </Form.Group>
       </Row>
-      <div className='d-flex justify-content-center'>
+      <div className='d-flex justify-content-center my-3'>
         <Button type="submit" variant='success'>Update</Button>
       </div>
     </Form>
