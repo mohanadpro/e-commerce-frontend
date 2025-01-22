@@ -37,7 +37,6 @@ export const Search = () => {
   
   return (
     <div className={`${style.Parent}`}>
-    <Form inline >
     <Row>
       <Col xs="auto">
         <Form.Control
@@ -50,7 +49,6 @@ export const Search = () => {
         />
       </Col>
     </Row>
-  </Form>
   <div className={`${style.Child}`} style={{visibility: (searchValue === '' || results.length === 0) ? "hidden" :"visible"}}>
     <ul>
       {results?.map((item,id)=>
