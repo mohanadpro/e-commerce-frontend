@@ -8,24 +8,13 @@ import router from './components/root-component';
 import { Toaster } from 'react-hot-toast';
 import { ProductProvider } from './contexts/ProductContext';
 import { AddressProvider } from './contexts/AddressContext';
+import { App } from 'antd';
 
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <CurrentUserProvider>
-  <CartProvider>
-    <ProductProvider>
-      <AddressProvider>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
-        <RouterProvider router={router}/>
-      </AddressProvider>
-    </ProductProvider>
-  </CartProvider>
-</CurrentUserProvider>
+  <App/>
 );
 
 // If you want to start measuring performance in your app, pass a function
