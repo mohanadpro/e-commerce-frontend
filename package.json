@@ -49,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.26.3",
+    "babel": "^5.8.38",
     "gh-pages": "^6.3.0"
   }
 }
