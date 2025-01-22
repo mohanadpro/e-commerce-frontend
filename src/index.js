@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { CartProvider } from './contexts/CartContext';
-import { RouterProvider } from 'react-router-dom';
+import { Router, RouterProvider } from 'react-router-dom';
 import router from './components/root-component';
 import { Toaster } from 'react-hot-toast';
 import { ProductProvider } from './contexts/ProductContext';
@@ -12,6 +12,7 @@ import { AddressProvider } from './contexts/AddressContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Router>
     <CurrentUserProvider>
       <CartProvider>
         <ProductProvider>
@@ -20,11 +21,12 @@ root.render(
               position="top-center"
               reverseOrder={false}
             />
-            <RouterProvider router={router}/>
+            {/* <RouterProvider router={router}/> */}
           </AddressProvider>
         </ProductProvider>
       </CartProvider>
     </CurrentUserProvider>
+  </Router>
 );
 
 // If you want to start measuring performance in your app, pass a function
