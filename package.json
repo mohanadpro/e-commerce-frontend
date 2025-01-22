@@ -1,5 +1,4 @@
 {
-  "homepage": "https://mohanadpro.github.io/e-commerce-frontend",
   "name": "e-commerce-frontend",
   "version": "0.1.0",
   "private": true,
@@ -23,7 +22,7 @@
     "react-spinners": "^0.15.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
