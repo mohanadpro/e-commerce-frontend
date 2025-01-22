@@ -13,22 +13,19 @@ import { AddressProvider } from './contexts/AddressContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <h1>
-    Hello world
-  </h1>
-//   <CurrentUserProvider>
-//   <CartProvider>
-//     <ProductProvider>
-//       <AddressProvider>
-//         <Toaster
-//           position="top-center"
-//           reverseOrder={false}
-//         />
-//         <RouterProvider router={router}/>
-//       </AddressProvider>
-//     </ProductProvider>
-//   </CartProvider>
-// </CurrentUserProvider>
+  <CurrentUserProvider>
+  <CartProvider>
+    <ProductProvider>
+      <AddressProvider>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
+        <RouterProvider router={router}/>
+      </AddressProvider>
+    </ProductProvider>
+  </CartProvider>
+</CurrentUserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
