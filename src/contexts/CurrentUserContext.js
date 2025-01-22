@@ -39,9 +39,14 @@ export const CurrentUserProvider = ({ children }) => {
     );
 
     axiosRes.interceptors.response.use(
-      (response) => response
+      (response) => {
+        console.log('success res')
+        return response
+      }
         ,
       async (err) => {
+        console.log('err res')
+
         if (err.response?.status === 401) {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
