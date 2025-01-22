@@ -5,7 +5,7 @@ import { useProduct, useSetProducts } from '../../../contexts/ProductContext';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { axiosRes } from '../../../api/axiosDefault';
 import toast from 'react-hot-toast';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export const Products = () => {
     const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true)
     const [next, setNext] = useState('')
@@ -17,8 +17,8 @@ export const Products = () => {
         await axiosRes.get('/products?page=' + currentPage)
             .then(res => {
                 if (isFirstTimeLoading) {
-                    // setProducts(res.data.results)
-                    // setIsFirstTimeLoading(false)
+                    setProducts(res.data.results)
+                    setIsFirstTimeLoading(false)
                 }
                 else
                 {
@@ -54,8 +54,8 @@ export const Products = () => {
                 >
                     <Row>
                         {products.map((product, id) => 
-                            <Col md={3}  className="my-2"  key={id}>
-                                <Product product={product} id={id} />
+                            <Col xs={12} sm={6} md={4} lg={3} className="my-2"  key={id}>
+                                <Product product={product} id={id}/>
                             </Col>                                                
                         )}
                     </Row>

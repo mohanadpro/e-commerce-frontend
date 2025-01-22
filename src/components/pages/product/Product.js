@@ -47,10 +47,12 @@ export const Product = ({ product, id }) => {
       addToCart(item)
       toast.success(`count of product ${item.name} has been updated`, {duration: 3000})
     }
+
   }
 
   return (
-      <Card style={{ width: '18rem' }}>
+    <div className='product'>
+      <Card>
         <Card.Img variant="top" src={product.image} className='card-img-top' />
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
@@ -73,5 +75,6 @@ export const Product = ({ product, id }) => {
 
         </Card.Body>
       </Card>
+      </div>
   )
 }
