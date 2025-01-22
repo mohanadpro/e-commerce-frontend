@@ -22,7 +22,6 @@
     "react-spinners": "^0.15.0"
   },
   "scripts": {
-    "heroku-prebuild": "npm install -g serve",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,9 +45,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@babel/preset-react": "^7.26.3",
-    "babel": "^5.8.38",
-    "gh-pages": "^6.3.0"
+  "engines": {
+    "node": "16.13.2"
   }
 }
