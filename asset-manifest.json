@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/e-commerce-frontend/static/css/main.55e7e25e.css",
-    "main.js": "/e-commerce-frontend/static/js/main.25df7219.js",
+    "main.js": "/e-commerce-frontend/static/js/main.3ea0737d.js",
     "static/media/sign_up.WebP": "/e-commerce-frontend/static/media/sign_up.80d734a73b00c35486c7.WebP",
     "static/media/ebuy_logo.WebP": "/e-commerce-frontend/static/media/ebuy_logo.5200f23cd505c68c020c.WebP",
     "static/media/Server Error.webp": "/e-commerce-frontend/static/media/Server Error.7c84100fdee56f603afe.webp",
     "static/media/default_profile_qdjgyp.WebP": "/e-commerce-frontend/static/media/default_profile_qdjgyp.ea4281ea3abaa3ecc4da.WebP",
     "index.html": "/e-commerce-frontend/index.html",
     "main.55e7e25e.css.map": "/e-commerce-frontend/static/css/main.55e7e25e.css.map",
-    "main.25df7219.js.map": "/e-commerce-frontend/static/js/main.25df7219.js.map"
+    "main.3ea0737d.js.map": "/e-commerce-frontend/static/js/main.3ea0737d.js.map"
   },
   "entrypoints": [
     "static/css/main.55e7e25e.css",
-    "static/js/main.25df7219.js"
+    "static/js/main.3ea0737d.js"
   ]
 }
