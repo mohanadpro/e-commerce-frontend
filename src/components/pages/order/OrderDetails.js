@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap';
 import './orders.css'
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { axiosRes } from '../../../api/axiosDefault';
 export const OrderDetails = () => {
@@ -17,7 +16,8 @@ export const OrderDetails = () => {
         })
     },[])
   return (
-    <Table striped bordered hover variant="dark" style={{marginTop:'91px'}} className='orders'>
+    <div className='orders'>
+    <Table striped bordered hover variant="dark" style={{marginTop:'91px'}}>
     <thead>
       <tr>
         <th>Order</th>
@@ -40,6 +40,6 @@ export const OrderDetails = () => {
     }      
     </tbody>
   </Table>
-  
+  </div>
   )
 }
