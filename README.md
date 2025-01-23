@@ -84,5 +84,5 @@ An e-commerce website is an online platform that allows individuals to buy produ
 
 ### Custom error pages
 
-* 500 Error Page, provides user with a button the redirect to home page.
+* 500 Error Page, when there is no network with the server
 
