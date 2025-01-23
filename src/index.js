@@ -14,21 +14,26 @@ import NavBar from './components/pages/navbar/NavBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <CurrentUserProvider>
-  <CartProvider>
-    <ProductProvider>
-      <AddressProvider>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
-        <h1>Hello world</h1>
-        {/* <NavBar/> */}
-        {/* <RouterProvider router={router}/> */}
-      </AddressProvider>
-    </ProductProvider>
-  </CartProvider>
-</CurrentUserProvider>
+  <div>
+    <h1>Hello world</h1>
+    <h1>Hello world</h1>
+    <h1>Hello world</h1>
+  </div>
+//   <CurrentUserProvider>
+//   <CartProvider>
+//     <ProductProvider>
+//       <AddressProvider>
+//         <Toaster
+//           position="top-center"
+//           reverseOrder={false}
+//         />
+//         <h1>Hello world</h1>
+//         {/* <NavBar/> */}
+//         {/* <RouterProvider router={router}/> */}
+//       </AddressProvider>
+//     </ProductProvider>
+//   </CartProvider>
+// </CurrentUserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
