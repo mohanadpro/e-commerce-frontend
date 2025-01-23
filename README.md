@@ -71,3 +71,18 @@ An e-commerce website is an online platform that allows businesses and individua
 
 ### Color Scheme
 * #2142b2 - #7177a1 - #ff9254 - #242a3d - #4d68c1 
+
+
+## Security Features
+### User Authentication
+
+* Django Allauth is a popular authentication and authorization library for Django, which provides a set of features for managing user authentication, registration, and account management.
+
+### CSRF Protection
+
+* Django provides built-in protection against Cross-Site Request Forgery (CSRF) attacks. CSRF tokens are generated for each user session, and they are required to submit forms or perform state-changing actions. When a user logs out, the session and associated CSRF token are invalidated, making it difficult for an attacker to forge a valid request using a copied URL.
+
+### Custom error pages
+
+* 500 Error Page, provides user with a button the redirect to home page.
+
