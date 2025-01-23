@@ -38,7 +38,7 @@ export const Products = () => {
             })
     }
     useEffect(() => {
-        // getProducts()
+        getProducts()
     }, [])
 
     return (
