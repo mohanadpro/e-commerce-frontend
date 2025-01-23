@@ -63,3 +63,11 @@ An e-commerce website is an online platform that allows businesses and individua
 * Pet Owners: Buyers looking for pet products, from food and toys to grooming and healthcare items.
 * Looking for clothes
 
+### First time user
+* Customer can see or look for product and see information about product
+
+### Registered user
+* can Order
+* can contact with our customer support team for any order issues
+* can see their orders' history
+
