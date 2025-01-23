@@ -1,8 +1,5 @@
-.product{
-    height: calc(100vh - 60px);
-    display: flex;
-    justify-items: center;
-    align-items: center;
+.product-loader{
+    height: calc(100vh - 170px);
 }
 
 .card-img-top {

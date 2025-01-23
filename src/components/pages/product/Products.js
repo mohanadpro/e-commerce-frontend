@@ -52,8 +52,10 @@ export const Products = () => {
     }
     const loadingSpinner = (
         <>
-            <div className='product'>
-                <DotLoader size={80} loading={isLoading}/> 
+            <div>
+                <div className='product-loader d-flex justify-content-center align-items-center'>
+                    <DotLoader size={80} loading={isLoading}/> 
+                </div>
             </div>
         </>
     )
@@ -79,5 +81,6 @@ export const Products = () => {
 
     return (
         <div style={{ marginTop: '85px' }}> 
-            {isLoading ? loadingSpinner : products.length && loadProducts }
+            {isLoading ? loadingSpinner : products.length && loadProducts } 
+            
         </div>)}
