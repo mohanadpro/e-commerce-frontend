@@ -158,3 +158,17 @@ An e-commerce website is an online platform that allows individuals to buy produ
 
 * 500 Error Page, when there is no network with the server
 
+## [Features]
+* Navbar
+* In the navbar user have 4 options and search textbox  
+    1. Home to move to home page where the reservation is found
+    2. Cart icon to checkout
+    3. Sign in to move to sign in page
+    4. Sign up to move to sign up page
+    5. Search textbox to search for products per category
+<br/>
+
+![](documentation/Features/navbar.png)
+
+<br/>
+
