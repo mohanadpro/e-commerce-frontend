@@ -13,7 +13,13 @@ export const Products = () => {
     const products = useProduct()
     const setProducts = useSetProducts()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+
     const getProducts = async () => {
+        try{
         await axiosRes.get('/products?page=' + currentPage)
             .then(res => {
                 if (isFirstTimeLoading) {
@@ -36,10 +42,10 @@ export const Products = () => {
                     navigate('/server-error')
                 }
             })
+        }catch(err){
+            console.log(err , "doesn't called")
+        }
     }
-    useEffect(() => {
-        getProducts()
-    }, [])
 
     return (
         <div style={{ marginTop: '85px' }}>
