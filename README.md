@@ -3,7 +3,7 @@ An e-commerce website is an online platform that allows businesses and individua
 
 <br/>
 
-![Live Production](https://ebuy-frontend-fa9dc5581b28.herokuapp.com/products) 
+[Live Production](https://ebuy-frontend-fa9dc5581b28.herokuapp.com/products) 
 
 <br/>
 
