@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import { CurrentUserProvider } from './contexts/CurrentUserContext';
 // import { CartProvider } from './contexts/CartContext';
-// import { RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 // import router from './components/root-component';
 // import { Toaster } from 'react-hot-toast';
 // import { ProductProvider } from './contexts/ProductContext';
@@ -18,6 +18,7 @@ root.render(
     <h1>Hello world</h1>
     <h1>Hello world</h1>
     <h1>Hello world</h1>
+    <RouterProvider router={router}/>
   </div>
 //   <CurrentUserProvider>
 //   <CartProvider>

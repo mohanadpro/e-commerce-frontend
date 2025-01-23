@@ -11,7 +11,7 @@ export const MainComponent = () => {
   // },[])
   return (
     <div>
-      Hello world
+      Main Component
         {/* <NavBar/>
           <Container>
             <Outlet style={{'marginTop':'91px'}}/>
