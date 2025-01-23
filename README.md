@@ -66,12 +66,84 @@ An e-commerce website is an online platform that allows individuals to buy produ
 * can contact with our customer support team for any order issues
 * can see their orders' history
 
+
+---
+
 ## Design
 * The website provides an intuitive menu structure which is easy to understand and accessible such as sign in - sign up and home page icon, in addition to search field at top which enable the customer from about products by category
 
 ### Color Scheme
 * #2142b2 - #7177a1 - #ff9254 - #242a3d - #4d68c1 
 
+### Wireframes
+<details>
+<summary> Home Page on laptop before sign in 
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_index_laptop.png)
+</details>
+
+<details>
+<summary> Home Page on laptop after sign in 
+</summary>
+
+![Logged in user Home Page](documentation/Wireframe/wire_frame_index_laptop_after_login.png)
+</details>
+
+<details>
+<summary> Home Page on mobile before sign in 
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_index_mobile.png)
+</details>
+
+
+<details>
+<summary> Home Page on mobile after sign in 
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_index_mobile_after_login.png)
+</details>
+
+
+<details>
+<summary> Sign Up
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_sign_up.png)
+</details>
+
+<details>
+<summary> Sign In
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_sign_in.png)
+</details>
+
+<details>
+<summary> Checkout Order Details
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_checkout_cart.png)
+</details>
+
+<details>
+<summary> Checkout Address
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_checkout_address.png)
+</details>
+
+<details>
+<summary> Checkout Payment Method
+</summary>
+
+![Home Page](documentation/Wireframe/wire_frame_checkout_paiment.png)
+</details>
+
+
+
+###
 
 ## Security Features
 ### User Authentication
