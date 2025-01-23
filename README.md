@@ -205,3 +205,18 @@ at the end of the products cart there is a plus icon which enables the costumer 
 
 <br/>
 
+* Checkout: After we add products to the cart customer presses on cart icon so checkout page is opened
+    * First step is the order details so customer can see all the selected items with the info details and customer can alse change the count of the any product here by choosing any number from the select tag
+<br/>
+
+![](documentation/Features/checkout_page.png)
+
+<br/>
+
+* At the buttom of the Checkout page there is a button to proceed checkout
+
+<br/>
+
+![](documentation/Features/proceed.png)
+
+<br/>
