@@ -11,11 +11,12 @@ export const MainComponent = () => {
   },[])
   return (
     <div>
-        <NavBar/>
+      Hello world
+        {/* <NavBar/>
           <Container>
             <Outlet style={{'marginTop':'91px'}}/>
           </Container>
-        <Footer/>
+        <Footer/> */}
     </div>
   )
 }

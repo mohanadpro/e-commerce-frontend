@@ -8,6 +8,7 @@ import router from './components/root-component';
 import { Toaster } from 'react-hot-toast';
 import { ProductProvider } from './contexts/ProductContext';
 import { AddressProvider } from './contexts/AddressContext';
+import NavBar from './components/pages/navbar/NavBar';
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -21,7 +22,8 @@ root.render(
           position="top-center"
           reverseOrder={false}
         />
-        <RouterProvider router={router}/>
+        <NavBar/>
+        {/* <RouterProvider router={router}/> */}
       </AddressProvider>
     </ProductProvider>
   </CartProvider>
