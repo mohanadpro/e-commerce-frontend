@@ -23,6 +23,7 @@
     "react-spinners": "^0.15.0"
   },
   "scripts": {
+    "heroku-prebuild": "npm install -g serve",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
