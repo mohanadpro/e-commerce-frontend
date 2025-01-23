@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { CurrentUserProvider } from './contexts/CurrentUserContext';
-import { CartProvider } from './contexts/CartContext';
-import { RouterProvider } from 'react-router-dom';
-import router from './components/root-component';
-import { Toaster } from 'react-hot-toast';
-import { ProductProvider } from './contexts/ProductContext';
-import { AddressProvider } from './contexts/AddressContext';
-import NavBar from './components/pages/navbar/NavBar';
+// import { CurrentUserProvider } from './contexts/CurrentUserContext';
+// import { CartProvider } from './contexts/CartContext';
+// import { RouterProvider } from 'react-router-dom';
+// import router from './components/root-component';
+// import { Toaster } from 'react-hot-toast';
+// import { ProductProvider } from './contexts/ProductContext';
+// import { AddressProvider } from './contexts/AddressContext';
+// import NavBar from './components/pages/navbar/NavBar';
 
 // import reportWebVitals from './reportWebVitals';
 
