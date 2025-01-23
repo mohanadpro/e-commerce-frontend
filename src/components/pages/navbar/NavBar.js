@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
 import logo from "../../../assets/images/ebuy_logo.WebP";
 import styles from "./NavBar.module.css";
@@ -22,7 +22,20 @@ const NavBar = () => {
   const setAddress = useSetAddress();
   const setCurrentUser = useSetCurrentUser();
   const navigate = useNavigate();
+  const [expanded, setExpanded] = useState(false)
+  const ref = useRef();
 
+  useEffect(()=>{
+    const handleClickOutSide = e =>  {
+      if(ref.current && !ref.current.contains(e.target)){
+        setExpanded(false)
+      }
+    }
+    document.addEventListener('mouseup', handleClickOutSide)
+    return ()=>{
+      document.removeEventListener("mouseup", handleClickOutSide)
+    }
+  },[ref])
   const moveToProfilePage = (profile_id)=>{
     navigate('/profile/'+profile_id);
   }
@@ -91,14 +104,14 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
+    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <NavLink to="/products">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" ref={ref} onClick={()=>setExpanded(!expanded)} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
