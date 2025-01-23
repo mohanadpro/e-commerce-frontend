@@ -22,7 +22,8 @@ root.render(
           position="top-center"
           reverseOrder={false}
         />
-        <NavBar/>
+        <h1>Hello world</h1>
+        {/* <NavBar/> */}
         {/* <RouterProvider router={router}/> */}
       </AddressProvider>
     </ProductProvider>
