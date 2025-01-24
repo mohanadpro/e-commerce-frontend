@@ -303,3 +303,33 @@ at the end of the products cart there is a plus icon which enables the costumer 
 ![](documentation/Features/footer.png)
 
 <br/>
+
+
+## Technologies Used
+
+### Languages Used
+
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+### Used Libraries
+* [React JS](https://react.dev/) - Javascript library
+
+### Frameworks Used
+
+* [React Bootstrap](https://react-bootstrap.netlify.app/) - CSS framework
+
+### Programs Used
+
+* [Github](https://github.com/) - Storing the code online
+* [Code Institute IDE](https://codeinstitute-ide.net/workspaces) - To create work space and write code
+* [Heroku](https://www.heroku.com/) - Used as the cloud-based platform to deploy the site.
+* [Figma](https://www.figma.com/) - Used to create wireframes and schemes
+* [Am I Responsive](https://ui.dev/amiresponsive) - To show the website image on a range of devices.
+* [Git](https://git-scm.com/) - Version control
+* [Favicon Generator](https://realfavicongenerator.net/) - Used to create a favicon
+* [JSHint](https://jshint.com/) - Used to validate JavaScript
+* [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate HTML
+* [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
+* [Stack over flow](https://stackoverflow.com/) - used to search for solutions to the programming problems
