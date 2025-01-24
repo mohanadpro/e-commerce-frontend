@@ -47,7 +47,7 @@ export const Products = () => {
                 }
             })
         }catch(err){
-            console.log(err , "doesn't called")
+            
         }
     }
     const loadingSpinner = (

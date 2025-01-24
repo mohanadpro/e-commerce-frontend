@@ -25,7 +25,7 @@ export const Address = ({setIsFormValid}) => {
                 setIsFormValid(true)
             }
         }catch(err){
-            console.log(err)
+            
         }
     }
 
