@@ -199,7 +199,6 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 |               | Click on Cart Icon | Redirect to Cart Page  | PASS |
 |               | Click on Cart Icon when user doesn't added any item | A toast message appeares for 2.5 second "You have put anything in the cart"  | PASS |
 |               | A Logged in customer click on Sign out | Redirect to products page and his/her data deleted successfully | PASS |
-
 |               | Search for items by category | Get a list of items when it's found  | PASS |
 | Home          |               |                  |                  |
 |               | Before items loaded | A loader appears in the middle | PASS |
