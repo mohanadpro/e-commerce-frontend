@@ -53,7 +53,7 @@ export const Product = ({ product, id }) => {
   return (
     <div className='product'>
       <Card>
-        <Card.Img variant="top" src={product.image} className='card-img-top' />
+        <Card.Img variant="top" src={product.image} alt='product' className='card-img-top' />
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
