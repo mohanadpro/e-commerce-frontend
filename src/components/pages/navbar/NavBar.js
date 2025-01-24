@@ -108,7 +108,7 @@ const NavBar = () => {
       <Container>
         <NavLink to="/products">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="45" />
+            <img src={logo} alt="logo" height="45" aria-label="homepage"/>
           </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" ref={ref} onClick={()=>setExpanded(!expanded)} />
@@ -117,11 +117,12 @@ const NavBar = () => {
             <NavLink
               className={`${styles.NavLink}   d-flex align-items-center`}
               to="/products"
+              aria-label="home"
             >
               <i className={`${styles.Home} fas fa-home`}></i>
               
             </NavLink>
-            <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage}>
+            <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage} aria-label="shopping cart">
               <Badge badgeContent={Cart.length} color="primary">
                 <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
               </Badge>
