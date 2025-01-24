@@ -14,18 +14,14 @@ An e-commerce website is an online platform that allows individuals to buy produ
 ## Table of Contents
 ### [User Experience](#user-experience-ux)
 * [Project Goals](#project-goals)
-* [Agile Methodology](#agile-methodology)
 * [Target Audience](#target-audience)
 * [First time user](#first-time-user)
 * [Registered user](#registered-user)
 ### [Design](#design-1)
 * [Color Scheme](#color-scheme)
 * [Wireframes](#wireframes)
-* [User Journey](#user-journey)
 ### [Security Features](#security-features-1)
 ### [Features](#features-1)
-* [Existing Features](#existing-features)
-* [Features Left to Implement](#features-left-to-implement)
 ### [Technologies Used](#technologies-used-1)
 * [Languages Used](#languages-used)
 * [Frameworks Used](#frameworks-used)
@@ -141,9 +137,6 @@ An e-commerce website is an online platform that allows individuals to buy produ
 ![Home Page](documentation/Wireframe/wire_frame_checkout_paiment.png)
 </details>
 
-
-
-###
 
 ## Security Features
 ### User Authentication
