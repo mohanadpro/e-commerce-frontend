@@ -8,6 +8,9 @@
     object-fit: cover;
 }
 
+.product-info{
+    color: #f44804;
+}
 @media screen and (max-width: 668px) {
     .card-img-top {
         height: 25vh;
