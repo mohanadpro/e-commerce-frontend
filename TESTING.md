@@ -157,3 +157,12 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 ![Orders Page](documentation/Testing/validation/CSS/orders.png)
 </details>
 
+## Lighthouse Report
+
+<details>
+<summary> Home Page
+</summary>
+
+![Home Page](documentation/Testing/Lighhous/Lighthous.png)
+</details>
+
