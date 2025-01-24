@@ -332,7 +332,6 @@ at the end of the products cart there is a plus icon which enables the costumer 
 * [JSHint](https://jshint.com/) - Used to validate JavaScript
 * [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate HTML
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
-* [Stack over flow](https://stackoverflow.com/) - used to search for solutions to the programming problems
 
 ## Deployment and Local Developement
 
@@ -370,3 +369,21 @@ Live deployment can be found on this [View EBuy live website here](https://ebuy-
 
 ## Testing
 Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
+
+## References
+### Docs
+
+* [Stack Overflow](https://stackoverflow.com/)
+* [Code Institute](https://learn.codeinstitute.net/dashboard)
+* [React Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+* [Google](https://www.google.com/)
+
+### Content
+
+* All of the content is imaginary and written by the developer, me Mohanad Dahi, with the help of Code Institute's tutors [Rebecca - Oisin] in the critical issues
+* All images were taken from Google.com .
+
+### Acknowledgments
+
+* I would like to thank my mentor for support and feedback throughout this project, Mitko Bachvarov.
+* I would also like to extend my appreciation to the Code Institut's tutors [Rebecca - Oisin] 
