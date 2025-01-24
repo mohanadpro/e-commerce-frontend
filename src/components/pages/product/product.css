@@ -11,13 +11,13 @@
 .product-info{
     color: #f44804;
 }
-@media screen and (max-width: 668px) {
+@media only screen and (max-width: 668px) {
     .card-img-top {
         height: 25vh;
     }
 }
 
-@media screen and (max-width: 435px) {
+@media only screen and (max-width: 435px) {
     .card-img-top {
         height: auto;
     }
