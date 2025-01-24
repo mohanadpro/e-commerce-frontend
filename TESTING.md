@@ -45,3 +45,35 @@ The deployed website underwent rigorous testing on multiple devices and screen s
 
 ![Mobile](documentation/Testing/Responsive/Mobile.png)
 </details>
+
+## Browser Compatibility Testing
+
+The project was tested on multiple web browsers to check for compatibility issues and ensure it functions as expected across all of them. This testing process guarantees a smooth and consistent user experience, regardless of the browser used.
+
+<details>
+<summary> Chrome
+</summary>
+
+![Chrome](documentation/Testing/Compatibility/chrome.png)
+</details>
+
+<details>
+<summary> Microsoft Edge
+</summary>
+
+![Microsoft Edge](documentation/Testing/Compatibility/edge.png)
+</details>
+
+<details>
+<summary> Opera
+</summary>
+
+![Opera](documentation/Testing/Compatibility/opera.png)
+</details>
+
+<details>
+<summary> Mozilla
+</summary>
+
+![Samsung Internet Mobile](documentation/Testing/Compatibility/mozilla.png)
+</details>
