@@ -82,3 +82,46 @@ The project was tested on multiple web browsers to check for compatibility issue
 
 Device testing was conducted on a variety of phone models, including Samsung Galaxy A52, Oppo, iPhone 12, Huawei. The assistance of family members and friends was sought to perform the testing. This comprehensive approach ensured that the website was thoroughly evaluated on different devices and platforms, contributing to a more robust and user-friendly final product.
 
+### HTML Validation
+
+<details>
+<summary> Home Page
+</summary>
+
+![Home Page](documentation/Testing/validation/HTML/products.png)
+</details>
+
+<details>
+<summary> Sign Up Page
+</summary>
+
+![Sign Up Page](documentation/Testing/validation/HTML/signup.png)
+</details>
+
+<details>
+<summary> Sign in Page
+</summary>
+
+![Sign in Page](documentation/Testing/validation/HTML/signin.png)
+</details>
+
+<details>
+<summary> Profile Page
+</summary>
+
+![Profile Page](documentation/Testing/validation/HTML/profile.png)
+</details>
+
+<details>
+<summary> Checkout Page
+</summary>
+
+![Checkout Page](documentation/Testing/validation/HTML/checkout.png)
+</details>
+
+<details>
+<summary> Orders Page
+</summary>
+
+![Orders Page](documentation/Testing/validation/HTML/order_details.png)
+</details>
