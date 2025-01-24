@@ -2,7 +2,7 @@
     margin-top: 91px;
     min-height: calc(100vh - 151px);
 }
-@media only screen and(max-width: 415px) {
+@media only screen and(max-device-width: 415px) {
     .profile{
         margin-top: 1px;
     }
