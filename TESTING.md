@@ -199,3 +199,26 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 |               | Click on Cart Icon | Redirect to Cart Page  | PASS |
 |               | Click on Cart Icon when user doesn't added any item | a toast message appeares for 2.5 second "You have put anything in the cart"  | PASS |
 |               | Search for items by category | get a list of items when it's found  | PASS |
+| Home    |               |                  |                  |
+|               | Before items loaded | a loader appears in the middle | PASS |
+|               | After items retrived | a loader disappears and 8 products display instead | PASS |
+|               | When scroll down | another items will be added to the products | PASS |
+|               | After items retrived | a loader disappears and products displays instead | PASS |
+|               | After items retrived | Each product displays as a card image in the top and info in the buttom with + icon | PASS |
+|               | Choose number of purchased item and click on '+' icon | The item will be added to the cart and toaster success message appears and a budge icon will appears on the top of the shopping icon | PASS |
+| Footer     |               |                  |                  |
+|               | Click on social links in footer | Open new tab with appropriate link | PASS |
+| Sign Up Page  |                  |                  |                  |
+|               | Type invalid password | Must contain atleast 8 char | PASS |
+|               | Type valid password | No error | PASS |
+|               | Type password again (different) | Password must be the same | PASS |
+|               | Click Sign Up with empty form | Fill in the form fields | PASS |
+|               | Click Sign In if you have an account | Redirect to Login page | PASS |
+|               | Fill all the form fields | Account created, alert message that you Signed in and redirected to profile page | PASS |
+| Sign In Page  |                  |                  |                  |
+|               | Click on Sign Up, if you don't have an account | Redirect to Sign Up page | PASS |
+|               | Try invalid username | Username is not correct | PASS |
+|               | Try invalid password | Password is not correct | PASS |
+|               | Valid password and username | redirect to products page | PASS |
+|               | Click Sign In with empty form | Fill in the form fields | PASS |
+
