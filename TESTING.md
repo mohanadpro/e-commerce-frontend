@@ -197,13 +197,13 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 |               | Click on Sign In | Redirect to Sign In page | PASS |
 |               | Click on Home Icon | Redirect to Home Page  | PASS |
 |               | Click on Cart Icon | Redirect to Cart Page  | PASS |
-|               | Click on Cart Icon when user doesn't added any item | a toast message appeares for 2.5 second "You have put anything in the cart"  | PASS |
-|               | Search for items by category | get a list of items when it's found  | PASS |
+|               | Click on Cart Icon when user doesn't added any item | A toast message appeares for 2.5 second "You have put anything in the cart"  | PASS |
+|               | Search for items by category | Get a list of items when it's found  | PASS |
 | Home          |               |                  |                  |
-|               | Before items loaded | a loader appears in the middle | PASS |
-|               | After items retrived | a loader disappears and 8 products display instead | PASS |
-|               | When scroll down | another items will be added to the products | PASS |
-|               | After items retrived | a loader disappears and products displays instead | PASS |
+|               | Before items loaded | A loader appears in the middle | PASS |
+|               | After items retrived | A loader disappears and 8 products display instead | PASS |
+|               | When scroll down | Another items will be added to the products | PASS |
+|               | After items retrived | A loader disappears and products displays instead | PASS |
 |               | After items retrived | Each product displays as a card image in the top and info in the buttom with + icon | PASS |
 |               | Choose number of purchased item and click on '+' icon | The item will be added to the cart and toaster success message appears and a budge icon will appears on the top of the shopping icon | PASS |
 | Footer        |               |                  |                  |
@@ -219,21 +219,21 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 |               | Click on Sign Up, if you don't have an account | Redirect to Sign Up page | PASS |
 |               | Try invalid username | Username is not correct | PASS |
 |               | Try invalid password | Password is not correct | PASS |
-|               | Valid password and username | redirect to products page | PASS |
+|               | Valid password and username | Redirect to products page | PASS |
 |               | Click Sign In with empty form | Fill in the form fields | PASS |
 | Checkout      |                  |                  |                  |
 |               | Click on cart button when user is not signed in  | Redirect to the sign in page | PASS |
-|               | Click on cart button when user is signed in | redirect to checkout page | PASS |
+|               | Click on cart button when user is signed in | Redirect to checkout page | PASS |
 |               | Change count of specific item | Total price is changed | PASS |
 |               | Click on continue to checkout button | Address info appears, when customer has an address | PASS |
 |               | Click on continue to checkout | Address Form appears, when customer doesn't have an address | PASS |
 |               | Click on Add without filling out the address form | Please fill out the form , alert message appears | PASS |
-|               | Click on Add with filling out the address form | address info appears successfully | PASS |
-|               | Click on continue to checkout button with an invalid address | a toast error message appears, The shipping address is not valid | PASS |
+|               | Click on Add with filling out the address form | Address info appears successfully | PASS |
+|               | Click on continue to checkout button with an invalid address | A toast error message appears, The shipping address is not valid | PASS |
 |               | Click on continue to checkout button with a valid address | Payment methods (visa card - master card - paypal) appear | PASS |
 |               | Click on pay using master card and visa card without data | Please fill out the form , alert message appears | PASS |
-|               | Click on pay using master card and visa card with valid card data | success toast message, Your order has been done successfully and customer will be redirected to home page and if customer has an email, he/she will receive an email with the order detail | PASS |
-|               | Click on pay using paypal | redirect customer to paypal website | PASS |
-|               | Cancel payment using paypal | error toast message, You have cancelled the payment  | PASS |
-|               | error with payment using paypal | error toast message, There was an error with the payment  | PASS |
-|               | Make a success payment | success toast message, Your order has been done successfully and customer will be redirected to home page and if customer has an email, he/she will receive an email with the order detail  | PASS |
+|               | Click on pay using master card and visa card with valid card data | Success toast message, Your order has been done successfully and the customer will be redirected to home page and if customer has an email, he/she will receive an email with the order detail | PASS |
+|               | Click on pay using paypal | Redirect customer to paypal website | PASS |
+|               | Cancel payment using paypal | Error toast message, You have cancelled the payment  | PASS |
+|               | error with payment using paypal | Error toast message, There was an error with the payment  | PASS |
+|               | Make a success payment | Success toast message, Your order has been done successfully and the customer will be redirected to home page and if customer has an email, he/she will receive an email with the order detail  | PASS |
