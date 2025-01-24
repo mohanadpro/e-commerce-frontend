@@ -367,3 +367,6 @@ Live deployment can be found on this [View EBuy live website here](https://ebuy-
     9. Add Config Vars
     10. Click Deploy Branch
     11. Click View to launch the application inside a web page.
+
+## Testing
+Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
