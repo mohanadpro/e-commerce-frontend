@@ -57,9 +57,9 @@ export const Product = ({ product, id }) => {
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
-            Price: <span className='product-info'> {product.price}$ </span><br/>
-            Color: <span className="product-info"> {product.color} </span> <br />
-            Size: <span className="product-info">  {product.size} </span> <br/>
+            Price: <span> {product.price}$ </span><br/>
+            Color: <span> {product.color} </span> <br />
+            Size: <span>  {product.size} </span> <br/>
             Count: <select value={count} onChange={e=>setCount(e.target.value)} aria-label='count of item'>
               {
                 Array.from(Array(25), (item, i) => 
