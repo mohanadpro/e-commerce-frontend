@@ -125,3 +125,35 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 ![Orders Page](documentation/Testing/validation/HTML/order_details.png)
 </details>
+
+
+### CSS Validation
+
+<details>
+<summary> Home Page
+</summary>
+
+![Home Page)](documentation/Testing/validation/CSS/products.png)
+</details>
+
+<details>
+<summary> Sign In Page
+</summary>
+
+![Sign In Page](documentation/Testing/validation/CSS/signin.png)
+</details>
+
+<details>
+<summary> Sign Up Page
+</summary>
+
+![Sign Up Page](documentation/Testing/validation/CSS/signup.png)
+</details>
+
+<details>
+<summary> Orders Page
+</summary>
+
+![Orders Page](documentation/Testing/validation/CSS/orders.png)
+</details>
+
