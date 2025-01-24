@@ -354,3 +354,16 @@ Live deployment can be found on this [View EBuy live website here](https://ebuy-
 6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
 7. Install the packages from the package.json using this command npm install
 8. To run the project use npm run start command
+
+### Deploy to Heroku 
+    1. Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com/).
+    2. Create a new Heroku application on the following page here New [Heroku App](https://dashboard.heroku.com/apps)
+    3. Go to the Deploy tab
+    4. Link your GitHub account and connect the application to the repository you created.
+    5. Go to the Settings tab
+    6. Click "Add buildpack"
+    7. Add the Python buildpacks in the following order
+    8. Click Reveal Config Vars
+    9. Add Config Vars
+    10. Click Deploy Branch
+    11. Click View to launch the application inside a web page.
