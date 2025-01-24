@@ -198,6 +198,8 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 |               | Click on Home Icon | Redirect to Home Page  | PASS |
 |               | Click on Cart Icon | Redirect to Cart Page  | PASS |
 |               | Click on Cart Icon when user doesn't added any item | A toast message appeares for 2.5 second "You have put anything in the cart"  | PASS |
+|               | A Logged in customer click on Sign out | Redirect to products page and his/her data deleted successfully | PASS |
+
 |               | Search for items by category | Get a list of items when it's found  | PASS |
 | Home          |               |                  |                  |
 |               | Before items loaded | A loader appears in the middle | PASS |
@@ -237,3 +239,6 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 |               | Cancel payment using paypal | Error toast message, You have cancelled the payment  | PASS |
 |               | error with payment using paypal | Error toast message, There was an error with the payment  | PASS |
 |               | Make a success payment | Success toast message, Your order has been done successfully and the customer will be redirected to home page and if customer has an email, he/she will receive an email with the order detail  | PASS |
+| Orders      |                  |                  |                  |
+|             | Click on orders in the navbar | A table with orders history appears | PASS |
+|             | Click on details to a specific order | A table with buyed items and details appear | PASS |
