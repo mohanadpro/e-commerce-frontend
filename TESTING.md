@@ -166,3 +166,36 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 ![Home Page](documentation/Testing/Lighhous/Lighthous.png)
 </details>
 
+## Bugs
+
+### Resolved Bugs
+
+#### Refused to deployed on Heroku 
+* When I deployed the project to heroku I got 503 service is not available, but after contacting code institut tutors they helped me with the settings. it was an error in the Procfile and the package.json
+
+#### Refresh token
+
+ * It was an error when the user refresh the page, so all browser information were deleted, because of the token was not valid to I put an interceptor to the request to refresh the token if it's not valid 
+
+#### Cart and address stay saved after logout
+
+ * When the customer logout and another user login the selected items and address from the previous customer were found because they weren't cleared after the customer logout, so I fixed this issue by empty CartContext and AddressContext
+
+### Unresolved Bug
+
+#### Clear cart when refresh
+
+* When the customer selects items and then refresh the page the items are gone.
+
+## Features Testing
+ 
+| Page          | User Action   | Expected Result  | Notes            |
+|---------------|---------------|------------------|------------------|
+| Navbar        |               |                  |                  |
+|               | Click on Logo | Redirect to Home Page | PASS        |
+|               | Click on Sign Up button | Redirect to Sign Up page | PASS |
+|               | Click on Sign In | Redirect to Sign In page | PASS |
+|               | Click on Home Icon | Redirect to Home Page  | PASS |
+|               | Click on Cart Icon | Redirect to Cart Page  | PASS |
+|               | Click on Cart Icon when user doesn't added any item | a toast message appeares for 2.5 second "You have put anything in the cart"  | PASS |
+|               | Search for items by category | get a list of items when it's found  | PASS |
