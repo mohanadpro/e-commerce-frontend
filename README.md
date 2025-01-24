@@ -220,3 +220,86 @@ at the end of the products cart there is a plus icon which enables the costumer 
 ![](documentation/Features/proceed.png)
 
 <br/>
+
+* Address: In the checkout process after the customer press on proceed he/she moves to address which is got from his profile
+
+<br/>
+
+![](documentation/Features/customer_has_address.png)
+
+<br/>
+
+* Address: if customer want to ship the order to another address he/she clicks on the link To another address
+
+<br/>
+
+![](documentation/Features/link_to_another_address.png)
+
+<br/>
+
+* Address: this form is going to appear immediately if customer doesn't have an address or if he/she clicks on the link To another address 
+
+<br/>
+
+![](documentation/Features/another_address_form.png)
+
+<br/>
+
+* Payment Methods: The last step to checkout process. In this page customer chooses how to pay:
+    1.  Visa card or master card: customer has to fill out the payment form and click pay
+    2.  Paypal: paypal button must be click and the customer will be redirected to paypal website to login and then pay
+
+<br/>
+
+![](documentation/Features/payment_visa_mastercard.png)
+
+<br/>
+
+![](documentation/Features/payment_with_paypal.png)
+
+<br/>
+
+* Order has been doen successfully: After the customer pays successfully, a success notification will appear and the customer will be redirected to the home page
+
+<br/>
+
+![](documentation/Features/order_success.png)
+
+<br/>
+
+* Recieve an E-Mail : If the customer provided an email, so after paying successfully the customer will receive an email with the following info:
+    1. Order number
+    2. Shipping Address
+    3. Purchased items
+
+<br/>
+
+![](documentation/Features/received_email.png)
+
+<br/>
+
+* Orders : Customers can see all their orders history in a table includes info :
+    * Created Date - Customer -	Total Price	- Details
+
+<br/>
+
+![](documentation/Features/customer_orders.png)
+
+<br/>
+
+* Order Details : Customers can see all items they buy for a specific order in a table includes info :
+    * Order - Product - Count - Price - Total Price
+
+<br/>
+
+![](documentation/Features/order_items.png)
+
+<br/>
+
+* Footer : it includes icons to our social media like : Youtube - Facebook - Twitters - Instagram
+
+<br/>
+
+![](documentation/Features/footer.png)
+
+<br/>
