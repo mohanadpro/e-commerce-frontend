@@ -333,3 +333,24 @@ at the end of the products cart there is a plus icon which enables the costumer 
 * [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate HTML
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
 * [Stack over flow](https://stackoverflow.com/) - used to search for solutions to the programming problems
+
+## Deployment and Local Developement
+
+Live deployment can be found on this [View EBuy live website here](https://ebuy-frontend-fa9dc5581b28.herokuapp.com/products)
+
+### Local Developement
+
+#### How to Fork
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project [E-Commerce](https://github.com/mohanadpro/e-commerce-frontend)
+3. Click the fork button in the top right corner
+
+#### How to Clone
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project [E-Commerce](https://github.com/mohanadpro/e-commerce-frontend)
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above)
+6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
+7. Install the packages from the package.json using this command npm install
+8. To run the project use npm run start command
