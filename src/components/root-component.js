@@ -9,6 +9,7 @@ import { Order } from './pages/order/Order';
 import { Checkout } from './pages/checkout/Checkout';
 import { OrderDetails } from './pages/order/OrderDetails';
 import { ServerError } from './pages/server_error/ServerError';
+import { CategoryList } from './pages/admin-panel/category/list/CategoryList';
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
@@ -41,6 +42,10 @@ const router=createBrowserRouter([{
         {
             path:'checkout',
             element:<Checkout/>
+        },
+        {
+            path:'category',
+            element:<CategoryList/>
         },
         {
             path:'server-error',
