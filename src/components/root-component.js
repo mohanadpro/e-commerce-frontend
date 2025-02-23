@@ -13,10 +13,16 @@ import { CategoryList } from './pages/admin-panel/category/list/CategoryList';
 import CreateEditCategory from './pages/admin-panel/category/create-edit-category/CreateEditCategory';
 import { ProductList } from './pages/admin-panel/product/list/ProductList';
 import CreateEditProduct from './pages/admin-panel/product/create-edit-product/CreateEditProduct';
+import { AdminMainPage } from './pages/admin-panel/main-page/AdminMainPage';
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
     children:[
+        {
+            path:'admin',
+            element:<AdminMainPage/>,
+            
+        },
         {
             path:'signin',
             element:<SignInForm/>,
