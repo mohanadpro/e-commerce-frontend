@@ -8,11 +8,9 @@ import { Link } from 'react-router-dom';
 import { axiosReq } from '../../../../../api/axiosDefault';
 
 export function CategoryList(props) {
-      const [pageNumber, setPageNumber]=useState(0);
       const [categories, setCategories] = useState([]);
       const getCategories = async ()=>{
         axiosReq.get('categories/').then(res=>{
-            // console.log(res.data.results)
             setCategories(res.data.results)
         }).catch(err=>{
 
