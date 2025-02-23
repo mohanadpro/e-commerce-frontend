@@ -2,13 +2,7 @@
 
 import axios from 'axios';
 import React, { useEffect } from 'react'
-// import { deleteCategoryAction, getCategoryWithPagniationAction } from '../../../redux/category/category-action';
-// import { connect } from 'react-redux';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
-// import { Link } from 'react-router-dom';
-// import Swal from 'sweetalert2';
-// import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import Swal from "sweetalert2";  
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { axiosReq } from '../../../../../api/axiosDefault';
@@ -24,17 +18,24 @@ export function CategoryList(props) {
 
         })
       }
+      const deleteCategory = async (id)=>{
+        axiosReq.delete('categories/'+id).then(res=>{
+            getCategories()
+        }).catch(err=>{
+
+        })
+      }
       useEffect(() => {
         getCategories()
       }, [])
       return (
 
-            <div className="mybody" style={{marginTop:"91px", minHeight:'70h'}}>
+            <div className="mybody" style={{marginTop:"91px", minHeight:'75vh'}}>
                 <div className="title">
                     <h1>List Categories</h1>
                 </div>
                 <div className="d-flex justify-content-end">
-                        <Link to={{pathname:"/create-category",pgNumber:pageNumber}} className="btn btn-danger">
+                        <Link to={{pathname:"/category-edit-category"}} className="btn btn-danger">
                             <i className="fa-solid fa-plus"></i>
                         </Link>
                   </div>
@@ -53,8 +54,26 @@ export function CategoryList(props) {
                                         <th scope="row">{i+1}</th>
                                         <td>{item.name}</td>
                                         <td className='d-flex justify-content-center'>
-                                           <button className="btn btn-block" style={{ backgroundColor: "transparent"}}> <i className='fa-solid fa-trash' style={{color:'red'}}></i></button>
-                                           <Link className='btn btn-block' to='/create-edit-category/'> <i className='fa-solid fa-edit' color='red'></i></Link>
+                                           <button className="btn btn-block" style={{ backgroundColor: "transparent"}}
+                                           onClick={()=>{
+                                            Swal.fire({
+                                                title: "Are you sure you want to delete " + item.name + " category",
+                                                icon:'warning',
+                                                cancelButtonText: 'No',
+
+                                                showConfirmButton: true,
+                                                confirmButtonColor:'green',
+                                                cancelButtonColor:'red',
+                                                showCancelButton: true
+                                          }).then(res => {
+                                                      if (res.isConfirmed)
+                                                            deleteCategory(item.id)
+                                                      else { }
+                                                })
+                                        }
+                                        }
+                                           > <i className='fa-solid fa-trash' style={{color:'red'}}></i></button>
+                                           <Link className='btn btn-block' to="/category-edit-category" state={{ updatedCategory: item } }> <i className='fa-solid fa-edit' color='red'></i></Link>
                                         </td>
                                 </tr>
                         )}

@@ -10,6 +10,7 @@ import { Checkout } from './pages/checkout/Checkout';
 import { OrderDetails } from './pages/order/OrderDetails';
 import { ServerError } from './pages/server_error/ServerError';
 import { CategoryList } from './pages/admin-panel/category/list/CategoryList';
+import CreateEditCategory from './pages/admin-panel/category/create-edit-category/CreateEditCategory';
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
@@ -46,6 +47,10 @@ const router=createBrowserRouter([{
         {
             path:'category',
             element:<CategoryList/>
+        },
+        {
+            path:'category-edit-category',
+            element:<CreateEditCategory/>
         },
         {
             path:'server-error',
