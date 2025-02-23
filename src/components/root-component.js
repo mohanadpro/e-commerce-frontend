@@ -11,6 +11,8 @@ import { OrderDetails } from './pages/order/OrderDetails';
 import { ServerError } from './pages/server_error/ServerError';
 import { CategoryList } from './pages/admin-panel/category/list/CategoryList';
 import CreateEditCategory from './pages/admin-panel/category/create-edit-category/CreateEditCategory';
+import { ProductList } from './pages/admin-panel/product/list/ProductList';
+import CreateEditProduct from './pages/admin-panel/product/create-edit-product/CreateEditProduct';
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
@@ -47,6 +49,14 @@ const router=createBrowserRouter([{
         {
             path:'category',
             element:<CategoryList/>
+        },
+        {
+            path:'product',
+            element:<ProductList/>
+        },
+        {
+            path:'create-edit-product',
+            element:<CreateEditProduct/>
         },
         {
             path:'category-edit-category',
