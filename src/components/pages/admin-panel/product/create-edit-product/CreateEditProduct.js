@@ -102,7 +102,7 @@ function CreateEditProduct(props) {
         }
     },[])
     return (
-        <div className="mybody d-flex justify-content-center" style={{marginTop:'91px', minHeight:'75vh'}}>
+        <div className="mybody d-flex justify-content-center" style={{minHeight:'75vh'}}>
             <div className="title">
                 <h1>{product.id?"Edit Product":"Create Product"}</h1>
             </div>

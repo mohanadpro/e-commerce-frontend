@@ -45,7 +45,7 @@ export function ProductList(props) {
       }, [])
       return (
 
-            <div className="mybody" style={{marginTop:"91px", minHeight:'75vh'}}>
+            <div className="mybody" style={{minHeight:'75vh'}}>
                 <div className="title">
                     <h1>List Products</h1>
                 </div>

@@ -37,7 +37,7 @@ function CreateEditCategory(props) {
         }
       },[])
       return (
-            <div className="mybody d-flex justify-content-center" style={{marginTop:'91px', minHeight:'75vh'}}>
+            <div className="mybody d-flex justify-content-center" style={{minHeight:'75vh'}}>
                 <div className="title">
                     <h1>{category.id?"Edit Category":"Create Category"}</h1>
                 </div>
