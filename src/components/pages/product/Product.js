@@ -53,14 +53,14 @@ export const Product = ({ product, id }) => {
   return (
     <div className='product'>
       <Card>
-        <Card.Img variant="top" src={product.image} className='card-img-top' />
+        <Card.Img variant="top" src={product.image} alt='product' className='card-img-top' />
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
-            Price: <span className='text-info'> {product.price}$ </span><br/>
-            Color: <span className="text-info"> {product.color} </span> <br />
-            Size: <span className="text-info">  {product.size} </span> <br/>
-            Count: <select value={count} onChange={e=>setCount(e.target.value)}>
+            Price: <span> {product.price}$ </span><br/>
+            Color: <span> {product.color} </span> <br />
+            Size: <span>  {product.size} </span> <br/>
+            Count: <select value={count} onChange={e=>setCount(e.target.value)} aria-label='count of item'>
               {
                 Array.from(Array(25), (item, i) => 
                 {
@@ -68,8 +68,8 @@ export const Product = ({ product, id }) => {
                 })
               }
             </select>
-            <Button variant="none" size="sm" onClick={() => handleIncrement(product)}>
-            <i className='fa fa-plus'></i>
+            <Button variant="none" size="sm" onClick={() => handleIncrement(product)} aria-label='Add to cart'>
+              <i className='fa fa-plus'></i>
           </Button>
           </Card.Text>
 

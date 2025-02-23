@@ -12,7 +12,7 @@ export const OrderDetails = () => {
             setOrderDetails(res.data)
         })
         .catch(err=>{
-            console.log(err)
+          
         })
     },[])
   return (

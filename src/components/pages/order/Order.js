@@ -9,7 +9,7 @@ export const Order = () => {
       setOrders(res.data)
     })
     .catch(err=>{
-      console.log(err)
+      
     })
   }
   useEffect(()=>{
