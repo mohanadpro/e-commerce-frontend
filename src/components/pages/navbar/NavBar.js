@@ -63,7 +63,15 @@ const NavBar = () => {
     } catch (err) {
     }
   };
-
+  const cartIcon = (
+    <>
+    <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage} aria-label="shopping cart">
+      <Badge badgeContent={Cart.length} color="primary">
+        <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
+      </Badge>
+    </NavLink>
+  </>
+  )
   const loggedInIcons = (
     <>
     <Dropdown>
@@ -74,9 +82,9 @@ const NavBar = () => {
         <Dropdown.Item onClick={()=>moveToProfilePage(currentUser?.profile_id)} className={styles.NavLink}>
           {currentUser?.username}
         </Dropdown.Item>
-        <Dropdown.Item onClick={()=>moveToOrdersPage()} className={styles.NavLink}>
+        {currentUser && !currentUser.is_admin && <Dropdown.Item onClick={()=>moveToOrdersPage()} className={styles.NavLink}>
             Orders
-        </Dropdown.Item>
+        </Dropdown.Item> }
         <Dropdown.Item onClick={handleSignOut} className={styles.NavLink}>  
               Signout
         </Dropdown.Item>
@@ -122,15 +130,11 @@ const NavBar = () => {
               <i className={`${styles.Home} fas fa-home`}></i>
               
             </NavLink>
-            <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage} aria-label="shopping cart">
-              <Badge badgeContent={Cart.length} color="primary">
-                <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
-              </Badge>
-            </NavLink>
+            { (!currentUser || !currentUser.is_admin) && cartIcon  }
           </Nav>
         </Navbar.Collapse>
-          {currentUser ? loggedInIcons : loggedOutIcons}
-      <Search/>
+        {currentUser ? loggedInIcons : loggedOutIcons}
+        { (!currentUser || !currentUser.is_admin) && <Search/> }
       </Container>
 
     </Navbar>

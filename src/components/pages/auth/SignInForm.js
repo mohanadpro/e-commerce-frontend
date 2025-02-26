@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./SignInUpForm.module.css";
 import btnStyles from "../../../assets/styles/Button.module.css";
 import appStyles from "../../../App.module.css";
-import { useSetCurrentUser } from "../../../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../../../contexts/CurrentUserContext";
 
 import axios from "axios";
 import { axiosRes } from "../../../api/axiosDefault";
@@ -22,12 +22,19 @@ function SignInForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user);
-      if(location.state == null)
-        navigate('/products',{replace:true});
-      else
-        navigate('/checkout',{replace:true});
+        const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+        const user = data.user;
+        user['is_admin'] = data.is_admin
+        setCurrentUser(user);
+        if(data.is_admin == true)
+            navigate('/admin',{replace:true});
+        else
+        {
+          if(location.state == null)
+            navigate('/products',{replace:true});
+          else
+            navigate('/checkout',{replace:true});
+        }
     } catch (err) {
       setErrors(err.response?.data);
     }
