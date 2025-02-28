@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import './admin-main-page.css'
 import { CategoryList } from '../category/list/CategoryList';
 import { ProductList } from '../product/list/ProductList';
+import { OrderList } from '../order/list/OrderList';
 export const AdminMainPage = () => {
     const [activeTab, setActiveTab] = useState(0);
 
   // Step 2: Define the tab titles and content
   const tabs = [
+    { title: 'Orders', content: <OrderList/>},
     { title: 'Products', content: <ProductList/>},
     { title: 'Categories', content: <CategoryList/>}
   ];
