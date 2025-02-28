@@ -3,11 +3,19 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import NavBar from '../navbar/NavBar'
 import { Footer } from '../footer/Footer'
 import { Container } from 'react-bootstrap'
+import { useCurrentUser } from '../../../contexts/CurrentUserContext'
 
 export const MainComponent = () => {
   const navigate = useNavigate();
+  const currentUser = useCurrentUser();
   useEffect(()=>{
-    navigate('/products')
+    if(currentUser)
+    {
+    if(currentUser?.is_admin)
+      navigate('/admin')
+    else
+      navigate('products')
+    }
   },[])
   return (
     <div>
