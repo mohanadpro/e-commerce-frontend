@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefault";
 
+
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
@@ -12,8 +13,14 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const handleMount = async () => {
     try {
-      const { data } = await axiosRes.get("/dj-rest-auth/user/");
-      setCurrentUser(data);
+
+      axiosRes.get("/dj-rest-auth/user/").then(res=>{
+        const user = res.data.user;
+        user['is_admin'] = res.data.is_admin
+        setCurrentUser(user);
+      });
+
+
     } catch (err) {
     }
   };
@@ -28,7 +35,7 @@ export const CurrentUserProvider = ({ children }) => {
         try {
           await axios.post("/dj-rest-auth/token/refresh/");
         } catch (err) {
-          setCurrentUser(null)
+          // setCurrentUser(null)
           return config;
         }
         return config;
@@ -48,7 +55,7 @@ export const CurrentUserProvider = ({ children }) => {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
-            setCurrentUser(null);
+            // setCurrentUser(null);
           }
           return axios(err.config);
         }
