@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import NavBar from '../navbar/NavBar'
 import { Footer } from '../footer/Footer'
 import { Container } from 'react-bootstrap'
-import { useCurrentUser } from '../../../contexts/CurrentUserContext'
-
 export const MainComponent = () => {
   const navigate = useNavigate();
-  const currentUser = useCurrentUser();
+  const is_admin = localStorage.getItem("is_admin");    
   useEffect(()=>{
-    if(currentUser)
+    if(is_admin == "true")
     {
-    if(currentUser?.is_admin)
       navigate('/admin')
+    }
     else
-      navigate('products')
+    {
+      navigate('/products')
     }
   },[])
   return (
