@@ -37,7 +37,8 @@ const NavBar = () => {
     }
   },[ref])
   const moveToProfilePage = (profile_id)=>{
-    navigate('/profile/'+profile_id);
+    if(localStorage.getItem("is_admin") != "true")
+      navigate('/profile/'+profile_id);
   }
   const moveToOrdersPage = () =>{
     navigate('/orders/');
@@ -115,22 +116,23 @@ const NavBar = () => {
   return (
     <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
       <Container>
-        <NavLink to="/products">
+       { (!currentUser || !currentUser.is_admin) && <NavLink to="/products">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" aria-label="homepage"/>
           </Navbar.Brand>
         </NavLink>
+       }
         <Navbar.Toggle aria-controls="basic-navbar-nav" ref={ref} onClick={()=>setExpanded(!expanded)} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <NavLink
+          { (!currentUser || !currentUser.is_admin) && <NavLink
               className={`${styles.NavLink}   d-flex align-items-center`}
               to="/products"
               aria-label="home"
             >
-              <i className={`${styles.Home} fas fa-home`}></i>
-              
+              <i className={`${styles.Home} fas fa-home`}></i>              
             </NavLink>
+            }
             { (!currentUser || !currentUser.is_admin) && cartIcon  }
           </Nav>
         </Navbar.Collapse>
