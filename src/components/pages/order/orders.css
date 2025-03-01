@@ -1,5 +1,5 @@
 .orders{
-    height: calc(100vh - 157px);
+    min-height: calc(100vh - 157px);
     margin-top: 95px;
 }
 
