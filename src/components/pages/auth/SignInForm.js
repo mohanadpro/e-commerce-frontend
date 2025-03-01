@@ -25,6 +25,7 @@ function SignInForm() {
         const { data } = await axios.post("/dj-rest-auth/login/", signInData);
         const user = data.user;
         user['is_admin'] = data.is_admin
+        localStorage.setItem("is_admin",data.is_admin)
         setCurrentUser(user);
         if(data.is_admin == true)
             navigate('/admin',{replace:true});
