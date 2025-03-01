@@ -13,15 +13,14 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const handleMount = async () => {
     try {
-
-      axiosRes.get("/dj-rest-auth/user/").then(res=>{
-        const user = res.data.user;
-        user['is_admin'] = res.data.is_admin
+        const { data } = await axiosRes.get("/dj-rest-auth/user/")
+        const user = data.user;
+        user['is_admin'] = data.is_admin
+        localStorage.setItem("is_admin", data.is_admin)
         setCurrentUser(user);
-      });
-
-
+      
     } catch (err) {
+      console.log('unauthorized')
     }
   };
 
@@ -35,7 +34,7 @@ export const CurrentUserProvider = ({ children }) => {
         try {
           await axios.post("/dj-rest-auth/token/refresh/");
         } catch (err) {
-          // setCurrentUser(null)
+          setCurrentUser(null)
           return config;
         }
         return config;
@@ -55,7 +54,7 @@ export const CurrentUserProvider = ({ children }) => {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
-            // setCurrentUser(null);
+            setCurrentUser(null);
           }
           return axios(err.config);
         }
