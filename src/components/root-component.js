@@ -14,13 +14,17 @@ import CreateEditCategory from './pages/admin-panel/category/create-edit-categor
 import { ProductList } from './pages/admin-panel/product/list/ProductList';
 import CreateEditProduct from './pages/admin-panel/product/create-edit-product/CreateEditProduct';
 import { AdminMainPage } from './pages/admin-panel/main-page/AdminMainPage';
+import { ProtectedRoute } from './pages/admin-panel/protected-router/ProtectedRoute';
+
 const router=createBrowserRouter([{
     path:'/',
     element:<MainComponent />,
     children:[
         {
             path:'admin',
-            element:<AdminMainPage/>,
+            element:(<ProtectedRoute>
+                <AdminMainPage/>
+            </ProtectedRoute>),
             
         },
         {
