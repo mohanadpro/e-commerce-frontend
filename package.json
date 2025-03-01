@@ -20,7 +20,8 @@
     "react-scripts": "5.0.1",
     "react-spinner": "^0.2.7",
     "react-spinners": "^0.15.0",
-    "sweetalert2": "^11.17.2"
+    "sweetalert2": "^11.17.2",
+    "use-local-storage": "^3.0.0"
   },
   "scripts": {
     "heroku-prebuild": "npm install -g serve",
