@@ -56,6 +56,7 @@ const NavBar = () => {
   const handleSignOut = async () => {
     try {
       await axiosRes.post("dj-rest-auth/logout/");
+      localStorage.removeItem("is_admin")
       setCurrentUser(null);
       setCart([])
       setAddress({})
