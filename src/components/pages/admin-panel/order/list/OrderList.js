@@ -1,7 +1,6 @@
 // import '../../../styles/public.css';
 
 import React, { useEffect } from 'react'
-import Swal from "sweetalert2";  
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { axiosReq } from '../../../../../api/axiosDefault';
