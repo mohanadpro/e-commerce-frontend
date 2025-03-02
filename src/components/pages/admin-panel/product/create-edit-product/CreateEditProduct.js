@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { axiosReq } from '../../../../../api/axiosDefault';
 import TextArea from 'antd/es/input/TextArea';
-
+import './create-edit-product.css'
 function CreateEditProduct(props) {
     const navigate = useNavigate()
     const location = useLocation();
@@ -122,12 +122,11 @@ function CreateEditProduct(props) {
         }
     },[])
     return (
-        <div className="mybody d-flex justify-content-center" style={{minHeight:'75vh'}}>
-            <div className="title">
-                <h1>{product.id?"Edit Product":"Create Product"}</h1>
-            </div>
-            
+        <div className="create-edit-product d-flex justify-content-center" style={{minHeight:'75vh', marginTop: '21px'}}>
             <form className="col-sm-12 col-md-6 mt-5">
+                <div className="title d-flex justify-content-center">
+                    <h1>{product.id?"Edit Product":"Create Product"}</h1>
+                </div>
                 <div className="form-style1">
                         <div className="form-group input-block-level mt-5">
                             <input type="text" value={product.name} className="form-control " placeholder="Enter Product Name" onChange={e => setProduct({ ...product, name: e.target.value })} />
@@ -205,7 +204,7 @@ function CreateEditProduct(props) {
                             <label for="product_image">Please Choose an image</label>
                             <input 
                             type="file"
-                            style={{display:true}}
+                            style={{display:'block'}}
                             onChange={fileSelectorHandler}
                             />
                         </div>}
@@ -221,12 +220,14 @@ function CreateEditProduct(props) {
                             placeholder="Enter Product Description"
                             onChange={e => setProduct({ ...product, description: e.target.value })} />
                         </div>
-                        <button onClick={(e) => {
-                            e.preventDefault();
-                            product.id ? editProduct(product) : createProduct(product);
-                        }} className="btn btn-success input-block-level mt-3 mb-5" style={{borderRadius:"20px"}}>
-                            {product.id ? "Edit product" : "Create product"}
-                        </button>
+                        <div className='d-flex justify-content-center' >
+                            <button onClick={(e) => {
+                                e.preventDefault();
+                                product.id ? editProduct(product) : createProduct(product);
+                            }} className="btn btn-primary btn-bg input-block-level mt-3 mb-5" style={{borderRadius:"20px" ,width: '100%'}}>
+                                { product.id ? "Edit product" : "Create product" }
+                            </button>
+                        </div>
                 </div>                  
             </form>
         </div>
