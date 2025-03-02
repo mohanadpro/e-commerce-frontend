@@ -81,7 +81,7 @@ export function ProductList(props) {
                             <tr key={i}>
                                 <th scope="row">{i+1}</th>
                                 <td>{item.name}</td>
-                                <td>{item.category}</td>
+                                <td>{item.category_name}</td>
                                 <td>{item.price}</td>
                                 <td>{item.size}</td>
                                 <td>{item.color}</td>
