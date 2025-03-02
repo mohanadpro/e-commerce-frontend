@@ -9,7 +9,6 @@ function CreateEditCategory(props) {
       const navigate = useNavigate()
       const location = useLocation();
       const {state} = location;
-      const {updatedCategory} = state;
       const [category, setCategory] = useState({name: ''});
       const editCategory= ()=>{
         axiosReq.put('/categories/'+category.id+'/', category)
@@ -31,13 +30,12 @@ function CreateEditCategory(props) {
       }
       
       useEffect(() => {
-        if(updatedCategory!=null)
-        {
-            setCategory({id:updatedCategory.id, name:updatedCategory.name})
+        if(state != null){
+            setCategory({id: state.updatedCategory.id, name: state.updatedCategory.name})            
         }
       },[])
       return (
-            <div className="mybody d-flex justify-content-center" style={{minHeight:'75vh'}}>
+            <div className="mybody d-flex justify-content-center" style={{minHeight:'75vh', marginTop: '91px'}}>
                 <div className="title">
                     <h1>{category.id?"Edit Category":"Create Category"}</h1>
                 </div>
