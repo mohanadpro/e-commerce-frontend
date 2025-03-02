@@ -303,7 +303,122 @@ at the end of the products cart there is a plus icon which enables the costumer 
     * username: mohanad
     * password: Mohanad@123
 
+<br/>
 
+* Manage Orders : After user logged in as an admin, so all orders which are not shipped will be displayed :
+    * Actions -	Created At - Total Price - Customer - Delivery Place
+
+<br/>
+
+![](documentation/Features/admin_category_list.png)
+
+<br/>
+
+* Ship Order : If the order has been shipped so the admin can click on the track icon to update the status of the order
+
+<br/>
+
+![](documentation/Features/admin_ship_order.png)
+
+<br/>
+
+* Manage Products: An Admin Loggedin user can see all products in table
+    * Product Name - Category -	Price -	Size - Color - Gender - Actions
+
+<br/>
+
+![](documentation/Features/admin_product_list.png)
+
+<br/>
+
+<br/>
+
+* Delete Product: An Admin Loggedin user can delete product by clicking on trash icon, so a confirm message appears
+1. if admin clicked No the product will not be deleted
+2. if admin clicked Yes the product will be deleted
+
+<br/>
+
+![](documentation/Features/admin_delete_product_trash_icon.png)
+
+<br/>
+
+![](documentation/Features/admin_delete_product.png)
+
+<br/>
+
+* Edit Product: An Admin Loggedin user can edit product by clicking on edit icon, the user will be redirected to another page which include a form of the product info as Fields so the user change the desired fields and press then Edit Product button
+
+<br/>
+
+![](documentation/Features/admin_edit_product_edit_icon.png)
+
+<br/>
+
+![](documentation/Features/admin_edit_product.png)
+
+<br/>
+
+<br/>
+
+* Add Product: An Admin Loggedin user can add product by clicking on plus icon, the user will be redirected to another page which include a form of the product's Fields, so the user add product's info and press then Create Product button
+
+<br/>
+
+![](documentation/Features/admin_add_product_add_icon.png)
+
+<br/>
+
+![](documentation/Features/admin_add_product.png)
+
+<br/>
+
+* Manage Categories: An Admin Loggedin user can see all Categories in table
+    * Category Name - Actions
+
+<br/>
+
+![](documentation/Features/admin_category_list.png)
+
+<br/>
+
+* Delete Category: An Admin Loggedin user can delete category by clicking on trash icon, so a confirm message appears
+1. if admin clicked No the category will not be deleted
+2. if admin clicked Yes the category will be deleted
+
+<br/>
+
+![](documentation/Features/admin_delete_product_trash_icon.png)
+
+<br/>
+
+![](documentation/Features/admin_delete_category.png)
+
+<br/>
+
+* Edit Category: An Admin Loggedin user can edit category by clicking on edit icon, the user will be redirected to another page which include a form consists of one textfield for category name, so the user change it and press then Edit Category button
+
+<br/>
+
+![](documentation/Features/admin_edit_product_edit_icon.png)
+
+<br/>
+
+![](documentation/Features/admin_edit_categoy.png)
+
+<br/>
+
+* Add Category: An Admin Loggedin user can add category by clicking on plus icon, the user will be redirected to another page which include a form consists of category name, so the user add category name and press then Create Category button
+
+<br/>
+
+![](documentation/Features/admin_add_product_add_icon.png)
+
+<br/>
+
+![](documentation/Features/admin_add_category.png)
+
+<br/>
 
 ## Technologies Used
 
