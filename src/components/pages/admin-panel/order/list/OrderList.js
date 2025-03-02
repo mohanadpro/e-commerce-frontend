@@ -55,11 +55,6 @@ export function OrderList(props) {
                 <div className="title">
                     <h1>List Orders</h1>
                 </div>
-                <div className="d-flex justify-content-end">
-                        <Link to={{pathname:"/create-edit-order"}} className="btn btn-danger">
-                            <i className="fa-solid fa-plus"></i>
-                        </Link>
-                  </div>
                 <div  className='d-flex flex-column justify-content-between' >
                 <InfiniteScroll
                                 dataLength={orders.length}
