@@ -298,6 +298,12 @@ at the end of the products cart there is a plus icon which enables the costumer 
 
 <br/>
 
+### Admin Panel: 
+*  Admin Login: To Login as admin you can use this credintial
+    * username: mohanad
+    * password: Mohanad@123
+
+
 
 ## Technologies Used
 
