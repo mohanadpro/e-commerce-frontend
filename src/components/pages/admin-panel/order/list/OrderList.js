@@ -80,7 +80,7 @@ export function OrderList(props) {
                                 <td><button className='btn btn-none' onClick={()=>{shipOrder(item)}}><i className="fa-solid fa-truck"></i></button> </td>
                                 <td>{item.created_at}</td>
                                 <td>{item.total_price}</td>
-                                <td>{item.customer}</td>
+                                <td>{item.customer_name}</td>
                                 <td>{item.delivery_place}</td>
                             </tr>
                         )}
