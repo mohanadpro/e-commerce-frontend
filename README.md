@@ -14,6 +14,7 @@ An e-commerce website is an online platform that allows individuals to buy produ
 ## Table of Contents
 ### [User Experience](#user-experience-ux)
 * [Project Goals](#project-goals)
+* [Agile Methodology](#agile-methodology)
 * [Target Audience](#target-audience)
 * [First time user](#first-time-user)
 * [Registered user](#registered-user)
@@ -49,6 +50,40 @@ An e-commerce website is an online platform that allows individuals to buy produ
 #####  Increasing Sales and Conversion Rates
 * Streamlined checkout process: Make the checkout experience as simple and quick as possible to reduce cart abandonment.
 * Multiple payment options: Offer different payment methods (credit cards, PayPal).
+
+### Agile Methodology
+
+Agile Methodology was used to help prioritize and organize tasks, writting the user stories and using Project Boards on Github. Template was created to help write User Stories
+
+### User Stories
+
+1. User Management 
+    a. Sign up
+    b. Sign in
+    c. Log out
+2. Update Profile
+3. Home Page
+    a. Get Products
+4. Search for products by category name
+5. Add product to cart
+6. Checkout an order
+7. Orders History
+8. Orders Details
+
+#### Admin panel user stories
+1. Manage Categories
+    a. Add Category
+    b. Display Categories
+    c. Delete Category
+    d. Edit Category 
+2. Manage Products
+    a. Add Product
+    b. Display Products
+    c. Delete Product
+    d. Edit Product
+3. Manage Orders 
+    a. Display Orders
+    b. Ship order
 
 ### Target Audience
 * Luxury Shoppers: Customers looking for high-end, exclusive, or premium products (e.g., designer clothing, luxury watches, fine jewelry, and gourmet items).
