@@ -58,12 +58,12 @@ Agile Methodology was used to help prioritize and organize tasks, writting the u
 ### User Stories
 
 1. User Management 
-    a. Sign up
-    b. Sign in
-    c. Log out
+   - Sign up
+   - Sign in
+   - Log out
 2. Update Profile
 3. Home Page
-    a. Get Products
+   - Get Products
 4. Search for products by category name
 5. Add product to cart
 6. Checkout an order
@@ -72,18 +72,18 @@ Agile Methodology was used to help prioritize and organize tasks, writting the u
 
 #### Admin panel user stories
 1. Manage Categories
-    a. Add Category
-    b. Display Categories
-    c. Delete Category
-    d. Edit Category 
+   - Add Category
+   - Display Categories
+   - Delete Category
+   - Edit Category 
 2. Manage Products
-    a. Add Product
-    b. Display Products
-    c. Delete Product
-    d. Edit Product
+    - Add Product
+    - Display Products
+    - Delete Product
+    - Edit Product
 3. Manage Orders 
-    a. Display Orders
-    b. Ship order
+    - Display Orders
+    - Ship order
 
 ### Target Audience
 * Luxury Shoppers: Customers looking for high-end, exclusive, or premium products (e.g., designer clothing, luxury watches, fine jewelry, and gourmet items).
