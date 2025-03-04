@@ -25,7 +25,10 @@ function CreateEditCategory(props) {
             navigate('/category')
         })
         .catch(err=>{
-            toast.error('There is a problem with the create')
+            if(err.response?.data.name['0'])
+                toast.error(err.response?.data.name['0'])
+            else
+                toast.error('An error exists in creating category')                
         })
       }
       
