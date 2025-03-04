@@ -87,7 +87,8 @@ function CreateEditProduct(props) {
     const createProduct= ()=>{
         var fd=new FormData();
         fd.append('name',product.name);
-        fd.append('image',selectedImage);
+        if(selectedImage != null)
+            fd.append('image',selectedImage);
         fd.append('price',product.price);
         fd.append('description',product.description);
         fd.append('category',product.category);
@@ -99,7 +100,12 @@ function CreateEditProduct(props) {
             navigate('/product')
         })
         .catch(err=>{
-            toast.error('There is a problem with the create')
+            if(err.response?.data.name)
+                toast.error(err.response?.data.name['0'])
+            if(err.response?.data.price)
+                toast.error(err.response?.data.price['0'] +" for the price")
+            else
+                toast.error('There is a problem with the create')
         })
     }
     var fileSelectorHandler = event => {
