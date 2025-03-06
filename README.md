@@ -30,7 +30,8 @@ An e-commerce website is an online platform that allows individuals to buy produ
 * [Programs Used](#programs-used)
 ### [API Endpoints](#api-endpoints)
 * [Normal User](#normal-user)
-    * [Authentication](#Authentication)
+    * [Authentication](#authentication)
+    * [Products](#products)
 * [Admin User](#admin-user)
     * [Orders](#orders)
 ### [Deployment and Local developement](#deployment-and-local-developement-1)
@@ -499,6 +500,11 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **Registration**: `POST /dj-rest-auth/registration/`
 - **Token Refresh**: `POST /dj-rest-auth/token/refresh/`
 - **User Details**: `GET /dj-rest-auth/user/`
+
+#### Products
+- **Get All Products**: `GET /products?page=` + curentPage
+- **Get Products according to specific category**  `GET /products?category=` + categoryId
+
 
 ## Deployment and Local Developement
 
