@@ -502,9 +502,11 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **User Details**: `GET /dj-rest-auth/user/`
 
 #### Products
-- **Get All Products**: `GET /products?page=` + curentPage
-- **Get Products according to specific category**  `GET /products?category=` + categoryId
+- **Get All Products**: `GET /products?page=` + curent_page
+- **Get Products according to specific category**  `GET /products?category=` + category_id
 
+#### Categories
+- **Get all categories according to searched letters**: `GET /categories/?name__contains=` + searched_letter
 
 ## Deployment and Local Developement
 
