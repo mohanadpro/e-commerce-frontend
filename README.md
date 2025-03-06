@@ -33,6 +33,7 @@ An e-commerce website is an online platform that allows individuals to buy produ
     * [Authentication](#authentication)
     * [Products](#products)
     * [Categories](#categories)
+    * [Orders](#orders)
 * [Admin User](#admin-user)
     * [Orders](#orders)
 ### [Deployment and Local developement](#deployment-and-local-developement-1)
@@ -508,6 +509,13 @@ at the end of the products cart there is a plus icon which enables the costumer 
 
 #### Categories
 - **Get all categories according to searched letters**: `GET /categories/?name__contains=` + searched_letter
+
+#### Orders
+- **Add Order**: `POST /orders/`
+- **Get All Orders**  `GET /orders/`
+- **Get Order Details**  `GET /orders/orderDetails/` + order_id
+
+
 
 ## Deployment and Local Developement
 
