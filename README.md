@@ -40,6 +40,7 @@ An e-commerce website is an online platform that allows individuals to buy produ
     * [Admin Orders](#admin-orders)
     * [Admin Products](#admin-products)
     * [Admin Categories](#admin-categories)
+* [Frontend Architecture](#frontend-architecture)
 ### [Deployment and Local developement](#deployment-and-local-developement-1)
 * [Local Developement](#local-developement)
 * [Deploy to Heroku](#deploy-to-heroku)
@@ -543,6 +544,29 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **DELETE Category**: `DELETE categories/category_id`
 - **Update Category**: `PUT categories/category_id`
 - **Add Category**: `POST categories/`
+
+---
+
+## Frontend Architecture
+### Key Components
+#### Normal User
+- **NavBar**: Provides navigation across the app based on user authentication status.
+- **SignUpForm** Provide a form to create new user
+- **SignInForm** Provide a form to sign in either as a normal user or an admin
+- **Profile**: Shows a profile's information
+- **Products**: Shows products to buy
+- **ShoppingCart**: Shows selected products
+- **Address**: Shows the saved address for the customer
+- **AnotherAdress**: Provide a form to add an address if customer have not added one before
+- **Paypal**: Provide payment method using paypal
+- **StripePayment**: Provide payment method using stripe example (Master card - Visa card)
+- **OrderList**: Shows orders' history to the customer
+
+#### Admin User
+- **CategoryList**: Shows all saved categories and delete one 
+- **CreateEditCategory**: Provide a form to create new category
+- **ProductList**: Shows all saved products and delete one 
+- **CreateEditProduct**: Provide a form to create new product
 
 ## Deployment and Local Developement
 
