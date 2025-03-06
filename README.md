@@ -39,6 +39,7 @@ An e-commerce website is an online platform that allows individuals to buy produ
 * [Admin User](#admin-user)
     * [Admin Orders](#admin-orders)
     * [Admin Products](#admin-products)
+    * [Admin Categories](#admin-categories)
 ### [Deployment and Local developement](#deployment-and-local-developement-1)
 * [Local Developement](#local-developement)
 * [Deploy to Heroku](#deploy-to-heroku)
@@ -536,6 +537,12 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **DELETE Product**: `DELETE 'products/` + product_id
 - **Update Product**: `PUT 'products/` + product_id
 - **Add Product**: `POST 'products/`
+
+#### Admin Categories
+- **Get all categories**: `GET 'categories/?page=` + current_page
+- **DELETE Category**: `DELETE 'categories/` + category_id
+- **Update Category**: `PUT 'categories/` + category_id
+- **Add Category**: `POST 'categories/`
 
 ## Deployment and Local Developement
 
