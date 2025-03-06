@@ -32,6 +32,7 @@ An e-commerce website is an online platform that allows individuals to buy produ
 * [Normal User](#normal-user)
     * [Authentication](#authentication)
     * [Products](#products)
+    * [Categories](#categories)
 * [Admin User](#admin-user)
     * [Orders](#orders)
 ### [Deployment and Local developement](#deployment-and-local-developement-1)
