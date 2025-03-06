@@ -491,8 +491,8 @@ at the end of the products cart there is a plus icon which enables the costumer 
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
 
 ## API Endpoints
-
-### Authentication
+### Normal User
+#### Authentication
 
 - **Login**: `POST /dj-rest-auth/login/`
 - **Logout**: `POST /dj-rest-auth/logout/`
