@@ -28,6 +28,11 @@ An e-commerce website is an online platform that allows individuals to buy produ
 * [Used Libraries](#used-libraries)
 * [Frameworks Used](#frameworks-used)
 * [Programs Used](#programs-used)
+### [API Endpoints](#api-endpoints)
+* [Normal User](#normal-user)
+    * [Authentication](#Authentication)
+* [Admin User](#admin-user)
+    * [Orders](#orders)
 ### [Deployment and Local developement](#deployment-and-local-developement-1)
 * [Local Developement](#local-developement)
 * [Deploy to Heroku](#deploy-to-heroku)
@@ -54,6 +59,8 @@ An e-commerce website is an online platform that allows individuals to buy produ
 ### Agile Methodology
 
 Agile Methodology was used to help prioritize and organize tasks, writting the user stories and using Project Boards on Github. Template was created to help write User Stories
+
+[Ebuy Project](https://github.com/users/mohanadpro/projects/10/views/1)
 
 ### User Stories
 
