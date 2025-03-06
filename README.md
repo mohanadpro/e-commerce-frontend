@@ -490,6 +490,16 @@ at the end of the products cart there is a plus icon which enables the costumer 
 * [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate HTML
 * [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
 
+## API Endpoints
+
+### Authentication
+
+- **Login**: `POST /dj-rest-auth/login/`
+- **Logout**: `POST /dj-rest-auth/logout/`
+- **Registration**: `POST /dj-rest-auth/registration/`
+- **Token Refresh**: `POST /dj-rest-auth/token/refresh/`
+- **User Details**: `GET /dj-rest-auth/user/`
+
 ## Deployment and Local Developement
 
 Live deployment can be found on this [View EBuy live website here](https://ebuy-frontend-fa9dc5581b28.herokuapp.com/products)
