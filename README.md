@@ -567,6 +567,7 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **CreateEditCategory**: Provide a form to create new category
 - **ProductList**: Shows all saved products and delete one 
 - **CreateEditProduct**: Provide a form to create new product
+- **admin-panel/OrderList**: Provide a form to create new product
 
 ## Deployment and Local Developement
 
