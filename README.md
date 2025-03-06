@@ -508,13 +508,13 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **User Details**: `GET /dj-rest-auth/user/`
 
 #### Profile
-- **Get profile per id**: `GET /profiles/` + profile_id
-- **Update profile**: `PUT /profiles/` + profile_id
+- **Get profile per id**: `GET /profiles/profile_id`
+- **Update profile**: `PUT /profiles/profile_id`
 
 
 #### Products
-- **Get All Products**: `GET /products?page=` + curent_page
-- **Get Products according to specific category**  `GET /products?category=` + category_id
+- **Get All Products**: `GET /products?page=curent_page`
+- **Get Products according to specific category**  `GET /products?category=category_id`
 
 #### Categories
 - **Get all categories according to searched letters**: `GET /categories/?name__contains=searched_letter`
