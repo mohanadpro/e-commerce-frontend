@@ -569,6 +569,23 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **CreateEditProduct**: Provide a form to create new product
 - **admin-panel/OrderList**: Provide a form to create new product
 
+
+### Routing
+
+- Uses `react-router-dom` for routing:
+  - `"/"`: Home page.
+  - `"/signin"`: Sign in page.
+  - `"/signup"`: Registration page.
+  - `"/admin"`: Admin Panel.
+  - `"/products"`: Photo details page.
+  - `"/profile/:id"`: Show profile info and edit profile.
+  - `"/orders/"`: Displays all orders.
+  - `"/orders/:id"`: View order details
+  - `"/checkout"`: Show selected products, shipped address and payment method (paypal and stripe)
+  - `"/create-edit-product"`: Create Product Form
+  - `"/category-edit-category"`: Create Category Form
+  - `"/server-error"`: Redirect user to server error page if the server is off
+
 ## Deployment and Local Developement
 
 Live deployment can be found on this [View EBuy live website here](https://ebuy-frontend-fa9dc5581b28.herokuapp.com/products)
