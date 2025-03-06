@@ -517,32 +517,32 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **Get Products according to specific category**  `GET /products?category=` + category_id
 
 #### Categories
-- **Get all categories according to searched letters**: `GET /categories/?name__contains=` + searched_letter
+- **Get all categories according to searched letters**: `GET /categories/?name__contains=searched_letter`
 
 #### Orders
 - **Add Order**: `POST /orders/`
 - **Get All Orders**  `GET /orders/`
-- **Get Order Details**  `GET /orders/orderDetails/` + order_id
+- **Get Order Details**  `GET /orders/orderDetails/order_id`
 
 #### Payment
 - **Stripe Payment**: `POST /payment/`
 
 ### Admin User
 #### Admin Orders
-- **Get all orders that are not shipped**: `GET /orders/allOrders/?page=` + current_page
-- **Ship order**: `PUT /orders/orderDetails/` + order.id
+- **Get all orders that are not shipped**: `GET /orders/allOrders/?page=current_page`
+- **Ship order**: `PUT /orders/orderDetails/order.id`
 
 #### Admin Products
-- **Get all products**: `GET 'products/?page=` + current_page
-- **DELETE Product**: `DELETE 'products/` + product_id
-- **Update Product**: `PUT 'products/` + product_id
-- **Add Product**: `POST 'products/`
+- **Get all products**: `GET products/?page=current_page`
+- **DELETE Product**: `DELETE products/product_id`
+- **Update Product**: `PUT products/product_id`
+- **Add Product**: `POST products/`
 
 #### Admin Categories
-- **Get all categories**: `GET 'categories/?page=` + current_page
-- **DELETE Category**: `DELETE 'categories/` + category_id
-- **Update Category**: `PUT 'categories/` + category_id
-- **Add Category**: `POST 'categories/`
+- **Get all categories**: `GET categories/?page= current_page`
+- **DELETE Category**: `DELETE categories/category_id`
+- **Update Category**: `PUT categories/category_id`
+- **Add Category**: `POST categories/`
 
 ## Deployment and Local Developement
 
