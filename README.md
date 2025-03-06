@@ -38,6 +38,7 @@ An e-commerce website is an online platform that allows individuals to buy produ
     * [Payment](#payment)
 * [Admin User](#admin-user)
     * [Admin Orders](#admin-orders)
+    * [Admin Products](#admin-products)
 ### [Deployment and Local developement](#deployment-and-local-developement-1)
 * [Local Developement](#local-developement)
 * [Deploy to Heroku](#deploy-to-heroku)
@@ -530,6 +531,11 @@ at the end of the products cart there is a plus icon which enables the costumer 
 - **Get all orders that are not shipped**: `GET /orders/allOrders/?page=` + current_page
 - **Ship order**: `PUT /orders/orderDetails/` + order.id
 
+#### Admin Products
+- **Get all products**: `GET 'products/?page=` + current_page
+- **DELETE Product**: `DELETE 'products/` + product_id
+- **Update Product**: `PUT 'products/` + product_id
+- **Add Product**: `POST 'products/`
 
 ## Deployment and Local Developement
 
