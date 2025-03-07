@@ -215,6 +215,20 @@ Agile Methodology was used to help prioritize and organize tasks, writting the u
 
 <br/>
 
+* Search about category: in the navbar you can type in the textbox, and all the categories that contains the letters provided from the customer will appear
+
+* Get all products related to selected category: after the searched results appear under the textbox in the navbar, The customer can select one of them and the products will appear in the section under the navbar
+
+<br/>
+
+![](documentation/Features/search_category.png)
+
+<br/>
+
+![](documentation/Features/search_products.png)
+
+<br/>
+
 * Products: In this section customer can find all the products  and information about each one ex:
 Image - Name - Price - Color - Size
 at the end of the products cart there is a plus icon which enables the costumer adding product with the selected count to the shopping cart.
