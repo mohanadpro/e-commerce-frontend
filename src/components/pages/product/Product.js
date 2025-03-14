@@ -57,10 +57,15 @@ export const Product = ({ product, id }) => {
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
-            Price: <span> {product.price}$ </span><br/>
-            Color: <span> {product.color} </span> <br />
-            Size: <span>  {product.size} </span> <br/>
-            Count: <select value={count} onChange={e=>setCount(e.target.value)} aria-label='count of item'>
+            Price: <span data-testid="price"> {product.price}$ </span><br/>
+            Color: <span data-testid="color"> {product.color} </span> <br />
+            Size: <span data-testid="size">  {product.size} </span> <br/>
+            Count: <select 
+                   value={count} 
+                   onChange={e=>setCount(e.target.value)}
+                   aria-label='count of item'
+                   data-testid="select-count"
+                   >
               {
                 Array.from(Array(25), (item, i) => 
                 {
