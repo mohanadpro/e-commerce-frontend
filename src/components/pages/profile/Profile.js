@@ -83,7 +83,7 @@ export const Profile = () => {
           <Form.Label>Email</Form.Label>
           <InputGroup hasValidation>
             <Form.Control
-              type="text"
+              type="email"
               placeholder="Email"
               aria-describedby="inputGroupPrepend"
               name='email'
@@ -94,16 +94,13 @@ export const Profile = () => {
         </Form.Group>
       </Row>
       <Row className="mb-3">
-      <Form.Group as={Col} md="4" controlId="validationCustom03">
+        <Form.Group as={Col} md="4" controlId="validationCustom03">
           <Form.Label>Country</Form.Label>
           <Form.Control type="text" placeholder="Country"
             name='country'
             value={profile.country}
             onChange={handleChanges}
           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom04">
           <Form.Label>State</Form.Label>
@@ -112,56 +109,41 @@ export const Profile = () => {
             value={profile.state}
             onChange={handleChanges}
           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid state.
-          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom05">
-          <Form.Label>Zip</Form.Label>
+          <Form.Label>Zip Code</Form.Label>
           <Form.Control type="text" placeholder="Zip"
             name='zipcode'
             value={profile.zipcode}
             onChange={handleChanges}          
           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid zip.
-          </Form.Control.Feedback>
         </Form.Group>
       </Row>
       <Row className="mb-3">
-      <Form.Group as={Col} md="4" controlId="validationCustom03">
+      <Form.Group as={Col} md="4" controlId="validationCustom06">
           <Form.Label>City</Form.Label>
           <Form.Control type="text" placeholder="City"
             name='city'
             value={profile.city}
             onChange={handleChanges}
           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
       </Form.Group>
-      <Form.Group as={Col} md="4" controlId="validationCustom03">
+      <Form.Group as={Col} md="4" controlId="validationCustom07">
           <Form.Label>Street</Form.Label>
           <Form.Control type="text" placeholder="Street"
             name='street'
             value={profile.street}
             onChange={handleChanges}
           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid Street.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom03">
+       </Form.Group>
+       <Form.Group as={Col} md="4" controlId="validationCustom08">
           <Form.Label>Street Number</Form.Label>
           <Form.Control type="number" placeholder="Street number"
             name='street_number'
             value={profile.street_number}
             onChange={handleChanges}
           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid Street.
-          </Form.Control.Feedback>
-        </Form.Group>
+       </Form.Group>
       </Row>
       <div className='d-flex justify-content-center my-3'>
         <Button type="submit" variant='success'>Update</Button>
