@@ -51,7 +51,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={styles.SignInUp}>
+    <div className={styles.SignInUp} data-testid="signup-page">
     <Row className={`${styles.Row}`}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
