@@ -62,14 +62,14 @@ export const Products = () => {
     const loadProducts = (
         <>
             <InfiniteScroll
-                    dataLength={products.length}
+                    dataLength={ products ? products.length: 0 }
                     hasMore={next != null ? true : false}
                     loader={<h4> Loading... </h4>}
                     next={getProducts}
                     style={{ overflowX:'hidden'}}
                 >
             <Row>
-                {products.map((product, id) => 
+                {products?.map((product, id) => 
                     <Col xs={12} sm={6} md={4} lg={3} className="my-2"  key={id}>
                         <Product product={product} id={id}/>
                     </Col>                                                
@@ -80,7 +80,7 @@ export const Products = () => {
     )
 
     return (
-        <div style={{ marginTop: '85px' }}> 
-            {isLoading ? loadingSpinner : products.length && loadProducts } 
-            
-        </div>)}
+        <div style={{ marginTop: '85px' }} data-testid="products-page"> 
+            { isLoading ? loadingSpinner : products.length && loadProducts }
+        </div>
+        )}
