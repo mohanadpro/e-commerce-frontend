@@ -49,7 +49,7 @@ function SignInForm() {
   };
 
   return (
-      <Row className={`${styles.Row} ${styles.SignInUp}`}>
+      <Row data-testid="signin-page" className={`${styles.Row} ${styles.SignInUp}`}>
         <Col className="my-auto py-2 p-md-2" md={{span:6, offset:3}}>
           <Container className={`${styles.SpecificBoder} p-4 `} style={{backgroundColor:'#f3f3f3'}}>
             <h1 className={styles.Header}>sign in</h1>
