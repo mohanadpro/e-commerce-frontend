@@ -11,8 +11,8 @@ import { AddressProvider } from './contexts/AddressContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <CurrentUserProvider>
-  <CartProvider>
+  <CurrentUserProvider value={null}>
+  <CartProvider value={[]}>
     <ProductProvider>
       <AddressProvider>
         <Toaster
