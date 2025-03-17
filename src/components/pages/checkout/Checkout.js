@@ -52,7 +52,7 @@ export const Checkout = () => {
       }
 
   return (
-    <div className='checkout-page' data-testid="checkout-page">
+    <div className='checkout' data-testid="checkout-page">
       <Steps current={currentStep} style={{marginTop:'95px'}}>
         <Step title={"Order Details"} />
         <Step title={"Address details"} />
