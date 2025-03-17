@@ -16,7 +16,7 @@ export const Order = () => {
     getOrders()
   },[])
   return (
-    <div className='orders'>
+    <div className='orders' data-testid="order-page">
      { orders.length && <OrderTable orders={orders} setOrders={setOrders}/> }
     </div>
   )
