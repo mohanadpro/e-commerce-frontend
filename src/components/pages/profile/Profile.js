@@ -53,7 +53,7 @@ export const Profile = () => {
         })
     }
   return (
-    <Form onSubmit={hadnleUpdate} className='profile'>
+    <Form onSubmit={hadnleUpdate} className='profile' data-testid="profile-page">
         <div className='d-flex justify-content-center mt-5' style={{paddingTop:'25px'}}>
               <img alt='Profile' src={profile?.image} width='200px' height='200px'/>
         </div>
