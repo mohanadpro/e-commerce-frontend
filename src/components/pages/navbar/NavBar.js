@@ -46,29 +46,32 @@ const NavBar = () => {
   const moveToCartPage = (e) =>{
     e.preventDefault();
     if(Cart.length>0)
-      if(currentUser!=null)
-        navigate('/checkout');
-      else
-        navigate('/signin', {state:{ fromCart:'true' }});
+      if(currentUser != null)      
+        navigate('/checkout');      
+      else      
+        navigate('/signin', {state:{ fromCart:'true' }});    
     else{
-      toast.error('You have put anything in the cart',{duration:2500})
+      toast.error('You have not put anything in the cart',{duration:2500})
     }
   }
-  const handleSignOut = async () => {
+  const signOut = async () => {
     try {
-      await axiosRes.post("dj-rest-auth/logout/");
-      localStorage.removeItem("is_admin")
-      setCurrentUser(null);
-      setCart([])
-      setAddress({})
-      navigate('/products')
+        await axiosRes.post("dj-rest-auth/logout/");
+        localStorage.removeItem("is_admin")
+        setCurrentUser(null);
+        setCart([])
+        setAddress({})
+        navigate('/products')    
     } catch (err) {
     }
   };
   const cartIcon = (
     <>
-    <NavLink className={` d-flex align-items-center`} onClick={moveToCartPage} aria-label="shopping cart">
-      <Badge badgeContent={Cart.length} color="primary">
+    <NavLink 
+    data-testid="cart-link"
+    className={` d-flex align-items-center`}
+    onClick={moveToCartPage} aria-label="shopping cart">
+      <Badge badgeContent={ Cart ? Cart.length : 0 } color="primary">
         <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
       </Badge>
     </NavLink>
@@ -76,20 +79,32 @@ const NavBar = () => {
   )
   const loggedInIcons = (
     <>
-    <Dropdown>
-      <Dropdown.Toggle variant="none" id="dropdown-basic">
+    <Dropdown data-testid="loggedin-user">
+      <Dropdown.Toggle variant="none" id="dropdown-basic" data-testid="profile_image">
         <Avatar src={currentUser?.profile_image} height={50} />
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        <Dropdown.Item onClick={()=>moveToProfilePage(currentUser?.profile_id)} className={styles.NavLink}>
-          {currentUser?.username}
+        <Dropdown.Item
+          data-testid="username"
+          onClick={()=>moveToProfilePage(currentUser?.profile_id)}
+          className={styles.NavLink}>
+           { currentUser?.username }
         </Dropdown.Item>
-        {currentUser && !currentUser.is_admin && <Dropdown.Item onClick={()=>moveToOrdersPage()} className={styles.NavLink}>
+
+        {currentUser && !currentUser.is_admin && 
+        <Dropdown.Item
+          data-testid="orders"
+          onClick={()=>moveToOrdersPage()}
+          className={styles.NavLink}>
             Orders
-        </Dropdown.Item> }
-        <Dropdown.Item onClick={handleSignOut} className={styles.NavLink}>  
-              Signout
-        </Dropdown.Item>
+        </Dropdown.Item> 
+        }
+        <Dropdown.Item
+          data-testid="signout"
+          onClick={()=>signOut()}
+          className={styles.NavLink}>  
+            Signout
+        </Dropdown.Item>        
       </Dropdown.Menu>
     </Dropdown>
     </>
@@ -100,14 +115,15 @@ const NavBar = () => {
       <NavLink style={{display:'inline-block'}}
         className={`${styles.NavLink} d-flex align-items-center`}
         to="/signin"
+        data-testid="signin-link"
       >
-       <div>  Sign in</div>
+       <div> Sign in </div>
       </NavLink>
       <NavLink
         to="/signup" style={{display:'inline-block'}}
         className={`${styles.NavLink} d-flex align-items-center`}
-      >
-       <div> Sign up</div>
+        data-testid="signup-link">
+       <div> Sign up </div>
       </NavLink>
       </div>
     </>
@@ -129,6 +145,7 @@ const NavBar = () => {
               className={`${styles.NavLink}   d-flex align-items-center`}
               to="/products"
               aria-label="home"
+              data-testid="home-link"
             >
               <i className={`${styles.Home} fas fa-home`}></i>              
             </NavLink>
