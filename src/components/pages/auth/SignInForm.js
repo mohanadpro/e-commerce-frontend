@@ -7,7 +7,7 @@ import appStyles from "../../../App.module.css";
 import { useCurrentUser, useSetCurrentUser } from "../../../contexts/CurrentUserContext";
 
 import axios from "axios";
-import { axiosRes } from "../../../api/axiosDefault";
+import { axiosReq, axiosRes } from "../../../api/axiosDefault";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -24,11 +24,18 @@ function SignInForm() {
     try {
         const { data } = await axios.post("/dj-rest-auth/login/", signInData);
         const user = data.user;
-        user['is_admin'] = data.is_admin
-        localStorage.setItem("is_admin",data.is_admin)
+        user['is_admin'] = data.is_admin ? data.is_admin : false
+        console.log('MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmm')
+        
+        localStorage.setItem("is_admin", data.is_admin)
+        console.log('JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJjjj')
+
         setCurrentUser(user);
+
         if(data.is_admin == true)
+        {
             navigate('/admin',{replace:true});
+        }
         else
         {
           if(location.state == null)
@@ -38,6 +45,7 @@ function SignInForm() {
         }
     } catch (err) {
       setErrors(err.response?.data);
+      console.log(errors)
     }
   };
 
@@ -53,11 +61,16 @@ function SignInForm() {
         <Col className="my-auto py-2 p-md-2" md={{span:6, offset:3}}>
           <Container className={`${styles.SpecificBoder} p-4 `} style={{backgroundColor:'#f3f3f3'}}>
             <h1 className={styles.Header}>sign in</h1>
-            {errors?.non_field_errors?.map((message, idx) => (
+            {errors?.non_field_errors ? errors?.non_field_errors?.map((message, idx) => (
                 <Alert key={idx} variant="warning" className="mt-3">
                   {message}
                 </Alert>
-              ))}
+              )) : errors?.password &&
+              errors?.password?.map((message, idx) => (
+                <Alert key={idx} variant="warning" className="mt-3">
+                  {message} <span className="text-danger">password</span>
+                </Alert> ))
+            }
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="username">
                 <Form.Label className="d-none">Username</Form.Label>
@@ -65,6 +78,7 @@ function SignInForm() {
                   type="text"
                   placeholder="Username"
                   name="username"
+                  data-testid="username"
                   className={styles.Input}
                   value={username}
                   onChange={handleChange}
@@ -76,6 +90,7 @@ function SignInForm() {
                   type="password"
                   placeholder="Password"
                   name="password"
+                  data-testid="password"
                   className={styles.Input}
                   value={password}
                   onChange={handleChange}
@@ -84,13 +99,14 @@ function SignInForm() {
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
                 type="submit"
+                data-testid="signin-button"
               >
                 Sign in
               </Button>
             </Form>
           </Container>
           <Container className={`mt-3 ${appStyles.Content}`}>
-            <Link className={styles.Link} to="/signup">
+            <Link className={styles.Link} to="/signup" data-testid="signup-link">
               Don't have an account? <span>Sign up now!</span>
             </Link>
           </Container>
