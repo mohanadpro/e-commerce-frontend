@@ -13,7 +13,7 @@ export const AdminMainPage = () => {
     { title: 'Categories', content: <CategoryList/>}
   ];
   return (
-    <div style={{marginTop:'91px', minHeight:'75vh'}}>
+    <div style={{marginTop:'91px', minHeight:'75vh'}} data-testid="admin-page">
     <div className="tabs">
       {/* Step 3: Render tab titles dynamically */}
       {tabs.map((tab, index) => (
