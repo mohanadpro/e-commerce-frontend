@@ -66,6 +66,7 @@ const SignUpForm = () => {
                 name="username"
                 value={username}
                 onChange={handleChange}
+                data-testid="username_signup"
               />
             </Form.Group>
             {errors.username?.map((message, idx) => (
@@ -83,6 +84,8 @@ const SignUpForm = () => {
                 name="password1"
                 value={password1}
                 onChange={handleChange}
+                data-testid="password1_signup"
+
               />
             </Form.Group>
             {errors.password1?.map((message, idx) => (
@@ -100,6 +103,8 @@ const SignUpForm = () => {
                 name="password2"
                 value={password2}
                 onChange={handleChange}
+                data-testid="password2_signup"
+
               />
             </Form.Group>
             {errors.password2?.map((message, idx) => (
@@ -111,6 +116,7 @@ const SignUpForm = () => {
             <Button
               className={`${btnStyle.Button} ${btnStyle.Wide} ${btnStyle.Bright}`}
               type="submit"
+              data-testid="signup-button"
             >
               Sign up
             </Button>
@@ -123,7 +129,7 @@ const SignUpForm = () => {
         </Container>
 
         <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to="/signin">
+          <Link className={styles.Link} to="/signin" data-testid="signin-link">
             Already have an account? <span>Sign in</span>
           </Link>
         </Container>
