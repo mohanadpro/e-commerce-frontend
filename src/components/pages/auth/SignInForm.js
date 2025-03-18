@@ -4,10 +4,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./SignInUpForm.module.css";
 import btnStyles from "../../../assets/styles/Button.module.css";
 import appStyles from "../../../App.module.css";
-import { useCurrentUser, useSetCurrentUser } from "../../../contexts/CurrentUserContext";
+import { useSetCurrentUser } from "../../../contexts/CurrentUserContext";
 
 import axios from "axios";
-import { axiosReq, axiosRes } from "../../../api/axiosDefault";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -24,18 +23,11 @@ function SignInForm() {
     try {
         const { data } = await axios.post("/dj-rest-auth/login/", signInData);
         const user = data.user;
-        user['is_admin'] = data.is_admin ? data.is_admin : false
-        console.log('MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmm')
-        
-        localStorage.setItem("is_admin", data.is_admin)
-        console.log('JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJjjj')
-
+        user['is_admin'] = data.is_admin
+        localStorage.setItem("is_admin",data.is_admin)
         setCurrentUser(user);
-
-        if(data.is_admin == true)
-        {
-            navigate('/admin',{replace:true});
-        }
+        if(data.is_admin == true)        
+            navigate('/admin',{replace:true});        
         else
         {
           if(location.state == null)
@@ -45,7 +37,6 @@ function SignInForm() {
         }
     } catch (err) {
       setErrors(err.response?.data);
-      console.log(errors)
     }
   };
 
