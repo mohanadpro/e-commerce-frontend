@@ -32,20 +32,22 @@ export const Product = ({ product, id }) => {
         'price': item.price,
         'total_price': item.price * count              
     }
-  setCart([ ...Cart, added_product ])
+    setCart([ ...Cart, added_product ])  
   }
-  const handleIncrement = (item) => {
-    const res = checkIfItemInArray(item);
+
+  const handleIncrement = () => {
+    const res = checkIfItemInArray(product);
     if(res[0] === false)
     {
-      addToCart(item)
-      toast.success(`${item.name} has been added to the cart`, {duration: 3000})
+      addToCart(product)
+      const message = `${product.name} has been added to the cart`;
+      toast.success(message, {duration: 3000})
     }
     else
     {
       Cart.splice(res[1], 1);
-      addToCart(item)
-      toast.success(`count of product ${item.name} has been updated`, {duration: 3000})
+      addToCart(product)
+      toast.success(`count of product ${product.name} has been updated`, {duration: 3000})
     }
 
   }
@@ -73,7 +75,7 @@ export const Product = ({ product, id }) => {
                 })
               }
             </select>
-            <Button variant="none" size="sm" onClick={() => handleIncrement(product)} aria-label='Add to cart'>
+            <Button variant="none" size="sm" onClick={() => handleIncrement()} aria-label='Add to cart' data-testid="add-product">
               <i className='fa fa-plus'></i>
           </Button>
           </Card.Text>
