@@ -70,8 +70,8 @@ const NavBar = () => {
     <NavLink 
     data-testid="cart-link"
     className={` d-flex align-items-center`}
-    onClick={moveToCartPage} aria-label="shopping cart">
-      <Badge badgeContent={ Cart ? Cart.length : 0 } color="primary">
+    onClick={ moveToCartPage } aria-label="shopping cart">
+      <Badge badgeContent={ Cart ? Cart.length : 0 } color="primary" data-testid="shopping-cart">
         <i className={`${styles.ShoppingCart} fa-solid fa-cart-shopping`} color="red"></i>
       </Badge>
     </NavLink>
