@@ -1,26 +1,11 @@
 import React from 'react'
-import { it, expect, describe, vi } from 'vitest' 
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { it, expect, describe } from 'vitest' 
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Product } from './Product';
-import userEvent from '@testing-library/user-event';
-import { CartProvider, useCart } from '../../../contexts/CartContext';
-import * as toastModule from 'react-hot-toast'; 
 import NavBar from '../navbar/NavBar';
 import { BrowserRouter } from 'react-router-dom';
 
 
-
-
-vi.mock(import("react-hot-toast"), async (importOriginal) => {
-const actual = await importOriginal()
-return {
-    ...actual,
-    toast: {
-    success: vi.fn(),
-    error: vi.fn(),
-    },
-}
-})
 describe('Test Product', ()=>{
     it('Test render product image', ()=>{
         const product = {name: 'Product 1', price: 26, Color: 'White', Size: 'Gender', image:'/src/assets/images/default_profile_qdjgyp.WebP'}
