@@ -1,9 +1,26 @@
 import React from 'react'
-import { it, expect, describe } from 'vitest' 
-import { fireEvent, render, screen } from '@testing-library/react';
+import { it, expect, describe, vi } from 'vitest' 
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Product } from './Product';
+import userEvent from '@testing-library/user-event';
+import { CartProvider, useCart } from '../../../contexts/CartContext';
+import * as toastModule from 'react-hot-toast'; 
+import NavBar from '../navbar/NavBar';
+import { BrowserRouter } from 'react-router-dom';
 
 
+
+
+vi.mock(import("react-hot-toast"), async (importOriginal) => {
+const actual = await importOriginal()
+return {
+    ...actual,
+    toast: {
+    success: vi.fn(),
+    error: vi.fn(),
+    },
+}
+})
 describe('Test Product', ()=>{
     it('Test render product image', ()=>{
         const product = {name: 'Product 1', price: 26, Color: 'White', Size: 'Gender', image:'/src/assets/images/default_profile_qdjgyp.WebP'}
@@ -56,5 +73,51 @@ describe('Test Product', ()=>{
 
         fireEvent.change(count, { target: { value: '25' } });
         expect(count).toHaveValue('25');
+    })
+
+
+    it('Test add product to cart', async()=>{
+        const product = {id:0, name: 'Product 1', price: 26, color: 'White', size: 'XL', image:'/src/assets/images/default_profile_qdjgyp.WebP'}
+        render(
+            <BrowserRouter>
+                <CartProvider value={[]}>
+                    <NavBar/>
+                    <Product product={product}/>
+                </CartProvider>
+            </BrowserRouter>)
+
+        const count = screen.getByTestId('select-count')
+        fireEvent.change(count, { target: { value: '2' } });
+        expect(count).toHaveValue('2');
+
+        const selected_product = screen.getByTestId('add-product')
+        fireEvent.click(selected_product)
+
+        const shopping_cart = screen.getByTestId('shopping-cart')
+        expect(shopping_cart).toBeInTheDocument()
+        expect(shopping_cart).toHaveTextContent('1')
+    })
+
+    it('Test add another product to cart', async()=>{
+        const product = {id:1, name: 'Product 2', price: 26, color: 'White', size: 'XL', image:'/src/assets/images/default_profile_qdjgyp.WebP'}
+        const cart = [product]
+        render(
+            <BrowserRouter>
+                <CartProvider value={cart}>
+                    <NavBar/>
+                    <Product product={product}/>
+                </CartProvider>
+            </BrowserRouter>)
+
+        const count = screen.getByTestId('select-count')
+        fireEvent.change(count, { target: { value: '2' } });
+        expect(count).toHaveValue('2');
+
+        const selected_product = screen.getByTestId('add-product')
+        fireEvent.click(selected_product)
+
+        const shopping_cart = screen.getByTestId('shopping-cart')
+        expect(shopping_cart).toBeInTheDocument()
+        expect(shopping_cart).toHaveTextContent('2')
     })
 })
