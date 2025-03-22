@@ -3,8 +3,6 @@ import { it, expect, describe, vi } from 'vitest'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CurrentUserProvider } from '../../../contexts/CurrentUserContext';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import SignInForm from './SignInForm';
 import userEvent from '@testing-library/user-event';
 import SignUpForm from './SignUpForm';
@@ -66,7 +64,7 @@ describe('Test Sign in form',()=>{
         expect(message).toBeInTheDocument()
     })
 
-    it('Test click on sign in button when credential is not correct',async ()=>{
+    it('Test click on sign in button when sign in data is empty',async ()=>{
         render(<BrowserRouter>
             <SignInForm onSignIn={vi.fn()}/>
         </BrowserRouter>)
@@ -88,7 +86,7 @@ describe('Test Sign in form',()=>{
         
         const signin_button = screen.getByTestId('signin-button')
         fireEvent.click(signin_button)
-        const message =await screen.findByText(/Unable to log in with provided credentials/i)
+        const message =await screen.findByText(/Unable to log in with provided credentials./i)
         expect(message).toBeInTheDocument()
     })
 
@@ -129,7 +127,7 @@ describe('Test Sign in form',()=>{
 
         fireEvent.change(usernameTextfield, { target: { value: 'mohanad' } });
         fireEvent.change(passwordTextfield, { target: { value: 'Mohanad@123' } });
-        
+
         const signin_button = screen.getByTestId('signin-button')
         fireEvent.click(signin_button)
         const product_page =await screen.findByTestId('admin-page')
