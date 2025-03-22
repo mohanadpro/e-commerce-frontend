@@ -7,6 +7,8 @@ import { axiosRes } from '../../../api/axiosDefault';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { DotLoader } from 'react-spinners'
+import axios from 'axios';
+// import axios from 'axios';
 
 export const Products = () => {
     const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true)
@@ -21,10 +23,10 @@ export const Products = () => {
         getProducts();
     }, [])
 
-    const getProducts = async () => {
-        try{
-        await axiosRes.get('/products?page=' + currentPage)
+    const getProducts = () => {
+       axios.get('/products?page=' + currentPage)
             .then(res => {
+                console.log(res.data.results)
                 setIsLoading(false)
                 if (isFirstTimeLoading) {
                     setProducts(res.data.results)
@@ -40,15 +42,13 @@ export const Products = () => {
                 }
             })
             .catch(err=>{
+                console.log(err)
                 if(err.code === "ERR_NETWORK")
                     {
                     toast.error('We are sorry, but there is an error in the network')
                     navigate('/server-error')
                 }
             })
-        }catch(err){
-            
-        }
     }
     const loadingSpinner = (
         <>
