@@ -91,26 +91,28 @@ describe('Test Sign in form',()=>{
     })
 
     it('Test click on sign in button when credential is normal user',async ()=>{
-        render(<BrowserRouter>
-                <CurrentUserProvider value={{}}>
+    render(<BrowserRouter>
+            <CurrentUserProvider value={{}}>
+                <CartProvider value={[]}>
                     <SignInForm onSignIn={vi.fn()}/>
                     <Routes>
                         <Route path='/products' element={<Products/>}/>
                     </Routes>
-                </CurrentUserProvider>
-        </BrowserRouter>)
-        const usernameTextfield= screen.getByTestId('username')
-        const passwordTextfield = screen.getByTestId('password')
+                </CartProvider>
+            </CurrentUserProvider>
+    </BrowserRouter>)
+    const usernameTextfield= screen.getByTestId('username')
+    const passwordTextfield = screen.getByTestId('password')
 
-        fireEvent.change(usernameTextfield, { target: { value: 'user9' } });
-        fireEvent.change(passwordTextfield, { target: { value: 'Mohanad@123' } });
-        
-        const signin_button = screen.getByTestId('signin-button')
-        fireEvent.click(signin_button)
-        const product_page =await screen.findByTestId('products-page')
-        expect(product_page).toBeInTheDocument()
+    fireEvent.change(usernameTextfield, { target: { value: 'user9' } });
+    fireEvent.change(passwordTextfield, { target: { value: 'Mohanad@123' } });
+
+    const signin_button = screen.getByTestId('signin-button')
+    fireEvent.click(signin_button)
+    const product_page =await screen.findByTestId('products-page')
+    expect(product_page).toBeInTheDocument()
     })
-    
+
     it('Test click on sign in button when credential is admin user',async ()=>{
         render(<BrowserRouter>
                 <CurrentUserProvider value={{}}>
