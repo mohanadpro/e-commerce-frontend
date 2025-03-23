@@ -7,8 +7,6 @@ import { axiosRes } from '../../../api/axiosDefault';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { DotLoader } from 'react-spinners'
-import axios from 'axios';
-// import axios from 'axios';
 
 export const Products = () => {
     const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true)
@@ -24,31 +22,27 @@ export const Products = () => {
     }, [])
 
     const getProducts = () => {
-       axios.get('/products?page=' + currentPage)
-            .then(res => {
-                console.log(res.data.results)
-                setIsLoading(false)
-                if (isFirstTimeLoading) {
-                    setProducts(res.data.results)
-                    setIsFirstTimeLoading(false)
-                }
-                else
+        axiosRes.get('/products?page=' + currentPage).then(res => {
+            setIsLoading(false)
+            if (isFirstTimeLoading) {
+                setProducts(res.data.results)
+                setIsFirstTimeLoading(false)
+            }
+            else
+            {
+                setProducts(products => [...products, ...res.data.results])
+            }
+            setNext(res.data.next)
+            if (res.data.next != null) {
+                setCurrentPage(currentPage + 1)
+            }
+        }).catch(err=>{
+            if(err.code === "ERR_NETWORK")
                 {
-                    setProducts(products => [...products, ...res.data.results])
-                }
-                setNext(res.data.next)
-                if (res.data.next != null) {
-                    setCurrentPage(currentPage + 1)
-                }
-            })
-            .catch(err=>{
-                console.log(err)
-                if(err.code === "ERR_NETWORK")
-                    {
-                    toast.error('We are sorry, but there is an error in the network')
-                    navigate('/server-error')
-                }
-            })
+                toast.error('We are sorry, but there is an error in the network')
+                navigate('/server-error')
+            }
+        })
     }
     const loadingSpinner = (
         <>
