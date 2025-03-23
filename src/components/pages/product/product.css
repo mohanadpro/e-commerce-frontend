@@ -1,3 +1,7 @@
+.products{
+    min-height: calc(100vh - 170px);
+}
+
 .product-loader{
     height: calc(100vh - 170px);
 }
