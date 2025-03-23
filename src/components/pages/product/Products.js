@@ -7,7 +7,7 @@ import { axiosRes } from '../../../api/axiosDefault';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { DotLoader } from 'react-spinners'
-
+import './product.css'
 export const Products = () => {
     const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true)
     const [next, setNext] = useState('')
@@ -74,7 +74,7 @@ export const Products = () => {
     )
 
     return (
-        <div style={{ marginTop: '85px' }} data-testid="products-page"> 
+        <div className='products' style={{ marginTop: '85px' }} data-testid="products-page"> 
             { isLoading ? loadingSpinner : products.length && loadProducts }
         </div>
         )}
