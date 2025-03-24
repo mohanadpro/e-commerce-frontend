@@ -86,6 +86,8 @@ describe('Test NavBar', ()=>{
         expect(cart_icon).toBeNull()
     })
 
+    
+
     it('Test render profile image', async ()=>{
         currentUser =  { username: 'test',
             profile_image:'/src/assets/images/default_profile_qdjgyp.WebP',
@@ -247,7 +249,7 @@ describe('Test NavBar', ()=>{
         expect(checkout_link).toBeInTheDocument()
     })
 
-    it('Test render cart icon and when click render checkout page when cart has products and user is logged in',()=>{
+    it('Test render cart icon and when click render checkout page when cart has products and user is logged in', async()=>{
         cart = [
             {
                 'product': 1,
@@ -275,11 +277,16 @@ describe('Test NavBar', ()=>{
                 </CurrentUserProvider>
             </>
             )
+        
         const cart_link = screen.getByTestId('cart-link')
         expect(cart_link).toBeInTheDocument()
+        
         fireEvent.click(cart_link)
         const checkout_link = screen.getByTestId('checkout-page')
         expect(checkout_link).toBeInTheDocument()
+
+        const product_name = await screen.findByText('Test')
+        expect(product_name).toBeInTheDocument()
     })
 
     it('Test render cart icon and when click and the cart is empty, stay in the same page',()=>{
