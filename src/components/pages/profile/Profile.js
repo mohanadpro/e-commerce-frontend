@@ -24,17 +24,18 @@ export const Profile = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const getProfile = async ()=> {
-        await axiosRes.get('/profiles/'+id)
-        .then(res=>{
-            setProfile(res.data);
-        }).catch(err=>{
+      if(id != undefined)
+      {
+      await axiosRes.get('/profiles/'+id)
+      .then(res=>{
+          setProfile(res.data);
+      }).catch(err=>{
+        console.log(err)
+      })}}
 
-        })
-    }
     useEffect(()=>{
         getProfile();
     },[])
-
     const handleChanges = e=>{
         setProfile({...profile, 
             [e.target.name]: e.target.value
@@ -66,6 +67,7 @@ export const Profile = () => {
             name='owner'
             value={profile.owner}
             onChange={handleChanges}
+            data-testid="username-profile"
           />
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom02">
@@ -146,8 +148,9 @@ export const Profile = () => {
        </Form.Group>
       </Row>
       <div className='d-flex justify-content-center my-3'>
-        <Button type="submit" variant='success'>Update</Button>
+      <Button type="submit" variant='success'>Update</Button>
       </div>
     </Form>
+    
   )
 }
