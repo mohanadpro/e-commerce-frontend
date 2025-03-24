@@ -23,6 +23,7 @@ export const Products = () => {
 
     const getProducts = () => {
         axiosRes.get('/products?page=' + currentPage).then(res => {
+            console.log(res)
             setIsLoading(false)
             if (isFirstTimeLoading) {
                 setProducts(res.data.results)
