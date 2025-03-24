@@ -54,16 +54,16 @@ export const Checkout = () => {
   return (
     <div className='checkout' data-testid="checkout-page">
       <Steps current={currentStep} style={{marginTop:'95px'}}>
-        <Step title={"Order Details"} />
-        <Step title={"Address details"} />
-        <Step title={"Payment method"} />
+        <Step title={"Order Details"} data-testid="order-details-step"/>
+        <Step title={"Address details"} data-testid="address-details-step"/>
+        <Step title={"Payment method"} data-testid="payment-step"/>
       </Steps>
       <main>{renderStep(currentStep)}</main>
       <Col md={{span:4, offset:5}} style={{ marginBottom:'25px', marginTop:'75px'}}>
-       {currentStep!=0 && <Button onClick={handlePrevious} className={`${style.Button} checkout-button`}>
+       {currentStep!=0 && <Button onClick={handlePrevious} data-testid="previous-button" className={`${style.Button} checkout-button`}>
               <i className="fa-solid fa-angle-left"></i>
          Back</Button>}
-       {currentStep!=2 && <Button onClick={handleNext} className={`${style.Button} back-button`}>Continue To Checkout
+       {currentStep!=2 && <Button onClick={handleNext} data-testid="next-button" className={`${style.Button} back-button`}>Continue To Checkout
               <i className="fa-solid fa-angle-right"></i>
         </Button>}
       </Col>
