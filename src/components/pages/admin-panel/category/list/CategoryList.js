@@ -5,16 +5,21 @@ import React, { useEffect } from 'react'
 import Swal from "sweetalert2";  
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { axiosReq } from '../../../../../api/axiosDefault';
+import { axiosReq, axiosRes } from '../../../../../api/axiosDefault';
 
-export function CategoryList(props) {
+export function CategoryList({isTesting}) {
       const [categories, setCategories] = useState([]);
       const getCategories = async ()=>{
-        axiosReq.get('categories/').then(res=>{
-            setCategories(res.data.results)
-        }).catch(err=>{
-
-        })
+        try{
+        if(isTesting)
+            var { data } = await axiosReq.get('categories/', {headers: {'Authorization': `Bearer ${process.env.REACT_APP_ADMIN_TOKEN}`}});
+        else
+            var { data } = await axiosRes.get('categories/')
+        setCategories(data.results)
+        }
+        catch(err){
+            console.log(err)
+        }
       }
       const deleteCategory = async (id)=>{
         axiosReq.delete('categories/'+id).then(res=>{
@@ -30,10 +35,10 @@ export function CategoryList(props) {
 
             <div className="mybody" style={{minHeight:'75vh'}}>
                 <div className="title">
-                    <h1>List Categories</h1>
+                    <h1 data-testid="List_Categories_Text">List Categories</h1>
                 </div>
                 <div className="d-flex justify-content-end">
-                        <Link to={{pathname:"/category-edit-category"}} className="btn btn-danger">
+                        <Link data-testid="create-category-link" to={{pathname:"/category-edit-category"}} className="btn btn-danger">
                             <i className="fa-solid fa-plus"></i>
                         </Link>
                   </div>
@@ -52,7 +57,7 @@ export function CategoryList(props) {
                                         <th scope="row">{i+1}</th>
                                         <td>{item.name}</td>
                                         <td className='d-flex justify-content-center'>
-                                           <button className="btn btn-block" style={{ backgroundColor: "transparent"}}
+                                           <button data-testid="delete_category_button" className="btn btn-block" style={{ backgroundColor: "transparent"}}
                                            onClick={()=>{
                                             Swal.fire({
                                                 title: "Are you sure you want to delete " + item.name + " category",
@@ -71,7 +76,7 @@ export function CategoryList(props) {
                                         }
                                         }
                                            > <i className='fa-solid fa-trash' style={{color:'red'}}></i></button>
-                                           <Link className='btn btn-block' to="/category-edit-category" state={{ updatedCategory: item } }> <i className='fa-solid fa-edit' color='red'></i></Link>
+                                           <Link data-testid="edit-category-link" className='btn btn-block' to="/category-edit-category" state={{ updatedCategory: item } }> <i className='fa-solid fa-edit' color='red'></i></Link>
                                         </td>
                                 </tr>
                         )}
