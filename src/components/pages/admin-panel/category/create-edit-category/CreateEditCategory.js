@@ -38,7 +38,7 @@ function CreateEditCategory(props) {
         }
       },[])
       return (
-            <div className="create-edit-category d-flex justify-content-center" style={{minHeight:'75vh', marginTop: '91px'}}>
+            <div data-testid="create-edit-category-page" className="create-edit-category d-flex justify-content-center" style={{minHeight:'75vh', marginTop: '91px'}}>
                 <form className="col-sm-12 col-md-4 mt-5">
                 <div className="title d-flex justify-content-center">
                     <h2>{category.id?"Edit Category":"Create Category"}</h2>
@@ -48,7 +48,7 @@ function CreateEditCategory(props) {
                                 <input type="text" value={category.name} className="form-control " placeholder="Enter Category Name" onChange={e => setCategory({ ...category, name: e.target.value })} />
                             </div>
                             <div className='d-flex justify-content-center'>
-                            <button onClick={(e) => {
+                            <button data-testid="create-edit-button" onClick={(e) => {
                                 e.preventDefault();
                                 category.id ? editCategory(category) : createCategory(category);
                             }} className="btn btn-primary input-block-level mt-3 mb-5" style={{borderRadius:"20px", width:'100%'}}>
