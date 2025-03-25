@@ -9,7 +9,11 @@ export default defineConfig({
   test: {
     globals: true, // Enable global variables for tests (like `document`, `window`, etc.)
     environment: 'jsdom',// Set the test environment to jsdom
-    setupFiles: 'src/setupTests.js'
+    setupFiles: 'src/setupTests.js',
+    env: {
+      REACT_APP_SERVER_URL: "http://127.0.0.1:8000/",
+      REACT_APP_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQyOTA0Mzc5LCJpYXQiOjE3NDI5MDMwMDIsImp0aSI6IjBjOTM3YTlmNWY0NTRkMmViMWE5MWU3NmQ0MzBlM2IzIiwidXNlcl9pZCI6Mjl9.3kG3py0wQG44x8HYeg2D-yIY_5rxO6yplGGIzqc_n6s"
+    }
 },
 esbuild: {
     loader: "jsx",
