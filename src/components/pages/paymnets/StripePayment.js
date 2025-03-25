@@ -65,6 +65,7 @@ export const StripePayment = ({amount}) => {
                 value={card.card_number}
                 onChange={handleChanges}
                 required
+                data-testid="card_number"
             />
             </Form.Group>
         </Row>
@@ -77,6 +78,7 @@ export const StripePayment = ({amount}) => {
                 value={card.exp_month}
                 onChange={handleChanges}
                 required
+                data-testid="exp_month"
             />
             </Form.Group>
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
@@ -88,6 +90,7 @@ export const StripePayment = ({amount}) => {
                 value={card.exp_year}
                 onChange={handleChanges}
                 required
+                data-testid="exp_year"
                 />
             </InputGroup>
             </Form.Group>
@@ -100,10 +103,11 @@ export const StripePayment = ({amount}) => {
                 value={card.cvv}
                 onChange={handleChanges}
                 required
+                data-testid="cvv"
                 />
             </InputGroup>
             </Form.Group>
-            <Button className='my-3 d-flex justify-content-center' type='submit' disabled={isSpinner}>
+            <Button data-testid="pay_button" className='my-3 d-flex justify-content-center' type='submit' disabled={isSpinner}>
                 <DotLoader size={20} color='white' loading={isSpinner}/> 
                    Pay {amount}$
             </Button>
