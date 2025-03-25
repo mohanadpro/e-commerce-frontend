@@ -7,7 +7,7 @@ import ProfileImage from '../../../assets/images/default_profile_qdjgyp.WebP'
 import './profile.css'
 import { axiosRes } from '../../../api/axiosDefault'
 
-export const Profile = () => {
+export const Profile = ({isTesting}) => {
     const [profile, setProfile] = useState({
       username: '',
       owner: '',
@@ -26,12 +26,25 @@ export const Profile = () => {
     const getProfile = async ()=> {
       if(id != undefined)
       {
-      await axiosRes.get('/profiles/'+id)
-      .then(res=>{
-          setProfile(res.data);
-      }).catch(err=>{
+      try{
+        if(isTesting)
+        {
+            var { data }  = await axios.get('/profiles/'+id,   { headers : { 'Authorization': `Bearer ${process.env.REACT_APP_TOKEN}`}})
+            setProfile(data)
+        }
+        else
+        {
+            var { data }  = await axiosRes.get('/profiles/'+id);
+            setProfile(data);          
+        }    
+
+      }catch(err){
         console.log(err)
-      })}}
+      }
+      }
+    }
+    
+    
 
     useEffect(()=>{
         getProfile();
@@ -44,14 +57,24 @@ export const Profile = () => {
     const hadnleUpdate = async e =>{
         e.preventDefault(); 
         delete profile.image
-        await axios.put('profiles/'+id,profile).then(
-            res=>{
-              toast.success('Profile has been updated succesfully... ')
-              navigate('/products')
-            }
-        )
-        .catch(err=>{
-        })
+        try{
+        let res;
+        if(isTesting)
+        {
+          res = await axios.put('profiles/'+id,profile, { headers : { 'Authorization': `Bearer ${process.env.REACT_APP_TOKEN}`}});
+        }
+        else
+        {
+          res = await axios.put('profiles/'+id,profile)
+        }
+        if(res.status == 200)
+        {
+          toast.success('Profile has been updated succesfully... ')
+          navigate('/products')
+        }
+        }catch(err){
+          toast.error('Error happed while updating profile')
+        }
     }
   return (
     <Form onSubmit={hadnleUpdate} className='profile' data-testid="profile-page">
