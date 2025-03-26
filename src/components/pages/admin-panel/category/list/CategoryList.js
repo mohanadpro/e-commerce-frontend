@@ -6,13 +6,14 @@ import Swal from "sweetalert2";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { axiosReq, axiosRes } from '../../../../../api/axiosDefault';
+import { toast } from 'react-hot-toast';
 
 export function CategoryList({isTesting}) {
       const [categories, setCategories] = useState([]);
       const getCategories = async ()=>{
         try{
         if(isTesting)
-            var { data } = await axiosReq.get('categories/', {headers: {'Authorization': `Bearer ${process.env.REACT_APP_ADMIN_TOKEN}`}});
+            var { data } = await axiosReq.get('categories/', { headers : {'Authorization': `Bearer ${ process.env.REACT_APP_ADMIN_TOKEN }` }});
         else
             var { data } = await axiosRes.get('categories/')
         setCategories(data.results)
@@ -22,12 +23,24 @@ export function CategoryList({isTesting}) {
         }
       }
       const deleteCategory = async (id)=>{
-        axiosReq.delete('categories/'+id).then(res=>{
-            getCategories()
-        }).catch(err=>{
-
-        })
+        try{
+            var res;
+            if(isTesting)
+                res = await axiosReq.delete('categories/'+id, { headers : {'Authorization': `Bearer ${ process.env.REACT_APP_ADMIN_TOKEN }` }})
+            else
+                res = await axiosReq.delete('categories/'+id)
+            console.log(res.status)
+            if(res.status == 204)
+            {
+                toast.success('category deleted')
+                getCategories()
+            }
+        }catch(err)
+        {
+            console.log(err)
+        }
       }
+
       useEffect(() => {
         getCategories()
       }, [])
@@ -63,7 +76,6 @@ export function CategoryList({isTesting}) {
                                                 title: "Are you sure you want to delete " + item.name + " category",
                                                 icon:'warning',
                                                 cancelButtonText: 'No',
-
                                                 showConfirmButton: true,
                                                 confirmButtonColor:'green',
                                                 cancelButtonColor:'red',
