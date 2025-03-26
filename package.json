@@ -64,6 +64,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/ui": "^3.0.8",
     "babel-jest": "^29.7.0",
+    "dotenv": "^16.4.7",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^26.0.0"
   }
