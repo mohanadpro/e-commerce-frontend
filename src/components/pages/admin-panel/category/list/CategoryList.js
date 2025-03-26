@@ -45,8 +45,7 @@ export function CategoryList({isTesting}) {
         getCategories()
       }, [])
       return (
-
-            <div className="mybody" style={{minHeight:'75vh'}}>
+            <div data-testid="category-list-page" className="mybody" style={{minHeight:'75vh'}}>
                 <div className="title">
                     <h1 data-testid="List_Categories_Text">List Categories</h1>
                 </div>
