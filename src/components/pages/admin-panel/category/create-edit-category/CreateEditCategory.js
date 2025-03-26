@@ -1,37 +1,46 @@
 import { useEffect, useState } from 'react';
 import React from 'react'
-import toast from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { axiosReq } from '../../../../../api/axiosDefault';
+import { axiosReq, axiosRes } from '../../../../../api/axiosDefault';
 import './create-edit-category.css'
-function CreateEditCategory(props) {
+function CreateEditCategory({istTesting}) {
       const navigate = useNavigate()
       const location = useLocation();
       const {state} = location;
       const [category, setCategory] = useState({name: ''});
-      const editCategory= ()=>{
-        axiosReq.put('/categories/'+category.id+'/', category)
-        .then(res=>{
+      const editCategory= async ()=>{
+        try{
+            let res;
+            console.log(category);
+
+            if(istTesting)
+                res = await axiosReq.put('/categories/'+category.id+'/', category, { headers: {'Authorization': `Bearer ${process.env.REACT_APP_ADMIN_TOKEN}`}})
+            else
+                res = await axiosReq.put('/categories/'+category.id+'/', category)
             navigate('/category')
-        })
-        .catch(err=>{
-            toast.error('There is a problem with the editing')
-        })
+            }catch(err){
+                toast.error('There is a problem with the editing')
+            }
       }
-      const createCategory= ()=>{
-        axiosReq.post('/categories/',category)
-        .then(res=>{
-            navigate('/category')
-        })
-        .catch(err=>{
+      const createCategory= async ()=>{
+        try{
+            let res;
+            if(istTesting)
+                res = await axiosReq.post('/categories/',category, { headers: {'Authorization': `Bearer ${process.env.REACT_APP_ADMIN_TOKEN}`}})
+            else
+                res = await axiosRes.post('/categories/', category)
+            if(res.status == 201)
+                navigate('/category')
+        }catch(err){
             if(err.response?.data.name['0'])
                 toast.error(err.response?.data.name['0'])
             else
-                toast.error('An error exists in creating category')                
-        })
+                toast.error('An error exists in creating category')   
+        }
       }
-      
+
       useEffect(() => {
         if(state != null){
             setCategory({id: state.updatedCategory.id, name: state.updatedCategory.name})            
@@ -45,7 +54,7 @@ function CreateEditCategory(props) {
                 </div>
                     <div className="form-style1">
                             <div className="form-group input-block-level mt-5">
-                                <input type="text" value={category.name} className="form-control " placeholder="Enter Category Name" onChange={e => setCategory({ ...category, name: e.target.value })} />
+                                <input data-testid="category_textfield" type="text" value={category.name} className="form-control " placeholder="Enter Category Name" onChange={e => setCategory({ ...category, name: e.target.value })} />
                             </div>
                             <div className='d-flex justify-content-center'>
                             <button data-testid="create-edit-button" onClick={(e) => {
