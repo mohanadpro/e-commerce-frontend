@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { axiosReq } from '../../../../../api/axiosDefault';
 import TextArea from 'antd/es/input/TextArea';
 import './create-edit-product.css'
-function CreateEditProduct(props) {
+function CreateEditProduct({isTesting}) {
     const navigate = useNavigate()
     const location = useLocation();
     const {state} = location;
@@ -68,46 +68,63 @@ function CreateEditProduct(props) {
         'Salmon'
     ]
     const getCategories = async ()=>{
-        axiosReq.get('categories/').then(res=>{
-            setCategories(res.data.results)
-        }).catch(err=>{
+        try{
+        let res;
+        if(isTesting)
+           res = await axiosReq.get('categories/', { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
+        else
+           res = await axiosReq.get('categories/')
+        setCategories(res.data.results)
+        }catch(err){
 
-        })
+        }
     }
 
-    const editProduct= ()=>{
-        axiosReq.put('/products/'+product.id+'/', product)
-        .then(res=>{
-            navigate('/product')
-        })
-        .catch(err=>{
+    const editProduct= async ()=>{
+        try{        
+        if(isTesting)
+            axiosReq.put('/products/'+product.id+'/', product, { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
+        else
+            axiosReq.put('/products/'+product.id+'/', product)
+        navigate('/product')
+
+        }catch(err){
             toast.error('There is a problem with the editing')
-        })
+        }
     }
-    const createProduct= ()=>{
-        var fd=new FormData();
-        fd.append('name',product.name);
-        if(selectedImage != null)
-            fd.append('image',selectedImage);
-        fd.append('price',product.price);
-        fd.append('description',product.description);
-        fd.append('category',product.category);
-        fd.append('color',product.color);
-        fd.append('size',product.size);
-        fd.append('genders',product.genders);
-        axiosReq.post('/products/',fd)
-        .then(res=>{
-            navigate('/product')
-        })
-        .catch(err=>{
-            if(err.response?.data.name)
-                toast.error(err.response?.data.name['0'])
-            if(err.response?.data.price)
-                toast.error(err.response?.data.price['0'] +" for the price")
+
+    const createProduct= async ()=>{
+
+        try{        
+            var fd=new FormData();
+            fd.append('name',product.name);
+            if(selectedImage != null)
+                fd.append('image',selectedImage);
+            fd.append('price',product.price);
+            fd.append('description',product.description);
+            fd.append('category',product.category);
+            fd.append('color',product.color);
+            fd.append('size',product.size);
+            fd.append('genders',product.genders);
+            let res;
+            if(isTesting)
+                res = await axiosReq.post('/products/',fd , { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
             else
-                toast.error('There is a problem with the create')
-        })
+                res = await axiosReq.post('/products/',fd , )
+            if(res.status == 201)
+                navigate('/product')
+            }catch(err)
+            {
+                if(err.response?.data.name)
+                    toast.error(err.response?.data.name['0'])
+                if(err.response?.data.price)
+                    toast.error(err.response?.data.price['0'] +" for the price")
+                else
+                    toast.error('There is a problem with the create') 
+            }
     }
+
+
     var fileSelectorHandler = event => {
         setSelectedImage(event.target.files[0]);
     }
@@ -128,18 +145,19 @@ function CreateEditProduct(props) {
         }
     },[])
     return (
-        <div className="create-edit-product d-flex justify-content-center" style={{minHeight:'75vh', marginTop: '21px'}}>
+        <div data-testid="create-edit-product-page" className="create-edit-product d-flex justify-content-center" style={{minHeight:'75vh', marginTop: '21px'}}>
             <form className="col-sm-12 col-md-6 mt-5">
                 <div className="title d-flex justify-content-center">
                     <h1>{product.id?"Edit Product":"Create Product"}</h1>
                 </div>
                 <div className="form-style1">
                         <div className="form-group input-block-level mt-5">
-                            <input type="text" value={product.name} className="form-control " placeholder="Enter Product Name" onChange={e => setProduct({ ...product, name: e.target.value })} />
+                            <input data-testid="product_name" type="text" value={product.name} className="form-control " placeholder="Enter Product Name" onChange={e => setProduct({ ...product, name: e.target.value })} />
                         </div>                            
                         {categories.length>0 &&
                         <select className="form-control mt-2"
                         value={product.category}
+                        data-testid="product_category"
                         onChange={e =>                                     
                         {                                          
                             setProduct({ ...product, category: e.target.value })
@@ -158,6 +176,7 @@ function CreateEditProduct(props) {
                         
                         <select className="form-control mt-2"
                         value={product.color}
+                        data-testid="product_color"
                         onChange={e =>                                     
                         {                                          
                             setProduct({ ...product, color: e.target.value })
@@ -175,6 +194,7 @@ function CreateEditProduct(props) {
 
                         <select className="form-control mt-2"
                         value={product.size}
+                        data-testid="product_size"
                         onChange={e =>                                     
                         {                                          
                             setProduct({ ...product, size: e.target.value })
@@ -192,6 +212,7 @@ function CreateEditProduct(props) {
 
                         <select className="form-control mt-2"
                         value={product.genders}
+                        data-testid="product_gender"
                         onChange={e =>                                     
                         {                                          
                             setProduct({ ...product, genders: e.target.value })
@@ -218,16 +239,20 @@ function CreateEditProduct(props) {
                             <input type="text" value={product.price} 
                             className="form-control" 
                             placeholder="Enter Product Price"
+                            data-testid="product_price"
+
                             onChange={e => setProduct({ ...product, price: e.target.value })} />
                         </div>
                         <div className="form-group input-block-level mt-2">
                             <TextArea type="text" value={product.description}
                             className="form-control"
                             placeholder="Enter Product Description"
+                            data-testid="product_description"
+
                             onChange={e => setProduct({ ...product, description: e.target.value })} />
                         </div>
                         <div className='d-flex justify-content-center' >
-                            <button onClick={(e) => {
+                            <button data-testid="create-edit-button" onClick={(e) => {
                                 e.preventDefault();
                                 product.id ? editProduct(product) : createProduct(product);
                             }} className="btn btn-primary btn-bg input-block-level mt-3 mb-5" style={{borderRadius:"20px" ,width: '100%'}}>
