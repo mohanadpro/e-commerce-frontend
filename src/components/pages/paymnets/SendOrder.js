@@ -18,6 +18,7 @@ export const SendOrderToServer = async(amount, Cart, setCart, currentUser, deliv
     formData.append('email', delivery_place.email)
     formData.append('delivery_place', sended_delivery_place)
     formData.append('customer', currentUser.pk)
+    axiosRes.defaults.headers.post['Content-Type'] = 'multipart/form-data'
     axiosRes.post('orders/',formData).then(res=>{
         setCart([])
         setAddress({})
@@ -25,6 +26,7 @@ export const SendOrderToServer = async(amount, Cart, setCart, currentUser, deliv
         navigate('/products')
 
     }).catch(err=>{
+        console.log(err)
     });
 
     }
