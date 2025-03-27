@@ -8,7 +8,7 @@ import './checkout.css'
 import { useCart } from '../../../contexts/CartContext';
 import { PaymentMethod } from '../paymnets/PaymentMethod';
 import toast from 'react-hot-toast';
-export const Checkout = () => {
+export const Checkout = ({isTesting}) => {
   const { Step } = Steps;
   const [currentStep, setCurrentStep] = useState(0);
   const [ isFormValid, setIsFormValid ] = useState(false);
@@ -27,7 +27,7 @@ export const Checkout = () => {
           case 0:
             return <ShoppingCart />;
           case 1:
-            return <Address setIsFormValid={setIsFormValid} />;
+            return <Address setIsFormValid={setIsFormValid} isTesting={isTesting}/>;
           case 2:
             return <PaymentMethod amount={amount}/>;
           default:
@@ -38,11 +38,11 @@ export const Checkout = () => {
         if(currentStep < 2 ){
           if(currentStep === 1)
             if(isFormValid)
-              setCurrentStep(currentStep+1)
-            else
-              toast.error('The shipping address is not valid')
-          else
-            setCurrentStep(currentStep+1)           
+              setCurrentStep(currentStep+1)            
+            else            
+              toast.error('The shipping address is not valid')            
+          else          
+            setCurrentStep(currentStep+1)                     
         }
       }
       const handlePrevious = ()=>{
