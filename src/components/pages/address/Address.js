@@ -6,7 +6,7 @@ import './address.css'
 import { useAddress, useSetAddress } from '../../../contexts/AddressContext'
 import { AnotherAdsress } from './AnotherAdsress'
 import { axiosRes } from '../../../api/axiosDefault'
-export const Address = ({setIsFormValid}) => {
+export const Address = ({setIsFormValid, isTesting}) => {
     const [hasUserAddress, setHasUserAddress] = useState(true);
     const setAddress = useSetAddress()
     const address = useAddress()
@@ -14,9 +14,12 @@ export const Address = ({setIsFormValid}) => {
     const [ isShippingToProfileAdd, setIsShippingToProfileAddress ] = useState(true)
     const getUseProfile = async ()=>{
         try{
-        const { data } = await axiosRes.get(`profiles/${currentUser.pk}`)
+        if(isTesting)        
+            var { data } = await axiosRes.get(`profiles/${currentUser.pk}`, { headers : { 'Authorization': `Bearer ${process.env.REACT_APP_TOKEN}`}})        
+        else
+            var { data } = await axiosRes.get(`profiles/${currentUser.pk}`)
         setAddress(data)
-        if(data.city === "" || data.country === "" || data.zipcode === "" || data.street === "" || data.street_number === 0 || data.name === "c" )
+        if(data.city === "" || data.country === "" || data.zipcode === "" || data.street === "" || data.street_number === 0 || data.name === "" )
             {
                 setHasUserAddress(false)
                 setIsFormValid(false)
@@ -25,7 +28,7 @@ export const Address = ({setIsFormValid}) => {
                 setIsFormValid(true)
             }
         }catch(err){
-            
+            setHasUserAddress(false)
         }
     }
 
@@ -34,7 +37,7 @@ export const Address = ({setIsFormValid}) => {
     },[])
   return (
     <Row >
-      {hasUserAddress ? isShippingToProfileAdd ? <Col md={{span:4, offset:4}}>
+      {hasUserAddress && isShippingToProfileAdd ? <Col md={{span:4, offset:4}} data-testid="customer-address" >
             <p>
                 The order will be shipped to the below address <br/><br/>
                  {address.name} <br/>
@@ -48,12 +51,10 @@ export const Address = ({setIsFormValid}) => {
                 To another address
             </NavLink> 
        </Col>:
-       <Col md={{span:4, offset:4}}>
-        <AnotherAdsress setHasUserAddress={setHasUserAddress} setIsShippingToProfileAddress={setIsShippingToProfileAddress} address={address} setAddress={setAddress} setIsFormValid={setIsFormValid}/>
-       </Col>        
-        :
-        <AnotherAdsress setHasUserAddress={setHasUserAddress} setIsShippingToProfileAddress={setIsShippingToProfileAddress} address={address} setAddress={setAddress} setIsFormValid={setIsFormValid}/>}
-       
+       <Col md={{span:4, offset:4}} data-testid="add-another-customer-address">
+        <AnotherAdsress  setHasUserAddress={setHasUserAddress} setIsShippingToProfileAddress={setIsShippingToProfileAddress} address={address} setAddress={setAddress} setIsFormValid={setIsFormValid}/>
+       </Col>
+       }
     </Row>
   )
 }
