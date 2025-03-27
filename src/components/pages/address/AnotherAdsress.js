@@ -28,7 +28,7 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
     }
     
     return (
-        <Form onSubmit={hadnleUpdate}>
+        <Form data-testid="add-shipping-address" onSubmit={hadnleUpdate}>
             <Row className="mb-3">
                 <Form.Group as={Col} md="4" controlId="validationCustom02">
                     <Form.Label>Name</Form.Label>
@@ -39,6 +39,7 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                         value={address.name}
                         onChange={handleChanges}
                         required
+                        data-testid="name"
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -51,6 +52,8 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                         value={address.country}
                         onChange={handleChanges}
                         required
+                        data-testid="country"
+
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid city.
@@ -61,7 +64,9 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                     <Form.Control type="text" placeholder="State"
                         name='state'
                         value={address.state}
-                        onChange={handleChanges}                        
+                        onChange={handleChanges}  
+                        data-testid="state"
+                                              
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid state.
@@ -74,6 +79,8 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                         value={address.zipcode}
                         onChange={handleChanges}
                         required
+                        data-testid="zipcode"
+
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid zip.
@@ -88,6 +95,8 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                         value={address.city}
                         onChange={handleChanges}
                         required
+                        data-testid="city"
+
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid city.
@@ -100,6 +109,8 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                         value={address.street}
                         onChange={handleChanges}
                         required
+                        data-testid="street"
+
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid Street.
@@ -112,6 +123,7 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                         value={address.street_number}
                         onChange={handleChanges}
                         required
+                        data-testid="street_number"                        
                     />
                     <Form.Control.Feedback type="invalid">
                         Please provide a valid Street.
@@ -119,7 +131,7 @@ export const AnotherAdsress = ({setHasUserAddress, setIsShippingToProfileAddress
                 </Form.Group>
             </Row>
             <Col md={{md:3}} className='d-flex justify-content-center'>
-                <Button type="submit" variant='primary' className={`${style.Button}`} style={{width: '20%'}}>Add</Button>
+                <Button data-testid="add_button" type="submit" variant='primary' className={`${style.Button}`} style={{width: '20%'}}>Add</Button>
             </Col>
         </Form>
     )
