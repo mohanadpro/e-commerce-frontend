@@ -23,8 +23,8 @@ describe('Test Products', ()=>{
 
         await waitFor(() => {
             // You might want to display an error message or something else in your component
-            expect(screen.queryByText('Cargo Pants')).toBeInTheDocument();
-            expect(screen.queryByText('Unisex 69 black')).toBeInTheDocument();
+            expect(screen.queryByText('Blue Cotton T-Shirt')).toBeInTheDocument();
+            expect(screen.queryByText('Frottee Hoodie Unisex')).toBeInTheDocument();
         });
     })
 })
