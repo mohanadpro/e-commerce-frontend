@@ -31,9 +31,6 @@ describe('Test product', ()=>{
         const product_color = screen.getByTestId('product_color')
         fireEvent.change(product_color, { target : { value : 'White' }})
 
-        const product_description = screen.getByTestId('product_description')
-        fireEvent.change(product_description, { target : { value : 'Test Description' }})
-
         const product_category = await screen.findByTestId('product_category')
         fireEvent.change(product_category, { target : { value : 1 }})
 
@@ -76,9 +73,6 @@ describe('Test product', ()=>{
 
             const product_color = screen.getByTestId('product_color')
             fireEvent.change(product_color, { target : { value : 'White' }})
-
-            const product_description = screen.getByTestId('product_description')
-            fireEvent.change(product_description, { target : { value : 'Test Description' }})
     
             const edit_product_button = screen.getByTestId('create-edit-button')
             fireEvent.click(edit_product_button)
