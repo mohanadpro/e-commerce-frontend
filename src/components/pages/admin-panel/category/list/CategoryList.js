@@ -1,6 +1,3 @@
-// import '../../../styles/public.css';
-
-import axios from 'axios';
 import React, { useEffect } from 'react'
 import Swal from "sweetalert2";  
 import { useState } from 'react';
@@ -29,7 +26,6 @@ export function CategoryList({isTesting}) {
                 res = await axiosReq.delete('categories/'+id, { headers : {'Authorization': `Bearer ${ process.env.REACT_APP_ADMIN_TOKEN }` }})
             else
                 res = await axiosReq.delete('categories/'+id)
-            console.log(res.status)
             if(res.status == 204)
             {
                 toast.success('category deleted')
