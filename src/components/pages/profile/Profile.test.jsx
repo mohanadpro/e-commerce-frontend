@@ -191,7 +191,11 @@ describe('Test Profile Form', ()=>{
 
         const update_button = screen.getByRole('button')
         fireEvent.click(update_button)
-        const products_page = await screen.findByTestId('products-page')
-        expect(products_page).toBeInTheDocument()
+
+        await waitFor(()=>{
+            const products_page = screen.getByTestId('products-page')
+            expect(products_page).toBeInTheDocument()
+        })
+
     })
 })
