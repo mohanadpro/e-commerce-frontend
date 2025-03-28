@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import React from 'react'
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { axiosReq } from '../../../../../api/axiosDefault';
+import { axiosReq, axiosRes } from '../../../../../api/axiosDefault';
 import TextArea from 'antd/es/input/TextArea';
 import './create-edit-product.css'
 function CreateEditProduct({isTesting}) {
@@ -81,7 +81,7 @@ function CreateEditProduct({isTesting}) {
     }
 
     const editProduct= async ()=>{
-        try{        
+        try{
         if(isTesting)
             axiosReq.put('/products/'+product.id+'/', product, { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
         else
@@ -96,12 +96,12 @@ function CreateEditProduct({isTesting}) {
     const createProduct= async ()=>{
 
         try{        
+            axiosReq.defaults.headers.post['Content-Type'] = 'multiple/form-data'
             var fd=new FormData();
             fd.append('name',product.name);
             if(selectedImage != null)
                 fd.append('image',selectedImage);
             fd.append('price',product.price);
-            fd.append('description',product.description);
             fd.append('category',product.category);
             fd.append('color',product.color);
             fd.append('size',product.size);
@@ -111,8 +111,8 @@ function CreateEditProduct({isTesting}) {
                 res = await axiosReq.post('/products/',fd , { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
             else
                 res = await axiosReq.post('/products/',fd , )
-            if(res.status == 201)
-                navigate('/product')
+            if(res.status == 201)                                      
+                 navigate('/product')               
             }catch(err)
             {
                 if(err.response?.data.name)
@@ -139,8 +139,7 @@ function CreateEditProduct({isTesting}) {
                 category: state.updatedProduct.category,
                 color: state.updatedProduct.color,
                 genders: state.updatedProduct.genders,
-                size: state.updatedProduct.size,
-                description: state.updatedProduct.description
+                size: state.updatedProduct.size
             })
         }
     },[])
@@ -228,7 +227,7 @@ function CreateEditProduct({isTesting}) {
                             }
                         </select> 
                         {!product.id && <div className="form-group input-block-level mt-4">
-                            <label for="product_image">Please Choose an image</label>
+                            <label htmlFor="product_image">Please Choose an image</label>
                             <input 
                             type="file"
                             style={{display:'block'}}
@@ -242,14 +241,6 @@ function CreateEditProduct({isTesting}) {
                             data-testid="product_price"
 
                             onChange={e => setProduct({ ...product, price: e.target.value })} />
-                        </div>
-                        <div className="form-group input-block-level mt-2">
-                            <TextArea type="text" value={product.description}
-                            className="form-control"
-                            placeholder="Enter Product Description"
-                            data-testid="product_description"
-
-                            onChange={e => setProduct({ ...product, description: e.target.value })} />
                         </div>
                         <div className='d-flex justify-content-center' >
                             <button data-testid="create-edit-button" onClick={(e) => {
