@@ -86,8 +86,10 @@ describe('Test Sign in form',()=>{
         
         const signin_button = screen.getByTestId('signin-button')
         fireEvent.click(signin_button)
-        const message =await screen.findByText(/Unable to log in with provided credentials./i)
-        expect(message).toBeInTheDocument()
+        await waitFor(()=>{
+            const message = screen.getByText(/Unable to log in with provided credentials./i)
+            expect(message).toBeInTheDocument()
+        })
     })
 
     it('Test click on sign in button when credential is normal user',async ()=>{
@@ -132,7 +134,9 @@ describe('Test Sign in form',()=>{
 
         const signin_button = screen.getByTestId('signin-button')
         fireEvent.click(signin_button)
-        const product_page =await screen.findByTestId('admin-page')
-        expect(product_page).toBeInTheDocument()
+        await waitFor(()=>{
+            const product_page = screen.getByTestId('admin-page')
+            expect(product_page).toBeInTheDocument()
+        })
     })
 })
