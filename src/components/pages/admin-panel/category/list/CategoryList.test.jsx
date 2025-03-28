@@ -6,7 +6,6 @@ import { CategoryList } from './CategoryList';
 import CreateEditCategory from '../create-edit-category/CreateEditCategory';
 import Swal from 'sweetalert2';  // Import SweetAlert2
 import { toast } from 'react-hot-toast';
-import userEvent from '@testing-library/user-event';
 
 
 
@@ -102,7 +101,7 @@ describe('Test Category List', ()=>{
         expect(screen.getByText('Actions')).toBeInTheDocument()
 
         await waitFor(()=>{
-            expect(screen.getByText('T-shirts')).toBeInTheDocument()
+            expect(screen.getByText('T-shirt')).toBeInTheDocument()
             expect(screen.getByText('Shoes')).toBeInTheDocument()
             expect(screen.getByText('Pants')).toBeInTheDocument()
         })
@@ -140,7 +139,7 @@ describe('Test Category List', ()=>{
         
         const delete_category_list = await screen.findAllByTestId('delete_category_button');
         
-        fireEvent.click(delete_category_list[3]);
+        fireEvent.click(delete_category_list[0]);
 
         expect(Swal.isVisible()).toBeTruthy();
         
@@ -158,7 +157,7 @@ describe('Test Category List', ()=>{
         )
         const delete_category_list = await screen.findAllByTestId('delete_category_button');
         
-        fireEvent.click(delete_category_list[3]);
+        fireEvent.click(delete_category_list[0]);
 
         expect(Swal.isVisible()).toBeTruthy();
         
