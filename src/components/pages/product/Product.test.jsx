@@ -4,6 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { Product } from './Product';
 import NavBar from '../navbar/NavBar';
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from '../../../contexts/CartContext';
 
 
 describe('Test Product', ()=>{
