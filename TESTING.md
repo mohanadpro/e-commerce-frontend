@@ -305,4 +305,23 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 - Test render sign in link and when it is clicked, render sign in page
 - Test render sign up link and when it is clicked, render sign up page
 
+<br/>
+
 ![](documentation/Testing/Automated%20Testing/NavBar.png)
+
+<br/>
+
+#### Footer
+
+- Test render copy right with year
+- Test render youtube icon and open youtube link when it's clicked
+- Test render twitter icon and open twitter link when it's clicked
+- Test render facebook icon and open facebook link when it's clicked
+- Test render intagram icon and open instagram link when it's clicked
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/Footer.png)
+
+<br/>
+
