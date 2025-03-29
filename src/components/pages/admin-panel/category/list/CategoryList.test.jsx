@@ -6,6 +6,7 @@ import { CategoryList } from './CategoryList';
 import CreateEditCategory from '../create-edit-category/CreateEditCategory';
 import Swal from 'sweetalert2';  // Import SweetAlert2
 import { toast } from 'react-hot-toast';
+import { AdminMainPage } from '../../main-page/AdminMainPage';
 
 
 
@@ -40,18 +41,18 @@ describe('Test Create Category', ()=>{
             <BrowserRouter>
                 <CreateEditCategory/>
                 <Routes>
-                    <Route path='/category' element={<CategoryList isTesting={true}/>}/>
+                    <Route path='/admin' element={<AdminMainPage/>}/>
                 </Routes>
         </BrowserRouter>
         )
 
         const category_textfield = screen.getByTestId('category_textfield')
-        fireEvent.change(category_textfield, { target : { value : 'test' }})
+        fireEvent.change(category_textfield, { target : { value : 'test55' }})
 
         const create_edit_button = screen.getByTestId('create-edit-button')
         fireEvent.click(create_edit_button);
 
-        const category_list_page =await screen.findByTestId('category-list-page')
+        const category_list_page =await screen.findByTestId('admin-page')
         expect(category_list_page).toBeInTheDocument()
 
     })
