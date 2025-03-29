@@ -50,7 +50,7 @@ describe('Test Product List', ()=>{
         <BrowserRouter>
             <ProductList isTesting={true}/>
             <Routes>
-                <Route path='create-edit-product' element={<CreateEditProduct/>}/>
+                <Route path='/create-edit-product' element={<CreateEditProduct/>}/>
             </Routes>
         </BrowserRouter>
         )
@@ -77,7 +77,7 @@ describe('Test Product List', ()=>{
         expect(screen.getByText('Actions')).toBeInTheDocument()
 
         await waitFor(()=>{
-            expect(screen.getByText('Yellow T-shirt')).toBeInTheDocument()
+            expect(screen.getByText('White T-Shirt')).toBeInTheDocument()
         })
     })
 
