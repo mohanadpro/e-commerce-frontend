@@ -63,10 +63,9 @@ describe('Test Checkout', ()=>{
 
         const customer_address =await screen.findByTestId('customer-address')
         expect(customer_address).toBeInTheDocument()
-        fireEvent.click(next_button)
     })
 
-    it('Test press next button when customer to show pay methods',async ()=>{
+    it('Test press next button when customer has an address to show payment methods',async ()=>{
        const cart = [
             {
                 'product': 1,
