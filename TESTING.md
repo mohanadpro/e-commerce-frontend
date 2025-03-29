@@ -376,3 +376,13 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 <br/>
 
+#### CreateEditCategory
+- Test create categeory
+- Test edit category
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/CreateEditCategory.png)
+
+<br/>
+
