@@ -16,7 +16,7 @@ Comprehensive testing has been performed to ensure the website's seamless and op
 * [Resolved Bugs](#resolved-bugs)
 * [Unresolved Bugs](#unresolved-bug)
 ### [Features Testing](#features-testing-1)
-### [Automated Testing](#automated-testing)
+### [Automated Testing](#automated-testing-1)
 ---
 
 ## Responsiveness Testing
@@ -244,7 +244,8 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 |             | Click on orders in the navbar | A table with orders history appears | PASS |
 |             | Click on details to a specific order | A table with buyed items and details appear | PASS |
 
-### Automated Testing
+## Automated Testing
+
 #### Sign in page
 - Test render username textfield and type in 
 - Test render password testfield and type in 
