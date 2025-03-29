@@ -118,9 +118,12 @@ function CreateEditProduct({isTesting}) {
                  navigate('/admin', { state : { activeTab : 1}})               
             }catch(err)
             {
-                console.log(err.response)
                 if(err.response?.data.name)
                     toast.error(err.response?.data.name['0'])
+                else
+                if(err.response?.data.image)
+                    toast.error(err.response?.data.image[0])
+                else
                 if(err.response?.data.price)
                     toast.error(err.response?.data.price['0'] +" for the price")
                 else
