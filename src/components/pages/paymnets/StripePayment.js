@@ -36,12 +36,14 @@ export const StripePayment = ({amount}) => {
     const handlePayment = (e)=>{
         e.preventDefault();
         setIsSpinner(true)
+        axiosRes.defaults.headers.post['Content-Type'] = 'multipart/form-data'
         axiosRes.post('payment/',card)
         .then(res=>{
             setIsSpinner(false)
             sendOrder()
         })
         .catch(err=>{
+            console.log(err)
             toast.error("There was an error with the payment")
             setIsSpinner(false)
         })
