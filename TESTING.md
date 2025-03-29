@@ -390,7 +390,7 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 - Test create category 
 - Test Category List
 - Test render List Categories Text 
-- tEST RENDER create category link
+- TeST RENDER create category link
 - Test render categories table from server
 - Test render edit category link
 
@@ -400,3 +400,28 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 <br/>
 
+#### CreateEditProduct
+- Test create product
+- Test edit product
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/CreateEditProduct.png)
+
+<br/>
+
+#### ProductList
+- Test Category List
+- Test render List Products Text 
+- TeST render create product link
+- Test render products table from server
+- Test render edit category link
+- Test render delete product button 
+- Test render confirm message when delete product button is clicked
+- Test click on confirm message and delete product
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/ProductList.png)
+
+<br/>
