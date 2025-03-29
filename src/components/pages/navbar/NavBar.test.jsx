@@ -68,7 +68,7 @@ describe('Test NavBar', ()=>{
     })
 
 
-    it('Test disappear cart icon if user is logged in as admin and when click render products page', ()=>{
+    it('Test disappear cart icon if user is logged in as admin', ()=>{
         currentUser =  { username: 'test',
             profile_image:'/src/assets/images/default_profile_qdjgyp.WebP',
             first_name: 'mohanad',
@@ -181,7 +181,7 @@ describe('Test NavBar', ()=>{
         expect(ordersItem).not.toBeInTheDocument()
     })
 
-    it('Test render home icon if user is not admin and when click render products page', ()=>{
+    it('Test render home icon if user is not admin', ()=>{
         render(
             <MemoryRouter initialEntries={['/']}>
                 <NavBar/>
