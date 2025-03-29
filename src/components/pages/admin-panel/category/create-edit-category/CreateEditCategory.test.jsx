@@ -4,6 +4,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreateEditCategory from './CreateEditCategory';
 import { CategoryList } from '../list/CategoryList';
+import { AdminMainPage } from '../../main-page/AdminMainPage';
 
 describe('Test edit category', ()=>{
     it('create category' , async()=>{
@@ -11,7 +12,7 @@ describe('Test edit category', ()=>{
             <BrowserRouter>
                 <CreateEditCategory/>
                 <Routes>
-                    <Route path='/category' element={<CategoryList isTesting={true}/>}/>
+                    <Route path='/admin' element={<AdminMainPage/>}/>
                 </Routes>
         </BrowserRouter>
         )
@@ -22,16 +23,18 @@ describe('Test edit category', ()=>{
         const create_edit_button = screen.getByTestId('create-edit-button')
         fireEvent.click(create_edit_button);
 
-        const category_list_page =await screen.findByTestId('category-list-page')
-        expect(category_list_page).toBeInTheDocument()
-
+        await waitFor(()=>{
+            const category_list_page = screen.getByTestId('admin-page')
+            expect(category_list_page).toBeInTheDocument()
+        })
     })
     it('Test edit category', async ()=>{
         render(
             <BrowserRouter>
             <CategoryList isTesting={true}/>
             <Routes>
-                <Route path='category-edit-category' element={<CreateEditCategory istTesting={true}/>}/>
+                <Route path='/admin' element={<AdminMainPage/>}/>
+                <Route path='category-edit-category' element={<CreateEditCategory/>}/>
             </Routes>
         </BrowserRouter>
         )
@@ -51,6 +54,5 @@ describe('Test edit category', ()=>{
             
             fireEvent.click(edit_category_button)
         })
-        
     })
 })
