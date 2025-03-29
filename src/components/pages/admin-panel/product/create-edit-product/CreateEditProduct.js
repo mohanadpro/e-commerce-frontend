@@ -82,12 +82,15 @@ function CreateEditProduct({isTesting}) {
 
     const editProduct= async ()=>{
         try{
+        let res;
         if(isTesting)
-            axiosReq.put('/products/'+product.id+'/', product, { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
+          res = await axiosReq.put('/products/'+product.id+'/', product, { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
         else
-            axiosReq.put('/products/'+product.id+'/', product)
-        navigate('/product')
-
+          res = await axiosReq.put('/products/'+product.id+'/', product)
+        if(res.status == 201)
+        {
+            navigate('/admin', { state : { activeTab : 1 }})
+        }
         }catch(err){
             toast.error('There is a problem with the editing')
         }
@@ -112,9 +115,10 @@ function CreateEditProduct({isTesting}) {
             else
                 res = await axiosReq.post('/products/',fd , )
             if(res.status == 201)                                      
-                 navigate('/product')               
+                 navigate('/admin', { state : { activeTab : 1}})               
             }catch(err)
             {
+                console.log(err.response)
                 if(err.response?.data.name)
                     toast.error(err.response?.data.name['0'])
                 if(err.response?.data.price)
