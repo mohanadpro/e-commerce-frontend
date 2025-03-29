@@ -87,10 +87,7 @@ function CreateEditProduct({isTesting}) {
           res = await axiosReq.put('/products/'+product.id+'/', product, { headers : { 'Authorization' : `Barer ${process.env.REACT_APP_ADMIN_TOKEN}` } })
         else
           res = await axiosReq.put('/products/'+product.id+'/', product)
-        if(res.status == 201)
-        {
-            navigate('/admin', { state : { activeTab : 1 }})
-        }
+        navigate('/admin', { state : { activeTab : 1 }})        
         }catch(err){
             toast.error('There is a problem with the editing')
         }
