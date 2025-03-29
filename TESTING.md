@@ -283,4 +283,26 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 #### Products Page
 - Test Getting products from API
 
+<br/>
+
 ![](documentation/Testing/Automated%20Testing/Products.png)
+
+<br/>
+
+#### NavBar
+- Test render logo icon if user is not logged in 
+- Test disappear logo icon if user is logged in as admin
+- Test disappear cart icon if user is logged in as admin
+- Test render profile image 
+- Test render username and move to profile image when it is clicked
+- Test render oder link if user is logged in as normale user and move to order page when it is clicked 
+- Test disappear order link if user logged in as an admin user 
+- Test render home icon if user is not admin and when it is clicked, render products page
+- Test disappear home icon if user is logged in a admin
+- Test render cart icon and when it is clicked, render sign in page when user is not logged in
+- Test render cart icon and when it is clicked, render checkout page if cart has products and user is logged in 
+- Test render cart icon and when it is clicked and the cart is empty, stay in the same page
+- Test render sign in link and when it is clicked, render sign in page
+- Test render sign up link and when it is clicked, render sign up page
+
+![](documentation/Testing/Automated%20Testing/NavBar.png)
