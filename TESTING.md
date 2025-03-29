@@ -311,6 +311,19 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 <br/>
 
+
+<br/>
+
+#### Search
+- Test get categories when letters are writter in the textbox
+- Test get prodcuts when choose category
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/Search.png)
+
+<br/>
+
 #### Footer
 
 - Test render copy right with year
