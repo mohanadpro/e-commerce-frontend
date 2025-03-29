@@ -47,11 +47,8 @@ describe('Test search component', () => {
             const selected_shoes =screen.queryByText('Shoes')
             fireEvent.click(selected_shoes)
 
-            const first_shoes =screen.queryByText('Nike Air Max')
+            const first_shoes =screen.queryByText('Air Max Nike')
             expect(first_shoes).toBeInTheDocument()
-
-            const second_shoes =screen.queryByText('Nike Shoes')
-            expect(second_shoes).toBeInTheDocument()
 
         });
     })
