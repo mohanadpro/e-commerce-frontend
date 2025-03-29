@@ -56,7 +56,7 @@ describe('Test Sign up form',()=>{
         const signin_page = screen.getByTestId('signin-page')
         expect(signin_page).toBeInTheDocument()
     })
-    it('Test render sign in button ', ()=>{
+    it('Test render sign up button ', ()=>{
         render(<BrowserRouter>
             <SignUpForm onSignIn={vi.fn()}/>
         </BrowserRouter>)
