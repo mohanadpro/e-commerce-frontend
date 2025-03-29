@@ -198,7 +198,7 @@ describe('Test NavBar', ()=>{
         expect(product_page).toBeInTheDocument()
     })
 
-    it('Test disappear home icon if user is logged in as admin and when click render products page', ()=>{
+    it('Test disappear home icon if user is logged in as admin', ()=>{
         currentUser =  { username: 'test',
             profile_image:'/src/assets/images/default_profile_qdjgyp.WebP',
             first_name: 'mohanad',
@@ -220,7 +220,7 @@ describe('Test NavBar', ()=>{
         expect(home_link).not.toBeInTheDocument()
     })
 
-    it('Test render cart icon and when click render checkout page when user is not logged in',()=>{
+    it('Test render cart icon and when click render sign in page when user is not logged in',()=>{
         cart = [
             {
                 'product': 1,
