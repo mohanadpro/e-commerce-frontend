@@ -359,3 +359,20 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 <br/>
 
+#### Checkout
+- Test render order details step
+- Test render address details step
+- Test render payment step 
+- Test render next button
+- Test press next button when customer has an address
+- Test press next button when customer has an address to show payment methods
+- Test update profile info, remove country field to test checkout if customer doesn't have shipping address 
+- Test press next button when customer does not have an address
+- Test update profile info with full data
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/Checkout.png)
+
+<br/>
+
