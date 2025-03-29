@@ -246,6 +246,8 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 ## Automated Testing
 
+* To test all features successfully, you have to refresh the REACT_APP_ADMIN_TOKEN and REACT_APP_TOKEN env variables in the vitest.confi.js
+
 #### Sign In Page
 - Test render username textfield and type in 
 - Test render password testfield and type in 
