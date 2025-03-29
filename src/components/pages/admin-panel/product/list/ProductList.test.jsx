@@ -77,7 +77,7 @@ describe('Test Product List', ()=>{
         expect(screen.getByText('Actions')).toBeInTheDocument()
 
         await waitFor(()=>{
-            expect(screen.getByText('Red Pullover')).toBeInTheDocument()
+            expect(screen.getByText('Yellow T-shirt')).toBeInTheDocument()
         })
     })
 
