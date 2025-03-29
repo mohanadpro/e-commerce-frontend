@@ -19,7 +19,7 @@ function CreateEditCategory({istTesting}) {
                 res = await axiosReq.put('/categories/'+category.id+'/', category, { headers: {'Authorization': `Bearer ${process.env.REACT_APP_ADMIN_TOKEN}`}})
             else
                 res = await axiosReq.put('/categories/'+category.id+'/', category)
-            navigate('/category')
+                navigate('/admin', { state : { activeTab : 2 }})
             }catch(err){
                 toast.error('There is a problem with the editing')
             }
@@ -32,7 +32,9 @@ function CreateEditCategory({istTesting}) {
             else
                 res = await axiosRes.post('/categories/', category)
             if(res.status == 201)
-                navigate('/category')
+            {
+                navigate('/admin', { state : { activeTab : 2 }})
+            }
         }catch(err){
             if(err.response?.data.name['0'])
                 toast.error(err.response?.data.name['0'])
