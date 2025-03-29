@@ -10,7 +10,7 @@ import { ProductProvider } from '../../../contexts/ProductContext';
 
 describe('Test Products', ()=>{
 
-    it('Getting products', async()=>{
+    it('Getting products from API', async()=>{
     render(<BrowserRouter>
             <CurrentUserProvider>
                 <CartProvider value={[]}>
@@ -23,7 +23,7 @@ describe('Test Products', ()=>{
 
         await waitFor(() => {
             // You might want to display an error message or something else in your component
-            expect(screen.queryByText('White Pants')).toBeInTheDocument();
+            expect(screen.queryByText('Blue Pants')).toBeInTheDocument();
         });
     })
 })
