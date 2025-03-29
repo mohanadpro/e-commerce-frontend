@@ -246,7 +246,7 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 ## Automated Testing
 
-#### Sign in page
+#### Sign In Page
 - Test render username textfield and type in 
 - Test render password testfield and type in 
 - Test render sign in button
@@ -259,5 +259,23 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 <br/>
 
 ![](documentation/Testing/Automated%20Testing/SignInForm.png)
+
+<br/>
+
+#### Sign Up Page
+- Test render username textfield and type in 
+- Test render password testfield and type in 
+- Test render confirm password testfield and type in
+- Test render sign up button
+- Test click on sign up button when data is empty
+- Test click on sign up button when credentials have short password
+- Test click on sign up button when password and confirm password didn't match
+- Test click on sign up button when username is already exists
+- Test click on sign up button when all provided data is correct
+- Test render sign in link
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/SignUpForm.png)
 
 <br/>
