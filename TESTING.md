@@ -279,3 +279,8 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 ![](documentation/Testing/Automated%20Testing/SignUpForm.png)
 
 <br/>
+
+#### Products Page
+- Test Getting products from API
+
+![](documentation/Testing/Automated%20Testing/Products.png)
