@@ -27,7 +27,7 @@ function SignInForm() {
         localStorage.setItem("is_admin",data.is_admin)
         setCurrentUser(user);
         if(data.is_admin == true)        
-            navigate('/admin',{replace:true});        
+            navigate('/admin',{replace:true}, { state: { activeTab: 0 } });        
         else
         {
           if(location.state == null)
