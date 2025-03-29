@@ -3,9 +3,10 @@ import './admin-main-page.css'
 import { CategoryList } from '../category/list/CategoryList';
 import { ProductList } from '../product/list/ProductList';
 import { OrderList } from '../order/list/OrderList';
+import { useLocation } from 'react-router-dom';
 export const AdminMainPage = () => {
-    const [activeTab, setActiveTab] = useState(0);
-
+  const location = useLocation();
+    const [activeTab, setActiveTab] = useState(location.state?.activeTab ? location.state?.activeTab : 0);
   // Step 2: Define the tab titles and content
   const tabs = [
     { title: 'Orders', content: <OrderList/>},
