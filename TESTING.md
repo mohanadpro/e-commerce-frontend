@@ -325,3 +325,24 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 <br/>
 
+#### Profile
+- Test check if profile image exists 
+- Test if textfield with Username lable exists and customer is able to type in
+- Test if emailfield with Email lable exists and customer is able to type in
+- Test if textfield with Name lable exists and customer is able to type in
+- Test if textfield with Country lable exists and customer is able to type in
+- Test if textfield with City lable exists and customer is able to type in
+- Test if textfield with State lable exists and customer is able to type in
+- Test if textfield with Zio code lable exists and customer is able to type in
+- Test if textfield with Street lable exists and customer is able to type in
+- Test if numberfield with Street lable exists and customer is able to type in
+- Test if update button exists
+- Test get customer profile info when open profile link
+- Test update profile info 
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/Profile.png)
+
+<br/>
+
