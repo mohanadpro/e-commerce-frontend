@@ -49,7 +49,7 @@ describe('Test NavBar', ()=>{
         expect(logo_icon).toHaveAttribute('height', "45")
     })
 
-    it('Test disappear logo icon if user is logged in as admin and when click render products page', ()=>{
+    it('Test disappear logo icon if user is logged in as admin', ()=>{
         currentUser =  { username: 'test',
             profile_image:'/src/assets/images/default_profile_qdjgyp.WebP',
             first_name: 'mohanad',
