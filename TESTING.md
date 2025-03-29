@@ -386,3 +386,17 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 <br/>
 
+#### CategoryList
+- Test create category 
+- Test Category List
+- Test render List Categories Text 
+- tEST RENDER create category link
+- Test render categories table from server
+- Test render edit category link
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/CategoryList.png)
+
+<br/>
+
