@@ -289,6 +289,23 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 
 <br/>
 
+
+#### Product Page
+- Test render product image
+- Test render product price
+- Test render product color
+- Test render product size
+- Test render select count
+- Test select count of product 
+- Test add product to cart
+- Test add another product to cart
+
+<br/>
+
+![](documentation/Testing/Automated%20Testing/Product.png)
+
+<br/>
+
 #### NavBar
 - Test render logo icon if user is not logged in 
 - Test disappear logo icon if user is logged in as admin
