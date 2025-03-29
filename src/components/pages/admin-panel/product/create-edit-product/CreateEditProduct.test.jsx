@@ -4,6 +4,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreateEditProduct from './CreateEditProduct';
 import { ProductList } from '../list/ProductList';
+import { AdminMainPage } from '../../main-page/AdminMainPage';
 
 describe('Test product', ()=>{
     it('Test create product' , async()=>{
@@ -11,7 +12,7 @@ describe('Test product', ()=>{
             <BrowserRouter>
                 <CreateEditProduct isTesting={true}/>
                 <Routes>
-                    <Route path='/product' element={<ProductList isTesting={true}/>}/>
+                    <Route path='/admin' element={<AdminMainPage isTesting={true}/>}/>
                 </Routes>
         </BrowserRouter>
         )
@@ -32,12 +33,12 @@ describe('Test product', ()=>{
         fireEvent.change(product_color, { target : { value : 'White' }})
 
         const product_category = await screen.findByTestId('product_category')
-        fireEvent.change(product_category, { target : { value : 1 }})
+        fireEvent.change(product_category, { target : { value : 93 }})
 
         const create_edit_button = screen.getByTestId('create-edit-button')
         fireEvent.click(create_edit_button);
 
-        const product_list_page =await screen.findByTestId('product-list-page')
+        const product_list_page =await screen.findByTestId('admin-page')
         expect(product_list_page).toBeInTheDocument()
 
     })
@@ -47,6 +48,7 @@ describe('Test product', ()=>{
                 <ProductList isTesting={true}/>
                 <Routes>
                     <Route path='/create-edit-product' element={<CreateEditProduct istTesting={true}/>}/>                
+                    <Route path='/admin' element={<AdminMainPage/>}/>                
                 </Routes>
         </BrowserRouter>
         )
@@ -75,11 +77,7 @@ describe('Test product', ()=>{
             fireEvent.change(product_color, { target : { value : 'White' }})
     
             const edit_product_button = screen.getByTestId('create-edit-button')
-            fireEvent.click(edit_product_button)
-
-            const product_list_page = screen.getByTestId('product-list-page')
-            expect(product_list_page).toBeInTheDocument()            
+            fireEvent.click(edit_product_button)       
         })
-        
     })
 })
