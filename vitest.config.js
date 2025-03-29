@@ -12,8 +12,9 @@ export default defineConfig({
     setupFiles: 'src/setupTests.js',
     env: {
       REACT_APP_SERVER_URL: "http://127.0.0.1:8000/",
-      REACT_APP_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQyOTA0Mzc5LCJpYXQiOjE3NDI5MDMwMDIsImp0aSI6IjBjOTM3YTlmNWY0NTRkMmViMWE5MWU3NmQ0MzBlM2IzIiwidXNlcl9pZCI6Mjl9.3kG3py0wQG44x8HYeg2D-yIY_5rxO6yplGGIzqc_n6s"
-    }
+      REACT_APP_ADMIN_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQzMjc0MDk1LCJpYXQiOjE3NDMyNzA0OTUsImp0aSI6IjFmNTgwMDlmM2U0ZDRkNTRiNzNjMWE3ZTFjMWJhYzcyIiwidXNlcl9pZCI6Mn0.ALKxPXRJ_0-dWyNNRtnoJGdvlGteoLDFP_pk8gnHHMQ",
+      REACT_APP_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQzMjg4NjMxLCJpYXQiOjE3NDMyODUwMzEsImp0aSI6IjQzMDEzOTA2OTc1OTQ4Nzc4OTA5YjU3YzA3ZTEzMDQxIiwidXNlcl9pZCI6Mjl9.pKlwXznXdEwtQyM3wFehDwO2SiVWdBJ4Djqsq1ikvc4"
+    } 
 },
 esbuild: {
     loader: "jsx",
