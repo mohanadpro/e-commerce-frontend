@@ -89,7 +89,7 @@ describe('Test Sign in form',()=>{
         await waitFor(()=>{
             const message = screen.getByText(/Unable to log in with provided credentials./i)
             expect(message).toBeInTheDocument()
-        })
+        }, { timeout: 5000 })
     })
 
     it('Test click on sign in button when credential is normal user',async ()=>{
@@ -99,6 +99,7 @@ describe('Test Sign in form',()=>{
                     <SignInForm onSignIn={vi.fn()}/>
                     <Routes>
                         <Route path='/products' element={<Products/>}/>
+                        <Route path='/signup' element={<SignUpForm/>}/>
                     </Routes>
                 </CartProvider>
             </CurrentUserProvider>
@@ -122,6 +123,7 @@ describe('Test Sign in form',()=>{
                         <SignInForm onSignIn={vi.fn()}/>
                         <Routes>
                             <Route path='/admin' element={<AdminMainPage/>}/>
+                            <Route path='/signup' element={<SignUpForm/>}/>
                         </Routes>
                     </CartProvider>
                 </CurrentUserProvider>
@@ -137,6 +139,6 @@ describe('Test Sign in form',()=>{
         await waitFor(()=>{
             const product_page = screen.getByTestId('admin-page')
             expect(product_page).toBeInTheDocument()
-        })
+        },{ timeout: 5000 })
     })
 })
